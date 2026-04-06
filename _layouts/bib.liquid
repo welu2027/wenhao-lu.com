@@ -280,7 +280,7 @@
         {% assign entry_has_inspirehep_badge = true %}
       {% endif %}
       {% if entry_has_altmetric_badge or entry_has_dimensions_badge or entry_has_google_scholar_badge or entry_has_inspirehep_badge %}
-        <div class="badges">
+        <div class="badges" style="display: inline-flex; align-items: center; gap: 5px; margin-left: 5px;">
           {% if site.enable_publication_badges.altmetric and entry_has_altmetric_badge %}
             <span
               class="altmetric-embed"
@@ -341,8 +341,8 @@
               {% endif %}
 
               <img
-                src="https://img.shields.io/badge/scholar-{{ citation_count }}-4285F4?logo=googlescholar&labelColor=beige"
-                alt="{{ citation_count }} Google Scholar citations"
+                src="https://img.shields.io/badge/Google_Scholar-4285F4?logo=googlescholar&labelColor=beige"
+                alt="Google Scholar"
               >
             </a>
           {% endif %}
