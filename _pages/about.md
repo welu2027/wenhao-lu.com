@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Student & Researcher
+subtitle: Builder & Researcher
 
 profile:
   align: right
