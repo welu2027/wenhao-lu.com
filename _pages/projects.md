@@ -9,6 +9,15 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
+<style>
+  .projects .card-title {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
