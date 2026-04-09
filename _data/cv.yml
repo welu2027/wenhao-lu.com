@@ -1,11 +1,10 @@
 cv:
   name: Wenhao Lu
-  label: Student & Researcher
   email: wenhao.lu.2020@gmail.com
   phone: "(862)-340-3152"
   location: Millburn, NJ
   image: ""
-  summary: High school student and researcher working at the intersection of AI, mathematics, and public policy. Founder of NEXT Horizon, advancing STEM access for underrepresented students globally.
+  summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NEXT Horizon, a STEM talent accelerator spanning 25+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
 
   social_networks:
     - network: GitHub
@@ -26,23 +25,13 @@ cv:
           - "Relevant Coursework: AP Biology, AP CSA, AP CSP, AP Physics 1&2, AP Precalculus, AP Statistics, APUSH, AP Lang, AP Euro"
 
     Research Experience:
-      - company: Stevens Institute of Technology
-        position: Spectral Graph Theory Researcher
-        location: Hoboken, NJ
-        start_date: 2025
-        end_date: present
-        highlights:
-          - "Graph2Proof: Designed a topology-aware reward shaping framework allowing 7B LLMs to generate natural language proofs at higher reasoning accuracy than models 20x larger, advancing accessible AI for mathematical discovery"
-          - "Introduced spectral graph theory framework to characterize emergent reasoning behavior for interpretable model evaluation"
-          - "3 IEEE/ICML manuscripts under review; currently working on improving spectral graph theory techniques for image segmentation"
-
       - company: New York University
         position: AI Safety Researcher
         location: New York, NY
         start_date: 2026
         end_date: present
         highlights:
-          - "Building the first interpretability and observability library for World Models and SSMs, analogous to TransformerLens but for WM architectures (IRIS, DreamerV3, V-JEPA); only high schooler in research group of NYU grad students"
+          - "Building WorldModelLens, the first interpretability and observability library for world models and SSMs, analogous to TransformerLens but for WM architectures (IRIS, DreamerV3, V-JEPA); only high schooler in research group of NYU grad students"
           - "Developing a Neuronpedia-style interactive visualization platform to allow researchers to inspect world model internals in real time"
 
       - company: Wellesley College
@@ -51,15 +40,25 @@ cv:
         start_date: 2026
         end_date: present
         highlights:
-          - "Conducting interdisciplinary mathematical research on democratic systems and voting as part of Wellesley College's Institute for Mathematics and Democracy (IMD)"
+          - "Conducting interdisciplinary mathematical research on democratic systems as part of Wellesley College's Institute for Mathematics and Democracy (IMD) (incoming 2026 summer)"
 
-      - company: Atlantic Health System
-        position: "Mathematical Modeling & Healthcare Policy Researcher"
-        location: NJ
+      - company: Stevens Institute of Technology
+        position: Spectral Graph Theory Researcher
+        location: Hoboken, NJ
+        start_date: 2025
+        end_date: present
+        highlights:
+          - "Developed Graph2Proof, the first spectral graph theory framework for topology-aware reward shaping in LLM proof generation and topological characterization of proof correctness"
+          - "Introduced spectral graph theory framework to characterize emergent reasoning behavior for interpretable model evaluation"
+          - "3 IEEE/ICML manuscripts under review; currently working on improving spectral graph theory techniques for image segmentation"
+
+      - company: Atlantic Health System (Bridgewater Internal Medicine)
+        position: "Math Modeling & Policy Researcher"
+        location: Bridgewater, NJ
         start_date: 2024
         end_date: 2025
         highlights:
-          - "Developed a novel risk stratification model for Semaglutide insurance coverage that replaces traditional affordability criteria with a necessity-driven approach, advancing health equity and projecting $269 billion in 10-year savings for the U.S. healthcare system"
+          - "Developed a novel risk stratification model for equitable Semaglutide insurance coverage, advancing health equity and projecting $269 billion in 10-year U.S. healthcare savings"
           - "Collaborated with MD for clinical validation; sole high school poster presenter at ADA 85th Scientific Sessions; first-author publication in Diabetes (DOI: 10.2337/db25-1050-P)"
 
     Experience:
@@ -92,58 +91,59 @@ cv:
           - "Designed and implemented a production-ready, end-to-end streamlined AI training pipeline enabling high-quality AI mock interview analysis"
 
     Awards:
+      - title: USACO Platinum Division
+        date: 2026
+        awarder: USA Computing Olympiad
+
+      - title: "Scholastic National Silver Medal"
+        date: 2026
+        awarder: Alliance for Young Artists & Writers
+        url: https://www.artandwriting.org/gallery/2b16dc9d-69dc-47e1-b101-e8f75f12484b
+
+      - title: "Harvard HPAIR VCONF, Delegate on AI & AI Governance"
+        date: 2026
+        awarder: "Harvard Project on Asian & International Relations"
+
+      - title: YC Startup School India Invitee (declined due to travel constraints)
+        date: 2026
+        awarder: Y Combinator
+
+      - title: Non-Trivial Research Scholar
+        date: 2026
+        awarder: Non-Trivial
+
       - title: USAJMO Honorable Mention
         date: 2025
         awarder: Mathematical Association of America
-
-      - title: USACO Platinum
-        date: 2025
-        awarder: USA Computing Olympiad
-
-      - title: "Penn Math Contest: 1st Place Team & Individual"
-        date: 2025
-        awarder: University of Pennsylvania
+        url: http://maa.org/wp-content/uploads/2026/02/2025-USAJMO-Awards-Winner-List.pdf
 
       - title: ADA 85th Scientific Sessions Presenter
         date: 2025
         awarder: American Diabetes Association
 
-      - title: US Navy Naval Horizons Highest Honors
+      - title: "US Navy Naval Horizons Highest Honors ($200)"
         date: 2025
-        awarder: US Navy
-
-      - title: Non-Trivial Scholar
-        date: 2025
-        awarder: Non-Trivial
-
-      - title: Y Combinator Startup School India ($25k credits)
-        date: 2025
-        awarder: Y Combinator
-
-      - title: Harvard HPAIR VCONF Delegate on AI & AI Policy
-        date: 2025
-        awarder: Harvard University
-
-      - title: "Scholastic Art & Writing: National Silver Medal"
-        date: 2025
-        awarder: Scholastic
+        awarder: "US Navy, Office of Naval Research"
+        url: https://www.navalhorizons.us/contest6honors.html
 
       - title: "Perfect Game USA Baseball: 2x PG Northeast All-State Selection; #75 ranked club team nationally (#3 NJ)"
-        date: 2025
+        date: 2024
         awarder: Perfect Game USA
+        url: https://www.perfectgame.org/Players/Playerprofile.aspx?ID=1190614
 
     Skills:
       - name: Programming Languages
-        level: ""
         icon: fa-solid fa-code
         keywords: "Python, Java, MATLAB, LaTeX"
 
       - name: Machine Learning
-        level: ""
         icon: fa-solid fa-brain
-        keywords: "PyTorch, scikit-learn"
+        keywords: "PyTorch, scikit-learn, world models"
 
       - name: Data Analysis
-        level: ""
         icon: fa-solid fa-chart-line
         keywords: "Pandas, NumPy, Matplotlib"
+
+      - name: Management
+        icon: fa-solid fa-users
+        keywords: "Logistics, Sponsorships, Startup Operations"
