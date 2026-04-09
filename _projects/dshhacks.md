@@ -7,4 +7,4 @@ importance: 4
 category: work
 ---
 
-[DSHHacks](https://github.com/welu2027?tab=repositories) is a hackathon initiative under NEXT Horizon, empowering underrepresented students in STEM.
+[DSHHacks](https://www.dshhacks.org/) is a hackathon initiative under NEXT Horizon, empowering underrepresented students in STEM. View the inaugural event on [Devpost](https://dsh-hacks-v1.devpost.com/).
