@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /outreach/
-title: Initiatives
-description: Leadership, mentorship, and community building in STEM education.
+title: initiatives
+description: Leadership and community building in STEM education.
 nav: true
 nav_order: 5
 ---

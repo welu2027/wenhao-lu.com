@@ -2,7 +2,7 @@
 layout: page
 permalink: /research/
 title: research
-description: An overview of my research across AI, mathematics, and healthcare policy.
+description: An overview of my research across AI and mathematics.
 nav: true
 nav_order: 4
 ---
