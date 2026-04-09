@@ -9,6 +9,8 @@ nav_order: 2
 
 <!-- _pages/publications.md -->
 
+<p style="color: var(--global-text-color-light); font-style: italic;">Two additional manuscripts are currently under review.</p>
+
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}
