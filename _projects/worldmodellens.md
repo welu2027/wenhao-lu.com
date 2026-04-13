@@ -4,7 +4,7 @@ title: WorldModelLens
 description: The first interpretability and observability library for World Models.
 img: assets/img/worldmodels.png
 importance: 1
-category: work
+category: research
 github: https://github.com/Bhavith-Chandra/WorldModelLens
 ---
 

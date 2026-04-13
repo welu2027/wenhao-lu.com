@@ -4,7 +4,7 @@ title: Graph2Proof
 description: The first topology-aware framework for natural language theorem proving in LLMs.
 img: assets/img/graph.png
 importance: 2
-category: work
+category: research
 github: https://github.com/welu2027/Graph2Proof
 ---
 
