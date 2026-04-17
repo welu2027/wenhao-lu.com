@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" data-tags="{{ project.tags | join: ',' }}">
   <div class="col col-sm-2 abbr">
     {% if project.img %}
       {% assign img_path = project.img %}
