@@ -1,0 +1,5 @@
+{
+  "installCommand": "bundle config set --local deployment false && bundle install",
+  "buildCommand": "jekyll build",
+  "outputDirectory": "_site"
+}
