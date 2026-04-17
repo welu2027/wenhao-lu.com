@@ -1,5 +1,5 @@
 {
-  "installCommand": "bundle config set --local deployment false && bundle install",
-  "buildCommand": "jekyll build",
+  "installCommand": "gem install bundler -v 2.5.23 && bundle _2.5.23_ install",
+  "buildCommand": "bundle _2.5.23_ exec jekyll build",
   "outputDirectory": "_site"
 }
