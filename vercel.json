@@ -1,5 +1,5 @@
 {
   "installCommand": "gem install bundler -v 2.5.23 && bundle _2.5.23_ install",
-  "buildCommand": "ruby -e 'puts Gem::Platform.local' && bundle _2.5.23_ exec jekyll build",
+  "buildCommand": "bundle _2.5.23_ exec jekyll build",
   "outputDirectory": "_site"
 }
