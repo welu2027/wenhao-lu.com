@@ -2,10 +2,11 @@
 layout: page
 title: WorldModelLens
 description: The first interpretability and observability library for World Models.
-img: assets/img/worldmodels.png
 importance: 1
 category: research
 github: https://github.com/Bhavith-Chandra/WorldModelLens
+tags: [world-models, mechanistic-interpretability, state-space-models, ai-safety]
+abstract: "The first interpretability and observability library for World Models, providing a unified toolkit for activation hooking, causal interventions, and internal probing across IRIS, DreamerV3, V-JEPA, and robotics/autonomous-driving architectures — making world model mechanistic interpretability tractable for the first time."
 ---
 
 [WorldModelLens](https://github.com/Bhavith-Chandra/WorldModelLens) is the first dedicated **interpretability and observability library** for **World Models** and **[State Space Models (SSMs)](https://arxiv.org/abs/2312.00752)**. It is analogous to [TransformerLens](https://github.com/TransformerLensOrg/TransformerLens) for LLMs, but purpose-built for WM architectures: [IRIS](https://arxiv.org/abs/2209.00588), [DreamerV3](https://arxiv.org/abs/2301.04104), [V-JEPA](https://arxiv.org/abs/2404.08471), video prediction models, and robotics/autonomous-driving world models.

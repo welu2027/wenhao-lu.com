@@ -4,6 +4,9 @@ title: Where Does Knowledge Go?
 description: Mechanistic tracing of temporal forgetting in LLMs.
 importance: 4
 category: research
+github: https://github.com/welu2027/Temporal_Forgetting_Layer
+tags: [mechanistic-interpretability, llms, rl, ai4math, reasoning]
+abstract: "Localizes temporal forgetting in RL-trained LLMs to a critical transformer layer range using activation patching, logit-lens, and representational geometry on Qwen2.5-7B DeepScaler checkpoints, showing that forgetting reflects targeted overwriting of specific computational substructures rather than global weight drift."
 ---
 
 **Where Does Knowledge Go?** is a mechanistic interpretability study that traces how and where correct knowledge disappears inside LLMs as they are fine-tuned over time.

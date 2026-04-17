@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col col-sm-2 abbr">
+    {% if project.img %}
+      {% assign img_path = project.img %}
+      {%
+        include figure.liquid
+        loading="eager"
+        path=img_path
+        sizes="200px"
+        class="preview z-depth-1 rounded"
+        zoomable=true
+        avoid_scaling=true
+        alt=project.title
+      %}
+    {% endif %}
+  </div>
+
+  <div id="{{ project.title | slugify }}" class="col-sm-8">
+    <div class="title">
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+    </div>
+    <div class="periodical">
+      {{ project.description }}
+    </div>
+    <div class="links">
+      {% if project.abstract %}
+        <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+      {% endif %}
+      {% if project.github %}
+        <a href="{{ project.github }}" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
+      {% endif %}
+      {% if project.google_scholar_id %}
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.data.socials.scholar_userid }}&citation_for_view={{ site.data.socials.scholar_userid }}:{{ project.google_scholar_id }}" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a>
+      {% endif %}
+    </div>
+
+    {% if project.tags %}
+      <div class="proj-tags">
+        {% for tag in project.tags %}#{{ tag }} {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if project.abstract %}
+      <div class="abstract hidden">
+        <p>{{ project.abstract }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
