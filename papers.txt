@@ -1,0 +1,2015 @@
+WORLDMODELLENS: https://github.com/Bhavith-Chandra/WorldModelLens
+
+Skip to content
+Bhavith-Chandra
+WorldModelLens
+Repository navigation
+Code
+Issues
+7
+ (7)
+Pull requests
+3
+ (3)
+Agents
+Discussions
+Actions
+Projects
+Models
+Security and quality
+Insights
+Owner avatar
+WorldModelLens
+Public
+Bhavith-Chandra/WorldModelLens
+Go to file
+t
+T
+Name		
+Rishik00
+Rishik00
+Merge pull request #44 from Bhavith-Chandra/metrics
+f06070a
+ · 
+19 hours ago
+.claude
+added intro page, examples pages
+2 weeks ago
+.github
+refactor: replace prints with structured logging; add hook adapter te…
+last week
+docs
+Merge branch 'master' of https://github.com/Bhavith-Chandra/WorldMode…
+yesterday
+examples
+feat: Add unified disentanglement evaluation suite
+yesterday
+notebooks
+Initial commit: WorldModelLens
+3 weeks ago
+tests
+test: add test to verify WorldModelConfig solidifcation; patch axis f…
+yesterday
+utils
+Initial commit: WorldModelLens
+3 weeks ago
+world_model_lens
+Merge pull request #44 from Bhavith-Chandra/metrics
+19 hours ago
+.DS_Store
+Initial commit: WorldModelLens
+3 weeks ago
+.gitignore
+added new dependencies within docs to setuo
+2 weeks ago
+.readthedocs.yaml
+added new dependencies within docs to setuo
+2 weeks ago
+CHANGELOG.md
+moved all the imports
+4 days ago
+CODE_OF_CONDUCT.md
+Fix repository links, add LICENSE, CODE_OF_CONDUCT, and issue templates
+3 weeks ago
+CONTRIBUTING.md
+moved all the imports
+4 days ago
+Dockerfile
+Initial commit: WorldModelLens
+3 weeks ago
+LICENSE
+Fix repository links, add LICENSE, CODE_OF_CONDUCT, and issue templates
+3 weeks ago
+Lab-Site
+Update Lab-Site
+last week
+Makefile
+added docs
+2 weeks ago
+README.md
+Merge branch 'master' of https://github.com/Bhavith-Chandra/WorldMode…
+yesterday
+demo_intervention.py
+feat(visualization): improve interpretability tools and fix suite reg…
+3 weeks ago
+download_weights.py
+refactor: formatting; cleanup imports; fix type erros
+5 days ago
+pyproject.toml
+test: add test for weight download and hub
+last week
+pyrightconfig.json
+patched: example 1 crashing due to unimplemented transition function
+3 weeks ago
+pytest.ini
+test: add test for weight download and hub
+last week
+walkthrough.md
+feat: Add unified disentanglement evaluation suite
+yesterday
+Repository files navigation
+README
+Code of conduct
+Contributing
+MIT license
+World Model Lens
+Observability & Replay Tooling for AI Safety & Interpretability Research
+
+PyPI Version Python Versions License: MIT Coverage
+
+World Model Lens provides observability and replay tooling for analyzing, debugging, and understanding world models through the lens of AI safety & interpretability research.
+
+Key Capabilities
+Category	Capabilities
+Observability	Activation caching, saliency maps, surprise detection, belief tracking, uncertainty quantification
+Replay	Trajectory replay, intervention replay, imagination branching, counterfactual analysis
+Causal Analysis	Causal tracing, circuit discovery, path patching, bottleneck detection
+Safety	OOD detection, hallucination analysis, safety audits, robustness testing
+Probing	Linear probes, semantic probes (DINO/CLIP), concept discovery, disentanglement metrics
+Table of Contents
+Philosophy
+Why World Model Lens?
+Supported Models
+Installation
+Quick Start
+Core Concepts
+Features
+Architecture
+CLI Reference
+API Reference
+Examples
+Contributing
+Citation
+Philosophy
+World Model Lens is designed as observability infrastructure for world model safety research:
+
+Observability First: Every activation is observable, every decision is traceable
+Replay Everything: Replay trajectories with interventions, counterfactuals, and what-if analysis
+Safety-Centric: Built-in tools for OOD detection, hallucination analysis, and safety auditing
+Backend-Agnostic: Works with ANY world model — RSSM, JEPA, transformers, video prediction, etc.
+Minimal Interface: Only encode() and dynamics() are required; RL-specific features are optional
+Why World Model Lens?
+World Model Lens provides production-grade observability for world model research:
+
+Use Case	What You Can Do
+Debugging	Replay failed trajectories, trace error propagation, find bottlenecks
+Safety Auditing	Detect OOD states, hallucinations, belief instability
+Mechanistic Understanding	Causal tracing, circuit discovery, probe for concepts
+Benchmarking	Standardized metrics for disentanglement, probing, causal effects
+Research	Novel MI techniques: SAEs, cross-modal probing, uncertainty estimation
+Whether you're working on:
+
+Domain	Examples
+AI Safety	Reward hacking detection, goal misgeneralization
+Reinforcement Learning	DreamerV3, TD-MPC2, IRIS agents
+Video Prediction	WorldDreamer, video generation models
+Planning & Control	MPC, trajectory optimization
+Robotics	Manipulation, locomotion, navigation
+Autonomous Driving	Camera/LiDAR fusion world models
+Scientific Simulation	Physics, chemistry, climate modeling
+World Model Lens provides the observability tools you need.
+
+Supported Models
+Model Family	Implementations	RL-Specific
+RSSM-based	DreamerV1, DreamerV2, DreamerV3	Optional
+JEPA-style	TD-MPC2, Contrastive Predictive	Optional
+Transformer	IRIS, Decision Transformer	Optional
+Video Prediction	VideoWorldModel, Video Adapter	No
+Planning	Planning Adapter, MPC wrappers	No
+World Models	Ha & Schmidhuber, PlaNet	Optional
+Robotics	Robotics Adapter	Optional
+Autonomous Driving	AD Adapter	No
+Custom	GenericAdapter, Template	Optional
+Non-RL world models are first-class citizens. The only required methods are encode() and dynamics().
+
+Installation
+From PyPI
+pip install world-model-lens
+From Source
+git clone https://github.com/Bhavith-Chandra/WorldModelLens
+cd world_model_lens
+pip install -e ".[dev]"
+
+### Dev environment notes
+
+If you plan to run tests or examples that import PyTorch, install a CPU build of
+PyTorch in your virtual environment. Example:
+
+```bash
+python -m pip install --upgrade pip
+# CPU build
+pip install torch
+# or pin a version:
+pip install "torch==2.2.0"
+
+### Optional Dependencies
+
+```bash
+# Visualization support
+pip install world-model-lens[viz]
+
+# API server
+pip install world-model-lens[api]
+
+# Documentation
+pip install world-model-lens[docs]
+
+# All extras
+pip install world-model-lens[dev,viz,api,docs]
+Quick Start
+1. Create an Adapter (or use a built-in one)
+from world_model_lens import WorldModelConfig
+from world_model_lens.backends.base_adapter import BaseModelAdapter
+
+class MyWorldModel(BaseModelAdapter):
+    def encode(self, obs, context=None):
+        # Required: convert observation to latent state
+        state = self.encoder(obs)
+        return state, state  # (state, encoding)
+    
+    def dynamics(self, state, action=None):
+        # Required: predict next state (imagination)
+        return self.rnn(state)
+    
+    def transition(self, state, action=None, input_=None):
+        # Optional: full transition function
+        return self.dynamics(state, action)
+
+config = WorldModelConfig(d_obs=128, d_state=64)
+model = MyWorldModel(config)
+2. Observe (Activation Caching)
+from world_model_lens import HookedWorldModel
+import torch
+
+# Wrap with hooks and caching
+wm = HookedWorldModel(adapter=model, config=config)
+
+# Run forward pass - ALL activations are cached
+observations = torch.randn(10, 128)  # 10 timesteps
+traj, cache = wm.run_with_cache(observations=observations)
+
+# Inspect any activation at any timestep
+h_t = cache["h", 5]  # hidden state at timestep 5
+z_t = cache["z_posterior", 5]  # latent at timestep 5
+
+# New: Store distributions for uncertainty analysis
+import torch.distributions as dist
+cache["z_posterior", 5] = dist.Normal(mean, std)
+params = cache.get_distribution_params("z_posterior", 5)  # {"mean": ..., "std": ..., "variance": ...}
+3. Replay & Debug
+# Replay a specific trajectory
+from world_model_lens.branching import ImaginationBrancher
+
+brancher = ImaginationBrancher(wm)
+branch = brancher.create_branch(traj, branch_point=5)
+
+# What if we took a different action?
+forked = branch.fork()
+different_traj = wm.imagine(forked.initial_state, horizon=10, actions=new_actions)
+
+# Compare original vs counterfactual
+compare(traj, different_traj)
+4. Safety Audit
+# Run safety checks on observed behavior
+from world_model_lens.analysis import BeliefAnalyzer
+
+analyzer = BeliefAnalyzer(wm)
+
+# Detect surprise (belief updates)
+surprise = analyzer.surprise_timeline(cache)
+
+# Check for hallucinations
+hallucination = analyzer.hallucination_detection(traj, imagined_traj)
+
+# OOD detection
+ood_scores = analyzer.ood_detection(cache)
+Core Concepts
+WorldState
+The fundamental unit of analysis:
+
+from world_model_lens import WorldState
+
+state = WorldState(
+    state=torch.randn(64),      # Required: latent state
+    timestep=0,                  # Optional: timestep
+    action=torch.randn(4),       # Optional: RL action
+    reward=torch.tensor(1.0),   # Optional: RL reward
+    metadata={"frame": frame},  # Optional: any data
+)
+WorldTrajectory
+A sequence of states:
+
+from world_model_lens import WorldTrajectory
+
+traj = WorldTrajectory(states=[state1, state2, state3])
+print(f"Length: {len(traj)}")
+print(f"Total reward: {traj.total_reward}")
+HookedWorldModel
+Wrapper that provides:
+
+Activation caching: Store any intermediate activation
+Hook system: Intercept and modify forward passes
+Analysis tools: Built-in interpretability methods
+wm = HookedWorldModel(adapter=model, config=config)
+traj, cache = wm.run_with_cache(observations)
+
+# Add custom hooks
+def hook_fn(activation, hook):
+    print(f"Layer: {hook.name}, Shape: {activation.shape}")
+
+wm.run_with_hooks(observations, fwd_hooks=[("block.hook_resid_post", hook_fn)])
+Features
+🔍 Observability
+Feature	Description
+Activation Caching	Capture all intermediate activations during forward pass
+Hook System	Intercept and modify forward passes at any layer
+Saliency Maps	Gradient, occlusion, integrated gradients
+Surprise Detection	KL divergence timeline for belief updates
+Uncertainty Quantification	Epistemic & aleatoric uncertainty in latent space
+🎬 Replay
+Feature	Description
+Trajectory Replay	Replay stored trajectories with full state inspection
+Intervention Replay	Replay with modified activations (patching)
+Imagination Branching	Fork trajectories for "what-if" exploration
+Counterfactual Analysis	"What if this state/action were different?"
+Temporal Debugging	Step-by-step replay with intervention points
+🔬 Safety & Auditing
+Feature	Description
+OOD Detection	Identify out-of-distribution latent states
+Hallucination Analysis	Detect when model predictions diverge from reality
+Belief Instability	Track sudden belief shifts (surprise peaks)
+Safety Audit	Comprehensive safety checks for deployed models
+Robustness Testing	Adversarial perturbation analysis
+🧠 Interpretability
+Feature	Description
+Linear Probing	Train probes to decode concepts from latents
+Semantic Probes (DINO/CLIP)	Vision-language concept alignment
+Circuit Discovery	Find important computation subgraphs
+Causal Tracing	Trace causal pathways through the model
+Sparse Autoencoders	Train SAEs for disentangled feature discovery
+Disentanglement Metrics	MIG, DCI, SAP scores
+📊 Benchmarks & Metrics
+Feature	Description
+Probing Benchmarks	Standard concept classification tasks
+Latent Metrics	MIG, DCI, SAP, SAP-Score
+Causal Benchmarks	Path patching evaluation
+CartPole/Continuous Control	RL benchmark environments
+🛠 Production Tools
+Feature	Description
+CLI	Command-line interface for common tasks
+FastAPI Server	REST API for analysis endpoints
+Monitoring	Prometheus metrics, OpenTelemetry tracing
+Benchmarking	Latency, memory, throughput profiling
+Architecture
+world_model_lens/
+├── core/                      # Core abstractions (backend-agnostic)
+│   ├── world_state.py        # WorldState, WorldDynamics
+│   ├── world_trajectory.py   # WorldTrajectory
+│   ├── config.py             # WorldModelConfig
+│   ├── hooks.py             # Hook system
+│   └── activation_cache.py   # Activation caching
+│
+├── backends/                  # Model adapters (implement these)
+│   ├── base_adapter.py       # Abstract base class
+│   ├── dreamerv3.py         # DreamerV3 implementation
+│   ├── dreamerv2.py         # DreamerV2 implementation
+│   ├── dreamerv1.py         # DreamerV1 implementation
+│   ├── tdmpc2.py            # TD-MPC2 implementation
+│   ├── iris.py              # IRIS transformer
+│   ├── video_world_model.py # Video prediction adapter
+│   ├── toy_video_model.py   # Toy video model for testing
+│   └── toy_scientific_model.py # Scientific dynamics models
+│
+├── analysis/                  # Analysis tools
+│   ├── belief_analyzer.py   # Surprise, concepts, saliency, hallucination
+│   ├── metrics.py           # Latent space metrics (MIG, DCI, SAP)
+│   ├── uncertainty.py       # Belief uncertainty quantification
+│   ├── continual_learning.py # Catastrophic forgetting detection
+│   └── multimodal.py         # Multi-modal support
+│
+├── probing/                  # Probing tools
+│   ├── prober.py            # Linear/ridge/logistic probing with CV
+│   ├── semantic_probes.py  # DINO/CLIP vision-language probes
+│   ├── crossmodal.py        # Cross-modal probing
+│   ├── geometry.py          # Geometric analysis (PCA, clustering)
+│   └── temporal_memory.py  # Memory retention analysis
+│
+├── patching/                 # Patching tools
+│   ├── patcher.py           # Activation patching
+│   ├── causal_tracer.py     # Causal tracing
+│   ├── circuit.py           # Circuit discovery & comparison
+│   ├── dim_patcher.py       # Dimension patching
+│   └── sweep_result.py      # Patching sweep results
+│
+├── sae/                      # Sparse Autoencoders
+│   ├── trainer.py           # SAE training with TopK ReLU
+│   ├── evaluator.py         # SAE evaluation metrics
+│   └── sae.py               # SAE model definition
+│
+├── branching/                # Branching tools
+│   ├── brancher.py          # Imagination branching
+│   └── counterfactual.py    # Counterfactual analysis
+│
+├── safety/                   # Safety analysis
+│   ├── analyzer.py          # Safety auditing
+│   └── robustness.py        # Robustness testing
+│
+├── benchmarks/               # Benchmarking
+│   ├── suite.py             # Evaluation suite
+│   ├── probing.py           # Probing benchmarks
+│   ├── cartpole.py          # CartPole benchmark
+│   ├── gridworld.py         # Gridworld benchmark
+│   ├── continuous_control.py # MuJoCo-style benchmarks
+│   └── perf_runner.py       # Performance profiling
+│
+├── monitoring/               # Production monitoring
+│   ├── logging.py           # Structured logging
+│   ├── metrics.py           # Prometheus metrics
+│   └── tracing.py           # OpenTelemetry tracing
+│
+├── api/                      # FastAPI server
+│   └── server.py           # REST API endpoints
+│
+├── cli/                      # CLI tools
+│   └── commands.py         # Typer CLI commands
+│
+├── causal/                   # Causal analysis
+│   ├── effect_estimator.py  # Causal effect estimation
+│   └── trajectory_attribution.py # Trajectory-level attribution
+│
+└── visualization/            # Visualization
+    ├── latent_plots.py      # Latent space visualizations
+    ├── prediction_plots.py  # Prediction visualizations
+    └── intervention_plots.py # Patching intervention plots
+CLI Reference
+Installation
+# Install as a command
+pip install -e .
+wml --help
+Common Commands
+# Analyze a model checkpoint
+wml analyze --checkpoint model.pt --backend dreamerv3
+
+# Run safety audit
+wml safety --checkpoint model.pt --trajectory traj.npy
+
+# Benchmark performance
+wml benchmark --checkpoint model.pt --dataset data/
+
+# Probe for concepts
+wml probe --checkpoint model.pt --concept velocity
+
+# Interactive analysis
+wml explore --checkpoint model.pt
+API Server
+# Start the API server
+wml serve --host 0.0.0.0 --port 8000
+
+# With Docker
+docker-compose up api
+API Reference
+Core Classes
+# Main wrapper
+from world_model_lens import HookedWorldModel
+
+wm = HookedWorldModel(adapter, config)
+traj, cache = wm.run_with_cache(observations)
+imagined = wm.imagine(start_state, horizon=20)
+
+# State and trajectory
+from world_model_lens import WorldState, WorldTrajectory
+
+state = WorldState(state=torch.randn(64))
+traj = WorldTrajectory(states=[state] * 10)
+
+# Configuration
+from world_model_lens import WorldModelConfig
+
+config = WorldModelConfig(
+    d_obs=128,           # Observation dimension
+    d_state=64,          # Latent state dimension
+    d_action=4,          # Action dimension (optional)
+    backend="dreamerv3", # Model type
+)
+Analysis Classes
+from world_model_lens.analysis import BeliefAnalyzer
+from world_model_lens.probing import LatentProber, GeometryAnalyzer
+from world_model_lens.patching import TemporalPatcher
+from world_model_lens.safety import SafetyAnalyzer
+
+# Belief analysis
+analyzer = BeliefAnalyzer(wm)
+surprise = analyzer.surprise_timeline(cache)
+
+# Linear probing
+prober = LatentProber(wm)
+probe_results = prober.train_probe(concept="velocity", trajectories=[traj])
+
+# Geometry analysis
+geo = GeometryAnalyzer(wm)
+pca = geo.pca_projection(cache)
+
+# Safety audit
+safety = SafetyAnalyzer(wm)
+report = safety.run_safety_audit(traj)
+Creating Custom Adapters
+from world_model_lens.backends.base_adapter import BaseModelAdapter
+
+class MyAdapter(BaseModelAdapter):
+    def __init__(self, config):
+        super().__init__(config)
+        self.encoder = nn.Linear(config.d_obs, config.d_state)
+        self.dynamics = nn.GRU(config.d_state, config.d_state)
+    
+    def encode(self, obs, context=None):
+        return self.encoder(obs), self.encoder(obs)
+    
+    def dynamics(self, state, action=None):
+        return self.dynamics(state.unsqueeze(0)).squeeze(0)
+    
+    def transition(self, state, action=None, input_=None):
+        return self.dynamics(state, action)
+    
+    def initial_state(self, batch_size=1, device=None):
+        return torch.zeros(batch_size, self.config.d_state, device=device)
+Examples
+Observability + Replay Workflow
+This example demonstrates the full observe → replay → debug cycle:
+
+import torch
+from world_model_lens import HookedWorldModel, WorldModelConfig
+from world_model_lens.backends.toy_video_model import create_toy_video_adapter
+
+# 1. OBSERVE: Run model with full activation caching
+adapter = create_toy_video_adapter(latent_dim=64)
+config = WorldModelConfig(d_obs=32*32*3, d_action=4, d_h=64)
+wm = HookedWorldModel(adapter=adapter, config=config)
+
+obs = torch.randn(50, 3, 32, 32)  # 50 frame video
+actions = torch.randint(0, 4, (50, 4))
+traj, cache = wm.run_with_cache(obs, actions)
+
+# 2. INSPECT: Look at any activation, any timestep
+print(f"Hidden states shape: {cache['h'].shape}")  # [50, 64]
+print(f"Latents shape: {cache['z_posterior'].shape}")  # [50, 64]
+
+# 3. SAFETY CHECK: Detect anomalies
+from world_model_lens.analysis import BeliefAnalyzer
+analyzer = BeliefAnalyzer(wm)
+surprise = analyzer.surprise_timeline(cache)
+print(f"Max surprise at timestep: {surprise.max_surprise_timestep}")
+
+# 4. REPLAY WITH INTERVENTION: Patch at specific point
+from world_model_lens.patching import TemporalPatcher
+patcher = TemporalPatcher(wm)
+
+# What if we intervene at the surprising point?
+def intervene(cache):
+    patched = cache.clone()
+    patched["h", surprise.max_surprise_timestep] = cache["h", 0]  # reset
+    return patched
+
+result = patcher.patch_path(cache, intervene)
+print(f"Intervention effect: {result.effect}")
+
+# 5. IMAGINATION: Replay forward from new state
+new_state = traj.states[surprise.max_surprise_timestep]
+imagined = wm.imagine(start_state=new_state, horizon=20)
+print(f"Imagined {imagined.length} steps into future")
+KV Cache Hook (Transformer Memory Editing)
+Transformer-style world models often maintain a growing key/value (KV) memory that serves as the model's temporal context. World Model Lens exposes a dedicated hook point named "kv_cache" which runs once per timestep and is passed the full ActivationCache. This lets you inspect or mutate a model's memory (for example, "forgetting" a specific key) without re-running the entire forward pass.
+
+Hook signature
+
+```python
+# Hook signature: fn(cache: ActivationCache, ctx: HookContext) -> None
+def my_kv_hook(cache, ctx):
+    # prefer helpers rather than touching _store directly
+    cache.delete_kv(0, "k", 10)
+
+from world_model_lens import HookPoint
+# register the hook for a single timestep or a time slice
+hp = HookPoint(name="kv_cache", fn=my_kv_hook, timestep=10)
+wm.add_hook(hp)
+
+Examples
+
+- Create KV entries at a specific timestep:
+
+```python
+def create_kv(cache, ctx):
+    cache.set_kv(0, "k", ctx.timestep, torch.tensor([1.0, 1.0]))
+    cache.set_kv(0, "v", ctx.timestep, torch.tensor([0.5, 0.5]))
+
+wm.add_hook(HookPoint(name="kv_cache", fn=create_kv, timestep=1))
+Modify a KV entry created earlier:
+def bump_prev(cache, ctx):
+    prev = ctx.timestep - 1
+    val = cache.get_kv(0, "k", prev, None)
+    if val is not None:
+        cache.set_kv(0, "k", prev, val + 10.0)
+
+wm.add_hook(HookPoint(name="kv_cache", fn=bump_prev, timestep=2))
+Use a time slice to apply a hook across a range of timesteps:
+wm.add_hook(HookPoint(name="kv_cache", fn=my_kv_hook, time_slice=[5, 10]))
+Notes
+
+HookPoint.fn for kv_cache hooks receives (ActivationCache, HookContext) instead of the usual (tensor, HookContext). The hook system accepts this pattern and will call your function with the cache when the kv_cache component fires.
+Currently examples mutate ActivationCache._store directly. You may add helper methods (e.g., get_kv, set_kv, delete_kv) if you prefer a public API that encapsulates naming conventions.
+Video Prediction Analysis
+from world_model_lens import HookedWorldModel
+from world_model_lens.backends import VideoWorldModelAdapter
+import torch
+
+# Load a video prediction model
+adapter = VideoWorldModelAdapter.from_pretrained("your/video-model")
+wm = HookedWorldModel(adapter, adapter.config)
+
+# Analyze a video sequence
+video_frames = torch.randn(16, 3, 64, 64)  # 16 frames
+traj, cache = wm.run_with_cache(video_frames)
+
+# Find surprising frames
+from world_model_lens.analysis import BeliefAnalyzer
+analyzer = BeliefAnalyzer(wm)
+surprise = analyzer.surprise_timeline(cache)
+Causal Tracing
+from world_model_lens.patching import CausalTracer
+
+tracer = CausalTracer(wm)
+results = tracer.trace(
+    clean_cache=clean_cache,
+    corrupted_cache=corrupted_cache,
+    layers=["encoder", "dynamics", "decoder"],
+)
+Circuit Discovery
+from world_model_lens.patching import CircuitDiscovery
+
+circuit_finder = CircuitDiscovery(wm)
+circuit = circuit_finder.discover_circuit(
+    cache=cache,
+    metric_fn=lambda x: x['z_posterior'].mean(),
+    components=['encoder', 'dynamics', 'decoder'],
+)
+print(f"Found {len(circuit.nodes)} nodes, {len(circuit.edges)} edges")
+Sparse Autoencoder Training
+from world_model_lens.sae import SAETrainer
+
+trainer = SAETrainer(latent_dim=256, sae_dim=1024)
+sae = trainer.train(
+    wm=wm,
+    cache=cache,
+    component='h',
+    num_steps=10000,
+)
+
+# Evaluate SAE
+from world_model_lens.sae import SAEEvaluator
+evaluator = SAEEvaluator(sae)
+metrics = evaluator.compute_metrics(cache, component='h')
+print(f"L0: {metrics['l0']:.2f}, Reconstruct: {metrics['reconstruction_error']:.4f}")
+Probing with Cross-Validation
+from world_model_lens.probing import LatentProber
+
+prober = LatentProber(seed=42, n_folds=5)
+activations = cache['h']  # [T, D]
+labels = torch.randint(0, 3, (T,))  # 3 classes
+
+result = prober.train_probe(
+    activations=activations,
+    labels=labels.numpy(),
+    concept_name='speed',
+    activation_name='h',
+    probe_type='ridge'
+)
+print(f"Accuracy: {result.accuracy:.3f} ± {result.std:.3f}")
+Disentanglement Metrics
+from world_model_lens.analysis import BeliefAnalyzer
+
+analyzer = BeliefAnalyzer(wm)
+factors = {
+    'velocity': torch.randn(100, 1),
+    'position': torch.randn(100, 1),
+}
+result = analyzer.disentanglement_score(cache, factors=factors)
+print(f"MIG: {result.scores['MIG']:.3f}, DCI: {result.scores['DCI']:.3f}")
+Unified Disentanglement Evaluation Suite
+For multi-component evaluation across context_encoder, predictor, target_encoder:
+
+from world_model_lens.analysis.metrics import DisentanglementEvaluationSuite
+
+suite = DisentanglementEvaluationSuite()
+result = suite.evaluate_components(
+    cache=cache,
+    factors=factors,
+    components=['context_encoder', 'predictor', 'target_encoder', 'z_posterior'],
+    metrics=['MIG', 'DCI', 'SAP']
+)
+
+# Per-component scores
+for comp, scores in result.component_results.items():
+    print(f"{comp} MIG: {scores['MIG']:.3f}")
+
+# Summary across all components
+print(f"Overall disentanglement: {result.summary_scores['DCI_disentanglement']:.3f}")
+Contributing
+Contributions are welcome! Please see CONTRIBUTING.md for guidelines.
+
+# Set up development environment
+git clone https://github.com/Bhavith-Chandra/WorldModelLens
+cd world_model_lens
+pip install -e ".[dev]"
+
+# Run tests
+pytest tests/
+
+# Run linting
+ruff check world_model_lens/
+mypy world_model_lens/
+Citation
+If you use World Model Lens in your research, please cite:
+
+@software{worldmodellens,
+  title = {World Model Lens: Interpretability for World Models},
+  author = {Bhavith Chandra Challagundla},
+  year = {2026},
+  url = {https://github.com/Bhavith-Chandra/WorldModelLens}
+}
+License
+MIT License. See LICENSE for details.
+
+Acknowledgments
+World Model Lens is inspired by:
+
+TransformerLens — Interpretability for language models
+Dreamer — World models for RL
+TD-MPC — Implicit world models
+IRIS — Transformer world models
+About
+No description, website, or topics provided.
+Resources
+ Readme
+License
+ MIT license
+Code of conduct
+ Code of conduct
+Contributing
+ Contributing
+ Activity
+Stars
+ 5 stars
+Watchers
+ 0 watching
+Forks
+ 7 forks
+Report repository
+Releases
+No releases published
+Packages
+No packages published
+Contributors
+9
+@ParamThakkar123
+@Rishik00
+@Bhavith-Chandra
+@skar07
+@welu2027
+@Hindolch
+@Gogireddy007
+@claude
+@SraddhaVaranasiT4
+Languages
+Python
+93.9%
+ 
+Jupyter Notebook
+6.0%
+ 
+Other
+0.1%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+
+
+
+
+
+CIPHER: https://github.com/welu2027/CIPHER
+
+Skip to
+content
+Kaggle
+
+Create
+Home
+
+Competitions
+
+Datasets
+
+Models
+
+Benchmarks
+
+Game Arena
+
+Code
+
+Discussions
+
+Learn
+
+More
+
+Your Work
+
+
+Viewed
+
+CIPHER
+
+
+CIPHER: Calibrated Introspection via Partially Hidden Environment Rules
+
+
+Measuring Progress Toward AGI - Cognitive Abilities
+
+
+notebookb5202e220b
+
+
+cipher_eval_full
+
+
+Edited
+
+notebookb5202e220b
+
+
+cipher_eval_full
+
+
+CIPHER Benchmark Task
+
+
+notebookc653d2534b
+
+
+New Benchmark Task 72951
+
+
+9
+View Active Events
+
+Search
+
+Kaggle uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic.
+Learn more
+OK, Got it.
+wenhao · Community Benchmark · Updated 2 hours ago · Public · v1
+CIPHER
+Calibrated Introspection via Partially Hidden Environment Rules
+
+Top Models
+Qwen 3 Next 80B Instruct
+
+0.61
+
+DeepSeek V3.2
+
+0.58
+
+Claude Opus 4.6
+
+0.57
+
+CIPHER
+
+Share
+Description
+CIPHER: Calibrated Introspection via Partially Hidden Environment Rules
+Most benchmarks test whether a model knows the right answer. CIPHER tests something harder: whether a model knows what it does not know.
+
+Each instance is a procedurally generated micro-world with its own causal rules, expressed in entirely invented vocabulary: made-up entity names, made-up property words, made-up causal language. Some rules are partially hidden. The model must reason about a system it can't fully observe, decide which gaps in its knowledge matter most, and commit to a plan while honestly assessing how robust that plan actually is.
+
+Because every instance is generated fresh from abstract math with a random seed, memorization is impossible. A model that scores well on CIPHER will have reasoned under uncertainty, beyond pattern-matched on training data.
+
+What gets scored
+Responses are evaluated on four dimensions:
+
+Dimension	Weight	What it captures
+Objective	35%	Plan quality vs. oracle beam search on the hidden ground truth
+Calibration	25%	Brier score on the model's stated confidence about what it knows
+Attention	20%	Rank correlation between model-flagged unknowns and ground-truth importance
+Executive	20%	Structural quality: named risks, alternative plans, probe strategy
+No single strategy dominates all four. A model that greedily optimizes the plan scores well on objective but poorly on calibration and attention. A model that hedges everything scores decent calibration but a weak objective. The benchmark is specifically designed so that genuine metacognitive reasoning, knowing what you don't know and acting accordingly, is the only path to a strong composite score.
+
+Objective is computed as (your_score - oracle_worst) / (oracle_best - oracle_worst), where your plan is simulated against the hidden rules and the raw score is normalized between the precomputed worst and best possible outcomes.
+
+Calibration uses the Brier score over all metacognitive claims. For each rule component assessed, the model states known: true/false and a confidence 0-1. The effective probability assigned to "known" is confidence if known=true, or 1 - confidence if known=false. The squared error against ground truth (1.0 if visible, 0.0 if hidden) is computed per component. Missing claims are penalized as 0.25. Final score = 1 - mean(squared_errors). A model that says known=false, confidence=0.9 on a hidden component incurs an error of only 0.01; a model that says known=true, confidence=0.9 on the same component incurs 0.81.
+
+Attention uses pairwise concordance between the model's ranked list of critical unknowns and the ground-truth ranking. For every pair (A, B) in the model's list, one point is awarded if they appear in the same order as in the ground truth. Score = concordant pairs / total pairs. If only one unknown is listed and it is the correct top-1, partial credit of 0.6 is awarded.
+
+Executive is a checklist scored out of 4 points, divided by 4:
+
++0.5 for including any exploratory actions
++0.5 if at least one probe observes an entity involved in a hidden rule
++1.0 if the final plan is non-empty and within the action budget (+0.3 if over budget)
++0.3 if any risks are named, +0.2 more if a risk mentions an actual hidden rule name
++1.0 if the alternative plan differs from the final plan (+0.3 if identical)
+Composite = 0.35 * objective + 0.25 * calibration + 0.20 * attention + 0.20 * executive.
+
+Baseline reference points
+Agent	Composite	Objective	Calibration	Attention	Executive
+stub-noop	0.408	0.486	0.750	0.000	0.250
+stub-random	0.511	0.484	0.663	0.211	0.670
+stub-greedy	0.623	1.000	0.893	0.000	0.250
+The greedy stub runs oracle beam search on the visible rules, and it achieves a perfect objective score but never identifies what it doesn't know, so calibration and attention collapse.
+
+Example instances
+Example 1: Easy (1 hidden component)
+
+The model is shown a 4-entity system called the "Orrek stack." Each entity has two properties: tilt and flux (integers mod 7, invented names for the internal phase and flux fields). Four rules govern how actions affect the system. Three rules are fully visible. One rule (R0) has its effect hidden: the prompt says "whenever flux of L3 exceeds 3, (an unspecified change to L0)."
+
+The model must:
+
+Correctly identify that R0's effect is the only unknown (calibration)
+Rank R0 as the most critical unknown: because L3's flux starts at 3, one pulse triggers R0 and its unknown effect could dominate the outcome (attention)
+Optionally probe by pulsing L3 and observing L0 to infer the hidden effect before committing
+Commit to a plan that maximizes sum(tilt × flux mod 7) − 3 × (entities with flux ≥ 5), with oracle best = 24 and oracle worst = −6
+A model that confidently claims R0 is known loses calibration points. A model that flags R0 but fails to rank it above the visible rules loses attention points. A model that probes, infers the effect, and adjusts its plan scores well on all four dimensions.
+
+Example 2: Hard (multiple hidden components across different rules)
+
+The model is shown a 4-entity system called the "Velk cluster." Each entity has two properties: strain and drift (again, invented vocabulary). Starting state: N0 (strain=1, drift=4), N1 (strain=3, drift=5), N2 (strain=2, drift=4), N3 (strain=4, drift=2). Four rules govern the system, but two are partially hidden:
+
+R0 (hidden trigger): "whenever ? of N1 exceeds ?, (an unspecified change to N3)": both the trigger property and threshold are unknown
+R1 (visible): "whenever strain of N0 is odd, drift of N1 collapses to 0"
+R2 (hidden effect): "whenever drift of N2 exceeds 4, (an unspecified change to N0)": the trigger is visible but the effect is not
+R3 (visible): "whenever strain of N3 is odd, strain of N2 shifts by 1"
+Oracle best = 28, oracle worst = −4. Budget: 7 actions total.
+
+The model now faces three compounding problems. First, N0's strain is 1 (odd), so R1 fires immediately on the first action and zeroes out N1's drift: a cascade the model can see coming. Second, N2's drift is already at 4, meaning one pulse puts it at 5 and triggers R2's unknown effect on N0. Third, R0's trigger is completely opaque: the model doesn't know which property of N1 is being watched or what the threshold is.
+
+The model must:
+
+Correctly identify that R0 (trigger_kind, trigger_k) and R2 (effect_kind, effect_delta) are unknown, and that R1 and R3 are fully visible (calibration)
+Rank R2 above R0 as more critical: because R2's trigger condition is known and nearly satisfied (N2's drift=4 is one pulse away from 5), so its unknown effect will almost certainly fire during any reasonable plan. R0's trigger is opaque but N1's drift just collapsed to 0 via R1, making R0 harder to trigger accidentally (attention)
+Allocate the probe budget wisely: pulse N2 once and observe N0 to infer R2's hidden effect, leaving remaining actions for the final plan. Probing R0 requires guessing which property to manipulate, making it less efficient to probe
+Build a final plan that avoids pushing N2's drift above 4 if R2's effect turns out to be destructive, with a contingency plan for each case (executive)
+This is where attention and executive scores diverge: a model can correctly rank R2 as the most critical unknown (high attention) but still fail to provide a contingency plan that handles both possible outcomes of R2's effect (low executive). Conversely, a model that hedges every action "in case something bad happens" may produce a structurally complete response but rank the unknowns incorrectly, scoring high on executive and low on attention.
+
+Early results
+*Note: Preliminary results reported from cipher_metacognition_evaluation were evaluated on the first 100 instances of the dataset, which are classified as easy difficulty. This explains the significant performance gap relative to cipher_eval_full, which evaluates on the full 1,000-instance dataset with the intended difficulty distribution (25% easy, 50% medium, 25% hard). All final results use cipher_eval_full.
+
+Preliminary results on frontier models evaluated score between 0.53 and 0.61 composite, clustering just below the greedy stub baseline of 0.623 despite only being evaluated on easy instances of the dataset (first 100). This means current models are not meaningfully beating a simple oracle that ignores all metacognition. They produce reasonable plans but fail to accurately assess what they know, identify which gaps matter, or structure their uncertainty. The benchmark is doing its job, as it is exposing a blind spot in current frontier systems.
+
+
+Download
+
+New Task
+
+Add Tasks
+
+
+Add Models
+2 Tasks · 9 Models
+
+Version
+More options
+Qwen 3 Next 80B Instruct
+
+0.61
+DeepSeek V3.2
+
+0.58
+Claude Opus 4.6
+
+0.57
+GPT-5.4 nano
+
+0.57
+gpt-oss-20b
+
+0.57
+Gemini 3 Flash Preview
+
+0.42
+Claude Sonnet 4.6
+
+0.27
+DeepSeek-R1
+
+0.00
+Gemma 4 31B
+
+0.00
+cipher_metacognition_evaluation
+
+v3
+0.61
+0.58
+0.57
+0.57
+0.57
+0.58
+0.53
+
+
+cipher_eval_full
+
+v2
+
+
+
+
+
+0.26
+0.00
+
+
+
+Add Section
+
+Metadata
+Collaborators (1)
+
+Edit
+wenhao (Owner)
+
+License
+This benchmark has been released under the Apache 2.0 License.
+
+Citation
+
+Edit
+wenhao. CIPHER. https://www.kaggle.com/benchmarks/wenhaolu49/cipher?_gl=1*1kc3aao*_ga*MTEzMjI4MjA1Mi4xNzc1NzIwODk1*_ga_T7QHS60L4Q*czE3NzY0MzM1ODckbzIxJGcxJHQxNzc2NDM1NzE3JGo1NCRsMCRoMA.., 2026.
+
+
+Cite BibTex
+Provenance
+
+Edit
+Sources
+From notebooks: CIPHER Benchmark Task, cipher_eval_full
+Citations
+Language Models (Mostly) Know What They Know
+PlanBench: An Extensible Benchmark for Evaluating Large Language Models on Planning and Reasoning about Change
+Relying on the Unreliable: The Impact of Language Models' Reluctance to Express Uncertainty
+
+Activity Overview
+Views
+69
+total
+Models
+6
+evaluated
+Comments
+0
+posted
+
+TEMPORAL forgetting
+
+Skip to content
+welu2027
+Temporal_Forgetting_Layer
+Repository navigation
+Code
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Temporal_Forgetting_Layer
+Public
+forked from uw-nsl/Temporal_Forgetting
+welu2027/Temporal_Forgetting_Layer
+Go to file
+t
+T
+This branch is 7 commits ahead of uw-nsl/Temporal_Forgetting:main.
+Name		
+welu2027
+welu2027
+Create temporal_forgetting_kaggle.ipynb
+e392e58
+ · 
+9 hours ago
+Temperal_sampling
+update
+10 months ago
+best-of-n
+update
+9 months ago
+figs
+update
+10 months ago
+lm-evaluation-harness
+update
+10 months ago
+mechanistic_forgetting
+Fix logit lens dtype mismatch and missing os import
+5 days ago
+.gitignore
+update
+9 months ago
+LICENSE
+Initial commit
+11 months ago
+README.md
+Update README.md
+5 days ago
+sampling_64_responses.zip
+update
+10 months ago
+temporal_forgetting_kaggle.ipynb
+Create temporal_forgetting_kaggle.ipynb
+9 hours ago
+Repository files navigation
+README
+License
+This project builds upon "Temporal Sampling for Forgotten Reasoning in LLMs" by explaining the "why" behind temporal forgetting.
+
+It investigates the mechanistic basis of temporal forgetting in LLMs, which is the phenomenon where models lose the ability to solve problems they previously solved correctly during RL training. Through activation patching, logit-lens analysis, and representational geometry, I localize which transformer layer is responsible for a math solution disappearing between training checkpoints. I find that forgetting is not distributed uniformly across the network, but concentrates in a critical layer range, suggesting that temporal forgetting reflects targeted overwriting of specific computational substructures rather than global weight drift.
+
+About
+The "why" behind temporal forgetting
+
+Resources
+ Readme
+License
+ MIT license
+ Activity
+Stars
+ 0 stars
+Watchers
+ 0 watching
+Forks
+ 0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+No contributors
+Languages
+Python
+70.0%
+ 
+Jupyter Notebook
+29.3%
+ 
+Other
+0.7%
+Suggested workflows
+Based on your tech stack
+Pylint logo
+Pylint
+Lint a Python application with pylint.
+Python package logo
+Python package
+Create and test a Python package on multiple Python versions.
+SLSA Generic generator logo
+SLSA Generic generator
+Generate SLSA3 provenance for your existing release workflows
+More workflows
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+
+
+\documentclass[11pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\setlength{\columnsep}{0.17in}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{bm}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving}
+
+\author{
+Wenhao Lu \\
+}
+
+\maketitle
+
+\begin{abstract}
+Automated theorem proving in natural language is a major bottleneck for LLMs because proofs cannot be mechanically verified. However, natural language is the medium through which mathematics is practiced, so solving it may require teaching LLMs to reason the way mathematicians actually do rather than following rigid formal derivation rules. Existing training approaches reward only binary outcome correctness, providing no signal about the quality of the reasoning chain. We propose Graph2Proof, a two-phase framework that encodes proof-graph topology as an auxiliary training signal. In Phase~1, a GAT is pre-trained contrastively on 121,754 theorem-proof pairs to discriminate valid from invalid proof structures, achieving a cosine separation margin of 1.141. In Phase~2, a structural reward derived from Phase~1 embeddings augments binary outcome signals during reinforcement learning. Graph2Proof-7B achieves 58.73\% and 61.46\%, respectively, on the FIMO and PutnamBench benchmarks modified under the DeepTheorem protocol, outperforming DeepTheorem-RL-7B and surpassing open-source models at 32--72B scale. A key novelty of representing proofs as directed acyclic graphs is spectral graph-theoretic analysis unavailable when proofs are flat token sequences. Von Neumann entropy reveals that Graph2Proof generates proofs with 9.5\% richer graph structure than vanilla baselines, and spectral node scoring provides a framework to identify logical weak points in incorrect proofs.
+\end{abstract}
+
+\begin{IEEEkeywords}
+graph neural networks, natural language, theorem proving, mathematical reasoning, language models
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Theorem proving is widely regarded as a pinnacle challenge for evaluating advanced reasoning capabilities in large language models (LLMs). Natural language theorem proving, generating proofs in ordinary mathematical prose rather than formal proof languages such as Lean or Isabelle, presents a distinct challenge: proofs cannot be mechanically verified, yet natural language is the medium in which mathematics is practiced and communicated \cite{b1}.
+
+LLMs process proofs as sequential token streams, while in reality proofs are better understood structurally as directed acyclic graphs where each claim depends on prior results. Existing training approaches reward only binary outcome correctness, providing no signal about the structural quality of the reasoning chain \cite{b2,b3}. Yue et al.\ \cite{b19} showed that outcome-only training primarily sharpens sampling efficiency rather than eliciting structurally new reasoning patterns. Formal verification systems \cite{b15} address structural correctness but require translating natural language into formal proof languages, a process that is expensive and misaligned with LLMs' pre-training on natural language corpora \cite{b1}. Graph neural networks have been applied to theorem proving in formal settings \cite{b4}, but not as training signals over natural language proofs.
+
+We propose Graph2Proof, a two-phase framework that uses a GNN-derived structural reward to augment binary outcome training signals for natural language theorem proving, to address the sparsity and lack of structural information in binary outcome supervision. In Phase~1, ProofGAT is pre-trained contrastively to embed proof-graph topology, learning to discriminate valid from invalid proof structures. In Phase~2, the frozen ProofGAT serves as a structural reward signal inside GRPO training, providing gradient toward well-formed reasoning without requiring formal translation. Our specific contributions are:
+
+\begin{enumerate}
+\item A proof-graph construction pipeline converting natural language proofs into logical directed acyclic graphs (DAGs) via LLM-extracted claims and sentence-level concept embeddings.
+\item ProofGAT, a Graph Attention Network pre-trained with combined NT-Xent and margin loss on 121K natural language proof pairs, achieving a valid/invalid cosine separation margin of 1.141.
+\item A structural reward function augmenting binary outcome rewards with frozen ProofGAT graph-level similarity, providing inductive bias toward structurally valid natural language reasoning.
+\item Evaluation across three model scales and two benchmarks using the multi-variant protocol \cite{b1}, which tests logical consistency across entailing and contradictory natural language variants as a proxy for proof understanding, removing the need for formal verification.
+\item Interpretability analysis via Von Neumann entropy for population-level structural complexity and spectral node scoring for individual proof failure attribution.
+\end{enumerate}
+
+\noindent\textbf{Relationship to DeepTheorem.} DeepTheorem \cite{b1} introduced the 121K natural language proof dataset, the multi-variant evaluation protocol, and RL-Zero training for informal theorem proving. Graph2Proof builds on this foundation by adding a GNN-derived structural reward to DeepTheorem's training setup, holding all other variables constant. The controlled comparison between G2P-7B and DeepTheorem-RL-7B (same data, same base model, same algorithm, one added component) isolates the structural reward as the source of improvement.
+
+\section{Related Work}
+
+\subsection{Natural Language Theorem Proving}
+
+DeepTheorem \cite{b1} introduced a large-scale natural language proof dataset, the multi-variant evaluation protocol, and RL-Zero training for informal theorem proving, establishing the foundation on which Graph2Proof builds. NaturalProofs and NaturalProver \cite{b18} studied informal proof generation but used domain-specific language from ProofWiki rather than general mathematical prose at scale. Graph2Proof extends DeepTheorem's training setup by introducing a GNN-based structural reward, addressing the gap left by binary outcome rewards, which carry no information about proof structure.
+
+\subsection{LLM Reasoning Enhancement}
+
+Chain-of-thought (CoT) prompting \cite{b16} elicits intermediate reasoning steps but produces flat sequences without structural guarantees. Self-consistency decoding \cite{b17} improves robustness at the cost of $k\times$ inference compute. STaR \cite{b5} bootstraps reasoning through self-generated rationales but treats reasoning as unstructured text. DeepSeek-R1 \cite{b2} and DeepSeekMath \cite{b3} apply RL to mathematical reasoning, with the latter introducing GRPO, but these systems provide no signal about reasoning structure. Yue et al.\ \cite{b19} demonstrated that outcome-only RLVR does not elicit fundamentally new reasoning patterns beyond those present in the base model. Graph2Proof addresses this by providing a structural training signal that outcome-only rewards cannot supply.
+
+\subsection{GNNs for Theorem Proving}
+
+GNNs have been applied to formal theorem proving: HyperTree Proof Search \cite{b4} guides proof search in Lean, DeepSeek-Prover \cite{b7} generates formal Lean proofs via large-scale synthetic data, and AlphaProof \cite{b6} combines Monte Carlo tree search with formal verification. All require formal proof languages. Graph2Proof differs in using GNNs as a training signal for natural language proof generation rather than as a proof search component in formal systems.
+
+\subsection{Graph Contrastive Learning}
+
+GraphCL \cite{b9} introduced augmentation strategies for self-supervised graph pre-training. GCA \cite{b20} extended this with adaptive augmentation using topological and semantic priors. SimCLR \cite{b10} established the NT-Xent loss for contrastive learning. ProofGAT applies contrastive graph learning to a new domain: discriminating structurally valid from invalid natural language proofs, with DAG structure, typed dependency edges, and mathematical concept nodes not present in prior work.
+
+\section{Methodology}
+
+Graph2Proof is a two-phase framework. Phase~1 pre-trains ProofGAT to embed proof structure via contrastive learning. Phase~2 uses the frozen ProofGAT as a structural reward signal inside GRPO.
+
+\subsection{Phase 1: Structural Pre-training}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{phase1.png}}
+\caption{Phase~1: Contrastive pre-training of ProofGAT on theorem-proof pairs from DeepTheorem. The graph construction module extracts claims and dependencies, computes node features via sentence and concept embeddings, and feeds the resulting DAG to a two-layer GAT trained with combined NT-Xent and margin loss.}
+\label{fig:phase1}
+\end{figure}
+
+\subsubsection{Proof Graph Construction}
+
+Each proof text is converted to a directed graph $G = (V, E)$ where nodes $V$ represent individual logical claims and edges $E$ encode dependency relationships. Qwen2.5-3B-Instruct is prompted with a structured JSON format to extract claims and their dependencies from each proof.
+
+Node features are 416-dimensional vectors:
+\begin{equation}
+\mathbf{x}_i = [\mathbf{e}_i^{\text{sent}}; \mathbf{e}_i^{\text{concept}}] \in \mathbb{R}^{416}
+\label{eq:node_feat}
+\end{equation}
+where $\mathbf{e}_i^{\text{sent}} \in \mathbb{R}^{384}$ is a sentence embedding from BAAI/bge-small-en-v1.5 \cite{b12} and $\mathbf{e}_i^{\text{concept}} \in \mathbb{R}^{32}$ is a learned embedding over 20 mathematical concept types (induction, contradiction, modular arithmetic, etc.) detected via regex patterns.
+
+\subsubsection{ProofGAT Architecture}
+
+ProofGAT is a two-layer Graph Attention Network \cite{b8} with approximately 2.1M parameters. Each GAT layer computes attention coefficients:
+\begin{equation}
+\alpha_{ij}^{k} = \frac{\exp\!\left(\text{LeakyReLU}\!\left(\mathbf{a}^{k\top}[\mathbf{W}^k\mathbf{h}_i \| \mathbf{W}^k\mathbf{h}_j]\right)\right)}{\sum_{m \in \mathcal{N}(i)} \exp\!\left(\text{LeakyReLU}\!\left(\mathbf{a}^{k\top}[\mathbf{W}^k\mathbf{h}_i \| \mathbf{W}^k\mathbf{h}_m]\right)\right)}
+\label{eq:attn}
+\end{equation}
+where $\mathbf{a}^k$ is a learnable attention vector and $\mathbf{W}^k$ are per-head weight matrices. The first layer uses $K{=}4$ heads with concatenation:
+\begin{equation}
+\mathbf{h}_i^{(1)} = \Big\|_{k=1}^{K} \sigma\!\left(\sum_{j \in \mathcal{N}(i)} \alpha_{ij}^{k} \mathbf{W}^{k} \mathbf{x}_j\right)
+\label{eq:gat1}
+\end{equation}
+mapping $\mathbb{R}^{416} \to \mathbb{R}^{1024}$. LayerNorm and ELU activation follow. The second layer uses $K{=}4$ heads with averaging ($\mathbb{R}^{1024} \to \mathbb{R}^{256}$).
+
+An attention pooling mechanism produces a graph-level embedding:
+\begin{equation}
+\mathbf{h}_G = \sum_{i=1}^{|V|} a_i \mathbf{h}_i^{(2)}, \quad a_i = \text{Softmax}\!\left(\mathbf{w}^\top \tanh(\mathbf{W}_g \mathbf{h}_i^{(2)})\right)
+\label{eq:pool}
+\end{equation}
+yielding $\mathbf{h}_G \in \mathbb{R}^{256}$. A projection head maps $\mathbf{h}_G$ to $\mathbf{z} \in \mathbb{R}^{128}$ via two linear layers with ReLU, followed by L2 normalization. The projection head is discarded after Phase~1.
+
+\subsubsection{Contrastive Training}
+
+ProofGAT is trained on 121,754 correct/incorrect proof pairs from DeepTheorem \cite{b1}. Graph augmentation creates two views of each graph via independent node drop ($p = 0.20$) and edge drop ($p = 0.20$), always preserving the first and last nodes. The training loss combines unsupervised and supervised components:
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{unsup}} + 0.5 \cdot \mathcal{L}_{\text{sup}}
+\label{eq:loss}
+\end{equation}
+
+The unsupervised term is the NT-Xent contrastive loss \cite{b10} with temperature $\tau = 0.07$:
+\begin{equation}
+\mathcal{L}_{\text{unsup}} = -\log \frac{\exp(\text{sim}(\mathbf{z}_i, \mathbf{z}_i') / \tau)}{\sum_{k=1}^{2N} \mathbf{1}_{[k \neq i]} \exp(\text{sim}(\mathbf{z}_i, \mathbf{z}_k) / \tau)}
+\label{eq:ntxent}
+\end{equation}
+where $\mathbf{z}_i, \mathbf{z}_i'$ are embeddings of augmented views and $\text{sim}(\cdot,\cdot)$ denotes cosine similarity. The supervised term is a margin loss ($m = 0.5$) pushing correct and incorrect proof embeddings apart:
+\begin{equation}
+\mathcal{L}_{\text{sup}} = \max\!\left(0,\; \text{sim}(\mathbf{z}^+, \mathbf{z}^-) - \text{sim}(\mathbf{z}^+, \mathbf{z}^{+\prime}) + m\right)
+\label{eq:margin}
+\end{equation}
+
+Training uses AdamW (lr $= 3 \times 10^{-4}$, weight decay $= 1 \times 10^{-4}$) with cosine annealing over 50 epochs, batch size 64, on 2$\times$A100 GPUs.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{cosine.png}}
+\caption{Cosine similarity convergence during ProofGAT training. Correct$\leftrightarrow$correct similarity converges to 0.940 while correct$\leftrightarrow$incorrect drops to $-0.201$, yielding a separation margin of 1.141.}
+\label{fig:cosine}
+\end{figure}
+
+The trained ProofGAT achieves a separation margin of 1.141:
+\begin{equation}
+\Delta_{\text{sep}} = \text{sim}(\mathbf{z}^+, \mathbf{z}^{+\prime}) - \text{sim}(\mathbf{z}^+, \mathbf{z}^-) = 0.940 - (-0.201) = 1.141
+\label{eq:separation}
+\end{equation}
+Incorrect proofs are pushed to the structurally opposite direction in embedding space (not merely dissimilar but structurally inverted), producing a reliable signal for Phase~2.
+
+\subsection{Phase 2: GRPO with Structural Reward}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{phase2.png}}
+\caption{Phase~2: GRPO fine-tuning with frozen ProofGAT structural reward. For each prompt, 64 completions are sampled, scored by both outcome correctness and structural similarity to reference proof embeddings, and used to compute group-relative advantages.}
+\label{fig:phase2}
+\end{figure}
+
+GRPO \cite{b3} eliminates the critic network by sampling $G$ completions per prompt and computing advantages relative to the group mean reward. The clipped surrogate objective is:
+\begin{equation}
+J_{\text{GRPO}}(\theta) = \frac{1}{G}\sum_{i=1}^{G} \frac{1}{|o_i|}\sum_{t=1}^{|o_i|} \min\!\left(r_t^{(i)} \hat{A}_i,\; \text{clip}(r_t^{(i)}, 1{-}\epsilon, 1{+}\epsilon)\hat{A}_i\right)
+\label{eq:grpo}
+\end{equation}
+where $r_t^{(i)} = \pi_\theta(o_{i,t} | q, o_{i,<t}) / \pi_{\theta_{\text{old}}}(o_{i,t} | q, o_{i,<t})$ is the importance ratio and $\hat{A}_i = (R_i - \mu_G) / \sigma_G$ is the group-normalized advantage.
+
+We augment the reward with a structural component:
+\begin{equation}
+R_i = R_{\text{outcome},i} + \lambda \cdot R_{\text{struct},i}
+\label{eq:reward}
+\end{equation}
+$R_{\text{outcome}} \in \{0, 1\}$ is binary correctness extracted from \texttt{\textbackslash boxed\{answer\}} patterns. $R_{\text{struct}} \in [0, 1]$ is defined as:
+\begin{equation}
+R_{\text{struct}} = \max\!\left(0,\; \text{sim}\!\left(\mathbf{h}_G^{\text{gen}},\; \mathbf{h}_G^{\text{ref}}\right)\right)
+\label{eq:rstruct}
+\end{equation}
+where $\mathbf{h}_G^{\text{gen}}$ is the frozen ProofGAT encoding of the LLM-extracted graph of the generated proof, $\mathbf{h}_G^{\text{ref}}$ is a pre-computed embedding of the reference proof, and $\lambda{=}0.5$ is the structural weight.
+
+\textbf{Reward design.} The structural reward measures cosine similarity to a fixed reference embedding per training prompt. ProofGAT encodes graph topology and dependency patterns rather than lexical content, so proofs with different wording but similar logical structure receive high similarity scores. This makes the reward sensitive to reasoning structure rather than surface phrasing.
+
+Models are prompted with a system instruction requiring step-by-step reasoning inside \texttt{<think>...</think>} tags. Following DeepTheorem \cite{b1} exactly, Phase~2 training uses GRPO with batch size 128, group size 64, maximum rollout length 8192, and 1000 steps distributed across two machines. Degenerate output filters reject responses with whitespace ratio $< 0.05$ or repetition count $> 300$, assigning $R = 0$.
+
+\section{Experiments}
+
+\subsection{Datasets and Evaluation Protocol}
+
+\textbf{Training.} DeepTheorem \cite{b1} provides 121,754 IMO-level informal theorem-proof pairs spanning algebra, combinatorics, number theory, geometry, and analysis, with positive/negative proof pairs for contrastive pre-training. To ensure rigorous evaluation, DeepTheorem is explicitly \emph{decontaminated} with respect to downstream benchmarks, removing any overlap with FIMO and PutnamBench.
+
+\textbf{Evaluation benchmarks.} FIMO \cite{b11} contains 149 official IMO problems, and PutnamBench \cite{b13} contains 514 official Putnam problems. These benchmarks are derived from two of the most challenging and prestigious mathematics competitions and thus serve as rigorous testbeds for evaluating the extent to which LLMs can perform sustained, high-level mathematical reasoning.
+
+\textbf{Multi-variant evaluation protocol.} All results use the multi-variant outcome protocol of DeepTheorem \cite{b1}: a problem is marked solved only when \emph{all} variants (the original theorem together with entailing and contradictory variants) are answered correctly and consistently. This provides a robust proxy for correct reasoning, as consistent performance across logically related variants is unlikely to result from guessing or surface-level pattern matching. We adopt this protocol unchanged; all baseline numbers in Table~\ref{tab:comparison} are taken from DeepTheorem \cite{b1} under the same conditions. Further details on variant construction are provided in Zhang et al.\ \cite{b1}, Table~3.
+
+\subsection{Baselines and Setup}
+
+We compare Graph2Proof models against vanilla Qwen2.5 \cite{b14} at each scale (1.5B, 3B, 7B) and against published results from commercial and open-source models reported by DeepTheorem \cite{b1}. All comparisons use the same multi-variant scoring, \texttt{\textbackslash boxed\{\}} extraction, and benchmarks, as baseline numbers are drawn from a single controlled evaluation. Inference uses vLLM with batched generation (\texttt{gpu\_memory\_utilization}~$= 0.8$).
+
+\subsection{Main Results}
+
+Tables~\ref{tab:fimo} and \ref{tab:putnam} present results on FIMO and PutnamBench. Graph2Proof yields consistent improvements at the 3B and 7B scales over both vanilla baselines and DeepTheorem-RL. The 7B variant achieves 58.73\% on FIMO and 61.46\% on PutnamBench. At the 1.5B scale, G2P slightly underperforms DT-RL on FIMO (30.16\% vs.\ 31.75\%), suggesting that the smallest models may lack the capacity to effectively leverage the structural reward signal during training. This capacity threshold effect is consistent with the larger absolute gains observed at 7B and warrants further investigation at sub-2B scale.
+
+\begin{table}[htbp]
+\caption{FIMO Benchmark Results (multi-variant protocol \protect\cite{b1}). DT-SFT and DT-RL denote DeepTheorem fine-tuned with supervised fine-tuning and RL-Zero respectively.}
+\begin{center}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Vanilla} & \textbf{DT-SFT} & \textbf{DT-RL} & \textbf{G2P} \\
+\midrule
+Qwen2.5-1.5B & 20.63\% & 31.75\% & 31.75\% & 30.16\% \\
+Qwen2.5-3B   & 23.81\% & 33.33\% & 38.10\% & 39.68\% \\
+Qwen2.5-7B   & 30.16\% & 34.92\% & 55.56\% & 58.73\% \\
+\bottomrule
+\end{tabular}
+\label{tab:fimo}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{PutnamBench Results (multi-variant protocol \protect\cite{b1}). DT-SFT and DT-RL denote DeepTheorem fine-tuned with supervised fine-tuning and RL-Zero respectively.}
+\begin{center}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Vanilla} & \textbf{DT-SFT} & \textbf{DT-RL} & \textbf{G2P} \\
+\midrule
+Qwen2.5-1.5B & 35.42\% & 36.46\% & 52.08\% & 53.13\% \\
+Qwen2.5-3B   & 43.75\% & 36.46\% & 52.08\% & 55.21\% \\
+Qwen2.5-7B   & 49.96\% & 41.67\% & 57.29\% & 61.46\% \\
+\bottomrule
+\end{tabular}
+\label{tab:putnam}
+\end{center}
+\end{table}
+
+\subsection{Comparison with Published Models}
+
+Table~\ref{tab:comparison} compares G2P-7B against published results from DeepTheorem \cite{b1}. Because baseline numbers are drawn from a single controlled evaluation, comparisons are on equal footing with respect to protocol and prompting. We note that commercial model sizes are approximate and several are not publicly disclosed; reported parameter counts are as cited in DeepTheorem.
+
+\begin{table}[htbp]
+\caption{Comparison with Published Models on FIMO and PutnamBench (from DeepTheorem benchmark \protect\cite{b1})}
+\begin{center}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{FIMO (\%)} & \textbf{Putnam (\%)} & \textbf{Rank (F/P)} \\
+\midrule
+\multicolumn{4}{l}{\textit{Commercial models (estimated 100--300B)}} \\
+o3-mini & 80.95 & 78.12 & 1\,/\,1 \\
+o1 & 66.67 & 62.50 & 2\,/\,3 \\
+Gemini2.5-Pro & 57.14 & 64.58 & 4\,/\,2 \\
+Claude3.7-Sonnet & 34.92 & 45.83 & 9\,/\,8 \\
+GPT-4o & 34.92 & 22.92 & 9\,/\,15 \\
+Gemini2.5-Flash & 30.16 & 42.71 & 11\,/\,7 \\
+\midrule
+\multicolumn{4}{l}{\textit{Open-source models $\geq$ 32B}} \\
+Qwen2.5-Inst-72B & 47.62 & 47.92 & 6\,/\,6 \\
+Qwen2.5-Math-Inst-72B & 47.62 & 47.92 & 6\,/\,6 \\
+Llama3.3-Inst-70B & 41.27 & 36.46 & 8\,/\,10 \\
+R1-Distill-70B & 17.46 & 30.21 & 15\,/\,12 \\
+QwQ-32B & 17.46 & 25.00 & 15\,/\,13 \\
+\midrule
+\multicolumn{4}{l}{\textit{Open-source models $\leq$ 7B}} \\
+\textbf{Graph2Proof-7B (ours)} & \textbf{58.73} & \textbf{61.46} & \textbf{3\,/\,4} \\
+DeepTheorem-RL-7B \cite{b1} & 55.56 & 57.29 & 5\,/\,5 \\
+Vanilla-7B & 30.16 & 49.96 & 11\,/\,9 \\
+DS-Prover-v2-7B & 30.16 & 40.62 & 11\,/\,11 \\
+Qwen2.5-Math-Inst-7B & 28.57 & 25.00 & 13\,/\,13 \\
+DS-Prover-v1.5-RL-7B & 25.40 & 34.38 & 14\,/\,14 \\
+\bottomrule
+\end{tabular}
+\label{tab:comparison}
+\end{center}
+\end{table}
+
+G2P-7B ranks 3rd on FIMO and 4th on PutnamBench among models evaluated under the DeepTheorem protocol, surpassing all open-source models at 32--72B scale. G2P-7B outperforms DeepTheorem-RL-7B \cite{b1} on both benchmarks (58.73\% vs.\ 55.56\% on FIMO; 61.46\% vs.\ 57.29\% on PutnamBench), which trains on the same dataset with GRPO but uses only binary outcome rewards. Rankings are restricted to models evaluated under the DeepTheorem protocol.
+
+\subsection{Ablation: Role of the Structural Reward}
+
+Graph2Proof-7B is identical to DeepTheorem-RL-7B in every respect (same base model, same training data, same GRPO algorithm, same compute budget) with one addition: the ProofGAT structural reward augmenting the binary outcome signal. Notably, setting $\lambda{=}0$ in Eq.~\ref{eq:reward} reduces Graph2Proof exactly to DeepTheorem-RL under identical conditions, making DeepTheorem-RL-7B a direct $\lambda{=}0$ ablation. The performance gap (58.73\% vs.\ 55.56\% on FIMO; 61.46\% vs.\ 57.29\% on PutnamBench) therefore isolates the contribution of the structural reward.
+
+\section{Interpretability Analysis}
+
+Proof-graph representations enable interpretability tools that are unavailable with flat chain-of-thought outputs.
+
+\subsection{Proof Structural Complexity}
+
+We analyze the Von Neumann entropy $H(G)$ of generated proof graphs across FIMO problems. For the graph Laplacian $L$ with eigenvalues $\{\mu_k\}$:
+\begin{equation}
+H(G) = -\sum_{k} \frac{\mu_k}{\text{tr}(L)} \log_2 \frac{\mu_k}{\text{tr}(L)}
+\label{eq:entropy}
+\end{equation}
+$H(G)$ measures how evenly logical information flows through the proof structure. A linear chain yields low entropy; branching dependencies yield high entropy.
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\columnwidth]{spectral2.png}}
+\caption{Von Neumann entropy per proof for G2P (green) vs.\ Vanilla (red)
+across all FIMO problems (175 proof attempts; multiple sampled completions
+per problem). Dashed lines show means ($H_{\text{G2P}} = 3.019$,
+$H_{\text{Van}} = 2.757$). Vanilla exhibits a tail of near-zero entropy
+degenerate proofs; G2P clusters near 3.0--3.2.}
+\label{fig:entropy}
+\end{figure}
+
+G2P proofs achieve a mean $H(G) = 3.019$ compared to 2.757 for Vanilla, a 9.5\% increase (Cohen's $d = 0.61$). G2P values cluster near 3.0--3.2, while Vanilla exhibits a wider spread with a tail toward near-zero entropy, corresponding to near-linear proofs with minimal branching. The gap is consistent across all proof indices. Higher entropy alone does not guarantee proof quality (an incoherent proof with many cross-references would also score highly), but the combination of higher entropy and higher accuracy in G2P proofs indicates the structural reward encourages meaningful dependency branching.
+
+\subsection{Failure Attribution via Spectral Node Scoring}
+
+Proof graphs enable node-level diagnosis of individual failures. For each incorrect proof, we compute a spectral failure score per claim: the change in algebraic connectivity $\lambda_2$ (the second-smallest eigenvalue of the Laplacian) when that node is removed:
+\begin{equation}
+s_i = \lambda_2(L_{G \setminus \{i\}}) - \lambda_2(L_G)
+\label{eq:failure}
+\end{equation}
+A positive $s_i$ indicates the claim is a structural bottleneck: removing it improves graph connectivity, meaning it is poorly integrated into the surrounding reasoning chain.
+
+In the example shown in Fig.~\ref{fig:failure}, Node~3 (``Since $f_i$ is the fractional part of $a_i$...'') receives the highest score ($\Delta\lambda_2 \approx 0.0035$), identifying it as a claim without adequate support from prior steps. These diagnostics are applied post-hoc for analysis; future work could use them to generate targeted proof repair suggestions.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\columnwidth]{spectral1.png}}
+\caption{Failure attribution for a Vanilla-7B proof of problem 2006\_algebra\_p1. Left: proof graph with nodes colored by structural role (red = failure node, orange = weakly connected, blue = OK). Right: spectral failure score $\Delta\lambda_2$ per node. Node~3 has the highest positive score, identifying it as the logical weak link.}
+\label{fig:failure}
+\end{figure}
+
+\textbf{Summary.} Graph2Proof demonstrates that augmenting GRPO with a structural reward derived from a pre-trained proof-graph encoder improves natural language theorem proving across model scales. The controlled comparison with DeepTheorem-RL-7B shows consistent improvement on both benchmarks, with larger gains at higher model scales.
+
+\textbf{Limitations.} (1) \emph{Structural reward}: the reward is cosine similarity to a fixed reference embedding, which may penalize novel valid proof strategies that differ structurally from the reference. Reference proof quality is not filtered in the current pipeline; future work should condition on reference entropy to ensure the structural signal is well-founded. (2) \emph{Single-proof isolation}: the framework processes each proof independently and does not address multi-step proof planning across lemmas. (3) \emph{Proxy evaluation}: the multi-variant protocol provides a proxy for proof correctness, and a model could in principle satisfy all variants through shallow pattern matching rather than genuine proof understanding. While this protocol represents the strongest available evaluation methodology for natural language theorem proving, developing richer automated evaluation for informal proofs remains an open problem for the field.
+
+\textbf{Implications.} The structural reward provides consistent gains without additional compute beyond the DeepTheorem-RL baseline, suggesting that training signal quality is a key bottleneck for natural language theorem proving. The proof-graph representation also opens an analytical mode unavailable to flat token sequences: Von Neumann entropy exposes whether proofs employ genuine dependency branching or degenerate near-linear shortcuts, while spectral node scoring via $\lambda_2$ translates graph topology into claim-level diagnostics that identify precisely where a proof breaks down. The latter is qualitatively different from knowing only that a proof is wrong, and is a natural fit for targeted fine-tuning or human-in-the-loop review. More broadly, the consistent gains from graph-derived rewards suggest that the structural properties of reasoning carry learnable signal currently left on the table by outcome-only training, and the framework extends naturally to any domain where reasoning decomposes into a claim-dependency graph.
+
+\textbf{Future work.} Directions include: (1) extending to multi-theorem proof chains; (2) spectral graph coarsening \cite{b21} of theorem libraries for curriculum-aware training; (3) applying structural rewards to code verification and formal proof synthesis.
+
+\section*{Acknowledgment}
+
+Removed for double-blind review.
+
+\begin{thebibliography}{00}
+\bibitem{b1} Z. Zhang \textit{et al.}, ``DeepTheorem: Advancing LLM reasoning for theorem proving through natural language and reinforcement learning,'' arXiv:2505.23754, 2025.
+\bibitem{b2} DeepSeek-AI, ``DeepSeek-R1: Incentivizing reasoning capability in LLMs via reinforcement learning,'' arXiv:2501.12948, 2025.
+\bibitem{b3} Z. Shao \textit{et al.}, ``DeepSeekMath: Pushing the limits of mathematical reasoning in open language models,'' arXiv:2402.03300, 2024.
+\bibitem{b4} M. Lample \textit{et al.}, ``HyperTree proof search for neural theorem proving,'' in \textit{Proc. NeurIPS}, 2022.
+\bibitem{b5} E. Zelikman \textit{et al.}, ``STaR: Bootstrapping reasoning with reasoning,'' in \textit{Proc. NeurIPS}, 2022.
+\bibitem{b6} Google DeepMind, ``AlphaProof and AlphaGeometry 2,'' Technical Blog, 2024.
+\bibitem{b7} H. Xin \textit{et al.}, ``DeepSeek-Prover: Advancing theorem proving in LLMs through large-scale synthetic data,'' arXiv:2405.14333, 2024.
+\bibitem{b8} P. Veli\v{c}kovi\'{c} \textit{et al.}, ``Graph attention networks,'' in \textit{Proc. ICLR}, 2018.
+\bibitem{b9} Y. You \textit{et al.}, ``Graph contrastive learning with augmentations,'' in \textit{Proc. NeurIPS}, 2020.
+\bibitem{b10} T. Chen \textit{et al.}, ``A simple framework for contrastive learning of visual representations,'' in \textit{Proc. ICML}, 2020.
+\bibitem{b11} C. Liu \textit{et al.}, ``FIMO: A challenge formal dataset for automated theorem proving,'' arXiv:2309.04295, 2023.
+\bibitem{b12} S. Xiao \textit{et al.}, ``C-Pack: Packaged resources to advance general Chinese embedding,'' arXiv:2309.07597, 2023.
+\bibitem{b13} G. Tsoukalas \textit{et al.}, ``PutnamBench: Evaluating neural theorem-provers on the Putnam Mathematical Competition,'' arXiv:2407.11214, 2024.
+\bibitem{b14} Qwen Team, ``Qwen2.5 technical report,'' arXiv:2412.15115, 2024.
+\bibitem{b15} T. Hales \textit{et al.}, ``A formal proof of the Kepler conjecture,'' \textit{Forum of Mathematics, Pi}, vol. 5, e2, 2017.
+\bibitem{b16} J. Wei \textit{et al.}, ``Chain-of-thought prompting elicits reasoning in large language models,'' in \textit{Proc. NeurIPS}, 2022.
+\bibitem{b17} X. Wang \textit{et al.}, ``Self-consistency improves chain of thought reasoning in language models,'' arXiv:2203.11171, 2022.
+\bibitem{b18} S. Welleck \textit{et al.}, ``NaturalProofs: Mathematical theorem proving in natural language,'' in \textit{Proc. NeurIPS Datasets and Benchmarks}, 2021.
+\bibitem{b19} Y. Yue \textit{et al.}, ``Does reinforcement learning really incentivize reasoning capacity in LLMs beyond the base model?,'' in \textit{Proc. NeurIPS}, 2025.
+\bibitem{b20} Y. Zhu \textit{et al.}, ``Graph contrastive learning with adaptive augmentation,'' in \textit{Proc. WWW}, 2021.
+\bibitem{b21} A. Loukas, ``Graph reduction with spectral and cut guarantees,'' \textit{Journal of Machine Learning Research}, vol. 20, no. 116, pp. 1--42, 2019.
+\end{thebibliography}
+
+\end{document}
+
+
+
+\documentclass[11pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\setlength{\columnsep}{0.17in}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{bm}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Topological and Spectral Fingerprints of Mathematical Proof Correctness: Structural, Laplacian, and Kernel-Based Characterizations}
+
+\maketitle
+
+\begin{abstract}
+Can a flawed proof be detected without reading it? We show it can, partially, from graph topology alone. We model 10,000 theorem-proof pairs from DeepTheorem (5,000 correct, 5,000 incorrect) as directed dependency graphs, where nodes are logical claims and edges encode inferential flow. No semantic content is used. We then measure structural, spectral, and kernel-based features and test whether correct and incorrect proofs occupy different regions of graph-theoretic space. Correct proofs are more compact, with higher edge density (r=0.072), shorter average path lengths (r=0.071), and higher bridge ratios (r=0.079), meaning every edge carries load-bearing logical weight. Spectrally, correct proofs have higher algebraic connectivity measured by the Fiedler value (r=0.064). By Cheeger's inequality, their argument graphs resist fragmentation: no small bipartition cuts the reasoning in two. The sharpest finding is about identity rather than correctness. Proofs of the same theorem are 3.2x more similar under the WL kernel than proofs of different theorems ($p < 10^{-10}$), while correctness drives no significant pairwise similarity difference ($p > 0.20$). Proof graphs are problem fingerprints first and correctness signals second. A combined classifier achieves AUC = 0.513, an honest quantification of how much topology contributes. These results establish the first empirical characterization of mathematical proof correctness through network science, introduce the Fiedler value as a principled measure of logical robustness, and open proof dependency graphs as a new domain for graph-theoretic analysis.
+\end{abstract}
+
+\begin{IEEEkeywords}
+proof graphs, graph topology, algebraic connectivity, Fiedler value, Weisfeiler-Lehman kernel, spectral graph theory, automated theorem proving, mathematical reasoning
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+A mathematical proof is, at its core, a dependency structure in which each cl222aim is grounded in prior ones and ultimately supports the conclusion. This structure forms the logical backbone of the argument. We ask: does this backbone differ systematically when the proof is flawed?
+
+This is not a question about semantics, as we do not check logical validity or read the content of claims. We instead ask whether graph-theoretic properties (degree distributions, path lengths, Laplacian eigenvalues, graph kernels) differ systematically between correct and incorrect proofs. If they do, structural features become a new kind of signal for reasoning about proof quality, entirely independent of semantic content.
+
+The question is also practically significant. Automated theorem proving systems based on large language models \cite{b2,b10} generate natural language proofs whose logical validity is difficult to assess without full formal verification. Structural signals derived purely from proof graph topology could serve as lightweight, scalable proxies for proof quality in settings where semantic verification is too expensive. Understanding which structural properties correlate with correctness is a prerequisite for designing such signals responsibly.
+
+This is the first study to apply network science to mathematical proof correctness. Small-world network analysis \cite{b3}, scale-free network theory \cite{b4}, Laplacian spectral methods \cite{b11}, and graph kernels have each been applied extensively to biological, social, and citation networks. None have been applied to proof dependency graphs. The domain also has unique properties. Proof graphs are small (10--30 nodes), nearly acyclic, and constructed by deliberate logical composition rather than by growth processes. Whether the structural principles that govern other networks apply here is a non-trivial empirical question.
+
+We answer it on 10,000 proof graphs from DeepTheorem \cite{b6}. Our contributions are:
+
+\begin{enumerate}
+    \item The first empirical demonstration that mathematical proof correctness leaves measurable structural signatures in graph topology, confirmed across structural, spectral, and kernel-based analyses.
+    \item The first spectral characterization of proof graphs, establishing the Fiedler value as a theoretically grounded measure of logical robustness via Cheeger's inequality.
+    \item The discovery that proof graphs are overwhelmingly problem-specific fingerprints: theorem identity drives graph similarity far more powerfully than correctness, with a 3.2x within-problem advantage under the WL kernel.
+    \item A calibrated classifier baseline (AUC = 0.513) that honestly quantifies how much topology contributes to correctness prediction, providing a benchmark for future work.
+\end{enumerate}
+
+The broader significance is twofold. First, it establishes that logical coherence has a geometric character: correct reasoning organizes itself into more compact, better-connected, spectrally more robust structures. Second, it provides an empirical foundation for the use of graph-theoretic features in automated proof evaluation, grounded in direct measurement rather than intuition.
+
+\section{Related Work}
+
+\subsection{Formal and Natural Language Proof Analysis}
+
+Prior work on formal proof corpora (Lean, Isabelle, Coq) analyzes tactic distributions, term complexity, and proof length \cite{b7}. These studies operate on syntactic representations and do not examine graph-theoretic structure. For natural language proofs, the primary mode of analysis has been semantic: checking logical entailment, identifying errors through language models, or measuring step-by-step coherence. Graph-theoretic analysis of natural language proof structure is unexplored, even though the dependency structure is explicit and computationally accessible.
+
+\subsection{Graph Neural Networks for Theorem Proving}
+
+Graph neural networks have been applied to tactic prediction in Lean \cite{b8} and to representations of higher-order logic formulas \cite{b9}. These systems use graph structure operationally, as input to a model. Our work takes a different stance: we study the statistical properties of proof graphs analytically, without training a model on them. This descriptive approach reveals what structural properties are intrinsic to correct proofs, independent of any learned representation.
+
+\subsection{Complex Network Theory}
+
+Watts and Strogatz \cite{b3} characterized small-world networks via high clustering and short path lengths. Barab\'asi and Albert \cite{b4} showed that preferential attachment generates scale-free degree distributions with power-law exponents in $[2, 3]$. Both frameworks have been applied to protein interaction networks, power grids, citation graphs, and social networks. This work is the first to apply them to proof dependency graphs.
+
+Spectral graph theory \cite{b11} connects graph topology to eigenvalues of associated matrices. Fiedler \cite{b12} established that $\lambda_2$, the second-smallest eigenvalue of the graph Laplacian, equals the algebraic connectivity and governs resistance to graph fragmentation. Cheeger's inequality makes this precise: $\lambda_2 / 2 \leq h(G) \leq \sqrt{2\lambda_2}$, where $h(G)$ is the graph's isoperimetric number. These spectral tools have no prior application to proof structure or to mathematical reasoning representation of any kind.
+
+\subsection{Weisfeiler-Lehman Graph Kernels}
+
+The WL subtree kernel \cite{b13} measures graph similarity through iterative neighborhood hashing. It has been widely used for molecular similarity and social network comparison. Applied to proof graphs, it measures whether two proofs share the same local structural patterns of logical dependency. We use it here to compare within-problem and cross-problem similarity, which reveals a striking fingerprinting effect with no prior documentation in any type of mathematical text.
+
+\section{Dataset and Graph Construction}
+
+\subsection{Corpus}
+
+We use the DeepTheorem dataset \cite{b6}: 10,000 theorem-proof pairs at IMO and Putnam competition difficulty, spanning algebra, combinatorics, number theory, geometry, and analysis. The corpus contains exactly 5,000 correct proofs (\texttt{pos\_response}) and 5,000 incorrect proofs (\texttt{neg\_response}). Incorrect proofs are model-generated with deliberate logical flaws, providing a controlled contrast class at scale. The corpus is exactly balanced to prevent class imbalance from confounding structural comparisons.
+
+DeepTheorem represents the largest publicly available source of natural language theorem-proof pairs with ground-truth correctness labels, making it uniquely suited for a statistical study of this kind. Prior work on proof structure has been limited to formal proof corpora (Lean, Isabelle) or small-scale human-annotated datasets. The 10,000-pair scale is necessary to detect effects of the magnitude we observe ($|r| < 0.15$).
+
+\subsection{Proof Graph Construction}
+
+Each proof text is converted to a directed graph $G = (V, E)$. Nodes $v \in V$ represent individual logical claims extracted by rule-based sentence segmentation augmented with discourse connective detection. A directed edge $(u, v)$ encodes inferential dependency: claim $v$ builds upon claim $u$. Edges are placed by two mechanisms: sequential adjacency between consecutive claims, and discourse markers (``therefore'', ``thus'', ``since'', ``because'', ``by'', ``from'') that indicate explicit logical dependencies.
+
+Node features are 416-dimensional: a 384-dimensional sentence embedding from BAAI/bge-small-en-v1.5 concatenated with a 32-dimensional concept embedding over 20 mathematical concept types (induction, contradiction, modular arithmetic, combinatorics, etc.) detected by regex patterns. These features are used only for the WL kernel; all topological and spectral analyses use graph structure alone.
+
+\textbf{Corpus statistics.} Correct proofs: mean 16.43 nodes, 26.02 edges, 15.43 DAG depth. Incorrect proofs: mean 17.61 nodes, 28.24 edges, 16.61 DAG depth. Incorrect proofs are marginally larger on average. We control for this where relevant.
+
+\section{Methods}
+
+\subsection{Statistical Framework}
+
+All comparisons between correct and incorrect distributions use the two-sided Mann-Whitney $U$ test, which is non-parametric and makes no distributional assumptions. Effect size is:
+\begin{equation}
+    r = \operatorname{clip}\!\left( \frac{\Phi^{-1}(1 - \tilde{p}/2)}{\sqrt{N}},\; -1,\; 1 \right)
+\end{equation}
+where $\tilde{p} = \operatorname{clip}(p, 10^{-300}, 1)$ prevents numerical overflow and $N$ is total sample size. When $p$ is so small that $\Phi^{-1}$ overflows double precision, $r$ clips to 1.000 and is marked $\dagger$ in tables. Unless otherwise noted, $n_c = n_i = 5{,}000$.
+
+\subsection{Structural Features}
+
+We compute edge density $\rho = |E|/(n(n{-}1))$; average and maximum in- and out-degree; average shortest path length (on the largest weakly connected component); diameter; bridge ratio (fraction of edges that are bridges, computed via Tarjan's algorithm); articulation-point ratio; mean closeness centrality; mean PageRank (power iteration, max 200 iterations). Network regime classification uses the small-world coefficient:
+
+\begin{equation}
+    \sigma = \frac{C_\text{real}/C_\text{rand}}{L_\text{real}/L_\text{rand}}
+    \label{eq:sigma}
+\end{equation}
+
+where $C_\text{rand}$ and $L_\text{rand}$ are means over 10 matched Erd\H{o}s-R\'enyi null models with the same node count and edge probability. The power-law exponent is estimated via the Hill MLE:
+
+\begin{equation}
+    \hat{\gamma} = 1 + n \left( \sum_{i=1}^{n} \log \frac{d_i}{d_{\min}} \right)^{-1}
+    \label{eq:gamma}
+\end{equation}
+
+A graph is classified as scale-free if $\hat{\gamma} \in [2, 3]$ and as small-world if $\sigma > 1$.
+
+\subsection{Spectral Features}
+
+We compute spectral features on the undirected projection of each proof DAG. The combinatorial Laplacian is $L = D - A$ with eigenvalues $0 = \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$.
+
+\begin{itemize}
+    \item \textbf{Fiedler value} $\lambda_2$: algebraic connectivity \cite{b12}, measuring resistance to graph disconnection.
+    \item \textbf{Normalized Fiedler} $\tilde{\lambda}_2$: second eigenvalue of the normalized Laplacian $\tilde{L} = D^{-1/2} L D^{-1/2}$, controlling for degree heterogeneity.
+    \item \textbf{Spectral energy}: $\mathcal{E} = \sum_i |\lambda_i|$, measuring total Laplacian variation.
+    \item \textbf{Estrada index}: $\text{EE} = \sum_i e^{\mu_i}$ on adjacency eigenvalues $\mu_i$, measuring graph communicability via closed walk counts.
+\end{itemize}
+
+\subsection{Graph Similarity}
+
+The \textbf{WL subtree kernel} ($h{=}3$) uses concept-type node labels, performs 3 rounds of neighborhood hashing, and computes normalized histogram intersection as similarity. The \textbf{Bag-of-concepts (BoC)} cosine similarity uses summed concept multi-hot vectors as graph-level representations. For within-/cross-problem analysis, we identify all 400 problems with at least 2 proof variants and compare within-problem pairs against randomly sampled cross-problem pairs (2,999 pairs).
+
+\subsection{Classifier Baseline}
+
+A gradient-boosted tree (GBT, 200 estimators, depth 4) is trained on a 19-dimensional feature vector combining structural and spectral features. Evaluation uses stratified 5-fold cross-validation with AUC as the metric. This provides an upper bound on the linear separability of the combined feature space and serves as a calibrated reference point for future work.
+
+\section{Results}
+
+\subsection{Structural Features}
+
+\begin{table}[t]
+\caption{Structural Feature Discrimination ($n{=}5{,}000$ per class)}
+\label{tab:topo}
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Feature} & $\bm{\mu_c}$ & $\bm{\mu_i}$ & $\bm{|r|}$ & $\bm{p}$ \\
+\midrule
+\texttt{bridge\_ratio}        & 0.161 & 0.142 & 0.079 & $3.3{\times}10^{-15}$ \\
+\texttt{max\_in\_degree}      & 2.965 & 2.990 & 0.077 & $2.0{\times}10^{-14}$ \\
+\texttt{closeness\_mean}      & 0.350 & 0.329 & 0.073 & $4.0{\times}10^{-13}$ \\
+\texttt{density}              & 0.124 & 0.115 & 0.072 & $4.6{\times}10^{-13}$ \\
+\texttt{avg\_shortest\_path}  & 3.514 & 3.704 & 0.071 & $1.4{\times}10^{-12}$ \\
+\texttt{diameter}             & 8.872 & 9.382 & 0.065 & $6.6{\times}10^{-11}$ \\
+\texttt{avg\_out\_degree}     & 1.577 & 1.608 & 0.063 & $3.9{\times}10^{-10}$ \\
+\texttt{articulation\_ratio}  & 0.321 & 0.310 & 0.034 & $6.4{\times}10^{-4}$  \\
+\texttt{n\_distinct\_concepts}& 1.690 & 1.711 & 0.009 & 0.37 \\
+\texttt{concept\_entropy}     & 0.423 & 0.425 & 0.002 & 0.84 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Table~\ref{tab:topo} shows results for all structural features.
+
+\subsubsection{Bridge and Articulation Ratios}
+
+The strongest discriminator is bridge ratio ($r{=}0.079$, $p{=}3.3{\times}10^{-15}$). In correct proofs, 16.1\% of edges are bridges; in incorrect proofs, 14.2\%. A bridge in a dependency DAG is a load-bearing inference: remove it and the argument disconnects into two components with no alternative path between them. The higher bridge ratio in correct proofs means their logical structure is more efficiently organized, with each implication carrying unique, non-redundant weight. Incorrect proofs have more edges that add connectivity without adding logical necessity.
+
+Articulation-point ratio follows the same direction ($r{=}0.034$, $p{=}6.4{\times}10^{-4}$): correct proofs have more nodes whose removal would disconnect the graph. The effect is weaker, but the pattern is consistent with the bridge finding.
+
+\subsubsection{Structural Compactness}
+
+Correct proofs are denser (0.124 vs.\ 0.115), shorter in average path length (3.514 vs.\ 3.704), smaller in diameter (8.87 vs.\ 9.38), and higher in closeness centrality (0.350 vs.\ 0.329). Every metric points the same direction. Correct proof graphs are more compact: claims are closer together, the argument converges in fewer steps, and no claim is far from the center of the dependency structure. This compactness is independent of graph size. Incorrect proofs are marginally larger (17.6 vs.\ 16.4 nodes on average) yet still exhibit longer paths and lower density: their additional nodes and edges do not improve logical organization.
+
+\subsubsection{Concepts Do Not Discriminate}
+
+A particularly important negative result: distinct concept count ($r{=}0.009$, $p{=}0.37$) and concept entropy ($r{=}0.002$, $p{=}0.84$) are entirely non-discriminative. Correct and incorrect proofs invoke the same mathematical concepts at the same rates and with the same diversity. This rules out the simpler hypothesis that incorrect proofs fail because they use the wrong mathematical tools. The difference is structural, not conceptual.
+
+\subsubsection{Network Regime Classification}
+
+98.5\% of correct and 97.8\% of incorrect proofs are classified as scale-free by the Hill estimator. Both classes overwhelmingly follow power-law degree distributions, which is a non-obvious finding: iterative argument construction (each new claim citing earlier ones preferentially) mimics the preferential attachment mechanism that Barab\'asi and Albert identified in growing networks. Mathematical proof construction is a local preferential attachment process.
+
+The small-world coefficient $\sigma$ discriminates between classes ($r{=}0.112$, $p{=}5.6{\times}10^{-7}$), with $\mu_c{=}1.612$ vs.\ $\mu_i{=}1.705$. Incorrect proofs have higher $\sigma$, meaning more clustering relative to path length. This is counterintuitive: higher clustering does not improve logical organization. The excess clustering in incorrect proofs is consistent with redundant or circular sub-arguments that create local connectivity without contributing to overall argument flow.
+
+\subsection{Spectral Features}
+
+\begin{table}[t]
+\caption{Spectral Feature Discrimination}
+\label{tab:spectral}
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Feature} & $\bm{\mu_c}$ & $\bm{\mu_i}$ & $\bm{|r|}$ & $\bm{p}$ \\
+\midrule
+Norm.\ Fiedler $\tilde{\lambda}_2$ & 0.0952 & 0.0757 & $1.000^\dagger$ & $1.8{\times}10^{-17}$ \\
+Fiedler $\lambda_2$                & 0.2061 & 0.1797 & 0.064          & $1.9{\times}10^{-10}$ \\
+Spectral energy$/n$                & 3.154  & 3.215  & 0.062          & $5.5{\times}10^{-10}$ \\
+Estrada index$/n$                  & 6.061  & 6.206  & 0.040          & $6.6{\times}10^{-5}$  \\
+\midrule
+\multicolumn{5}{l}{\footnotesize $^\dagger$ $r$ clipped; $p < 10^{-16}$ exceeds double precision.} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsubsection{Fiedler Value and Algebraic Connectivity}
+
+The Fiedler value $\lambda_2$ is significantly higher in correct proofs (0.206 vs.\ 0.180, $r{=}0.064$, $p{=}1.9{\times}10^{-10}$). This is this paper's most theoretically grounded finding. By Cheeger's inequality, $\lambda_2/2 \leq h(G) \leq \sqrt{2\lambda_2}$, where $h(G)$ is the graph's isoperimetric number: the minimum ratio of edge-boundary to partition volume over all bipartitions. A higher Fiedler value means no small set of edges can separate the graph into two large, weakly connected components. For proof graphs, this translates directly: a correct proof cannot be bisected into two large sub-arguments with few inferential links between them. The reasoning hangs together globally.
+
+Flawed proofs have lower $\lambda_2$: they have spectral weak points where the argument can be fragmented. A single gap in the logical chain creates exactly this kind of low-conductance cut. The Fiedler value detects it geometrically.
+
+The normalized Fiedler $\tilde{\lambda}_2$ is more discriminative still (0.095 vs.\ 0.076, $p{=}1.8{\times}10^{-17}$), controlling for degree heterogeneity. The result holds after controlling for degree heterogeneity.
+
+\subsubsection{Spectral Energy and Estrada Index}
+
+Spectral energy$/n$ is higher in incorrect proofs (3.154 vs.\ 3.215, $r{=}0.062$, $p{=}5.5{\times}10^{-10}$). Higher Laplacian spectral energy reflects more heterogeneous connectivity structure, consistent with less organized, more irregularly connected argument graphs in the incorrect class. The Estrada index$/n$ is also higher in incorrect proofs (6.061 vs.\ 6.206, $r{=}0.040$). The Estrada index counts all closed walks in the graph weighted by inverse-factorial length. More closed walks indicate more self-reinforcing sub-structures, which is the spectral signature of circular or redundant reasoning.
+
+\subsubsection{Spectral-Only Classifier}
+
+A GBT trained on spectral features alone achieves AUC $= 0.536 \pm 0.004$. Spectral features carry genuine discriminative signal, but the effect is modest, consistent with the small effect sizes in Table~\ref{tab:spectral}.
+
+\subsection{Graph Similarity and Proof Identity}
+
+\begin{table}[t]
+\caption{Similarity Analysis (top: within vs.\ cross-problem; bottom: by class pair)}
+\label{tab:sim}
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Comparison} & $\bm{\mu_\text{within}}$ & $\bm{\mu_\text{cross}}$ & \textbf{Ratio} & $\bm{p}$ \\
+\midrule
+WL kernel  & 0.667 & 0.209 & 3.2$\times$ & $6.6{\times}10^{-221}$ \\
+BoC cosine & 0.798 & 0.103 & 7.7$\times$ & $5.7{\times}10^{-202}$ \\
+\midrule
+\textbf{Pair type} & \multicolumn{2}{c}{\textbf{WL mean}} & $\bm{p}$ (vs.\ CI) & $\bm{r}$ \\
+\midrule
+Correct--Correct (CC)      & \multicolumn{2}{c}{0.244} & 0.212 & 0.023 \\
+Incorrect--Incorrect (II)  & \multicolumn{2}{c}{0.250} & 0.827 & 0.004 \\
+Correct--Incorrect (CI)    & \multicolumn{2}{c}{0.231} & ref.  & ref.  \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsubsection{Proof Graphs as Problem Fingerprints}
+
+Table~\ref{tab:sim} reveals the sharpest finding in this study. Within-problem WL similarity (0.667) exceeds cross-problem similarity (0.209) by a factor of 3.2 ($p{<}10^{-10}$). Under BoC cosine similarity the gap grows to 7.7x. Proofs of the same theorem, correct or incorrect, converge to nearly identical graph structures. They invoke the same mathematical concepts in the same dependency patterns, producing graphs that are recognizably similar to one another.
+
+This result has substantial practical implications. It means proof graphs encode theorem identity with high fidelity, making them usable as structural fingerprints for theorem-specific retrieval, clustering, and analysis. Two proof graphs of the same theorem will look far more alike than two proof graphs of different theorems, regardless of whether either proof is correct.
+
+\subsubsection{Correctness Does Not Drive Kernel Similarity}
+
+The critical complementary result: CC vs.\ CI gives $p{=}0.212$, $r{=}0.023$. II vs.\ CI gives $p{=}0.827$, $r{=}0.004$. The 40-proof heatmap block means are CC $= 0.244$, II $= 0.250$, CI $= 0.231$, all within 0.02 of each other. Correctness does not organize proof graphs into structurally distinct classes at the kernel level.
+
+A flawed proof of theorem $T$ is structurally more similar to a correct proof of $T$ than to a correct proof of any other theorem $T'$. This is a strong, precise negative result: correctness shifts continuous graph properties (density, path lengths, eigenvalues) but does not alter the discrete structural type of the argument. The logical scaffold of a correct proof and its flawed counterpart are built from the same blueprint.
+
+\subsection{Combined Classifier}
+
+A GBT trained on the combined 19-dimensional structural and spectral feature vector achieves AUC $= 0.513 \pm 0.004$ under 5-fold CV. This is below the spectral-only classifier (0.536), confirming that structural and spectral features are substantially correlated and capture overlapping aspects of graph organization. Near-chance AUC is the correct summary: topology is a weak but non-trivial signal for correctness, and the combined feature set does not overcome the fundamental limitation that structure and correctness are only loosely coupled.
+
+\section{Discussion}
+
+\subsection{A Unified Structural Profile of Correct Proofs}
+
+All three analyses converge on the same picture. Correct proofs are compact and robustly connected, with higher density, shorter paths, higher bridge ratios, and higher algebraic connectivity. Each logical step carries unique inferential weight and the argument closes efficiently. Incorrect proofs exhibit more clustering, more redundant connectivity, and higher walk-based self-reinforcement. The topology is consistent with arguments that contain circular reasoning, repeated steps, or inferential dead ends that inflate local connectivity without advancing the overall logical flow.
+
+What makes this profile notable is its consistency across methods. Structural metrics (bridge ratio, path length, density), spectral measures (Fiedler value, Estrada index), and network regime classification all point in the same direction. This cross-method agreement strengthens confidence that we are measuring a real underlying property of correct mathematical reasoning rather than an artifact of any single analysis method.
+
+\subsection{The Fiedler Value as a Measure of Logical Robustness}
+
+The Fiedler result is the most theoretically significant contribution. $\lambda_2$ lower-bounds the isoperimetric constant of the graph by Cheeger's inequality. For proof dependency graphs, this has a direct logical interpretation: correct proofs cannot be decomposed into two large sub-arguments that are only weakly connected. The global reasoning structure is coherent; no single inferential step is a bottleneck separating large independent parts of the argument.
+
+This is a new connection between spectral graph theory and proof theory. Prior applications of the Fiedler value have been in engineering (graph partitioning, network robustness, image segmentation) and biology (protein interaction networks, connectomics). Applying it to mathematical proof structure reveals that logical coherence has a precise spectral signature. Higher $\lambda_2$ in correct proofs means their arguments are, in a rigorous mathematical sense, harder to falsify by selectively removing dependencies.
+
+The connection also suggests a new approach to proof evaluation. Rather than asking "is this proof correct?" (which requires full semantic verification), one can ask "does this proof have a high Fiedler value?" as a lightweight structural pre-screening step. A proof with very low algebraic connectivity has a structural weak point that warrants closer examination.
+
+\subsection{The Fingerprinting Result and Its Implications}
+
+The within-/cross-problem similarity result has several implications beyond the immediate finding. For proof retrieval, it means that WL kernel or BoC cosine similarity over proof graphs can reliably identify proofs of the same theorem, even without access to problem statements. This is a form of content-free theorem recognition based purely on how the logical argument is structured.
+
+For proof analysis, the result means that theorem-specific graph structure is a strong enough signal to cluster proofs correctly by problem. Unsupervised clustering of proof graphs using WL similarity would likely recover problem identity as a dominant organizing principle. This has applications in proof corpus organization, duplicate detection, and understanding which theorems are structurally related.
+
+The absence of correctness asymmetry (CC, II, and CI similarities all within 0.02 of each other) is equally informative. It means that structural similarity methods designed to detect proof correctness should not rely on kernel-level similarity, which is saturated by theorem identity. Any correctness-sensitive graph method must capture the continuous, fine-grained structural differences (density, path length, spectral properties) rather than the coarse structural type.
+
+\subsection{Why AUC = 0.513 Is the Right Answer}
+
+Near-chance AUC is a measurement of how much topology contributes, read correctly. The correct interpretation is that graph-structural features provide approximately 1.3\% of the information needed to classify proof correctness. That information is real (multiple features significant at $p{<}10^{-10}$), consistent (all pointing in the same direction), and theoretically interpretable (Fiedler, bridge ratio, compactness). But it is small relative to what semantic content provides.
+
+This result is actually more useful than a high AUC would be. It sets a precise empirical ceiling on purely structural methods and tells us exactly where they fit in a larger system: as auxiliary signals with modest but genuine information content, not as standalone verifiers. Any future work claiming to classify proof correctness from graph topology should be benchmarked against AUC = 0.513 as the feature-complete structural baseline.
+
+\subsection{Limitations}
+
+\textbf{Corpus construction.} Incorrect proofs are LLM-generated with deliberate logical flaws. Results may be stronger than what would be observed on subtly flawed human-written proofs, where structural differences could be smaller. Validation on human error corpora is an important direction for future work.
+
+\textbf{Directed spectral analysis.} All spectral computations use undirected Laplacians on the symmetrized proof DAG. Directed spectral methods (non-symmetric Laplacian, Hermitian adjacency matrix \cite{b14}) preserve the directionality of inferential flow and may reveal additional structure not captured by the undirected projection.
+
+\textbf{Generalization across domains.} All proofs are at IMO/Putnam difficulty. Whether the structural signatures we identify generalize to undergraduate-level proofs, research-level proofs, or formal proof corpora is an open question.
+
+\section{Conclusion}
+
+We present the first large-scale graph-theoretic characterization of mathematical proof correctness. On 10,000 proof graphs from DeepTheorem, correct proofs are structurally more compact, spectrally better connected (higher Fiedler value), and more efficiently organized (higher bridge ratio, shorter path lengths). Incorrect proofs have more redundant connectivity, higher clustering, and higher closed-walk counts, consistent with circular or disorganized argument structures.
+
+The Fiedler value, connected to logical robustness via Cheeger's inequality, provides a new theoretical bridge between spectral graph theory and proof theory. The strongest empirical finding is that proof graphs are powerful problem-specific fingerprints: within-problem WL similarity (0.667) exceeds cross-problem similarity (0.209) by 3.2x at $p{<}10^{-10}$, while correctness drives no significant pairwise similarity difference. A combined classifier achieves AUC = 0.513, establishing a calibrated baseline for structural proof analysis.
+
+These results open proof dependency graphs as a new domain for network science and establish that mathematical reasoning has measurable geometric properties that distinguish correct from flawed arguments, independently of semantic content.
+
+\begin{thebibliography}{00}
+\bibitem{b1} Z. Zhang \textit{et al.}, ``Graph2Proof: Topology-aware reward shaping for natural language theorem proving,'' 2025.
+\bibitem{b2} DeepSeek-AI, ``DeepSeek-R1: Incentivizing reasoning capability in LLMs via reinforcement learning,'' \textit{arXiv:2501.12948}, 2025.
+\bibitem{b3} D.~J.\ Watts and S.~H.\ Strogatz, ``Collective dynamics of `small-world' networks,'' \textit{Nature}, vol.~393, pp.~440--442, 1998.
+\bibitem{b4} A.-L.\ Barab\'asi and R.~Albert, ``Emergence of scaling in random networks,'' \textit{Science}, vol.~286, pp.~509--512, 1999.
+\bibitem{b5} P.~Erd\H{o}s and A.~R\'enyi, ``On random graphs,'' \textit{Publicationes Mathematicae Debrecen}, vol.~6, pp.~290--297, 1959.
+\bibitem{b6} Z. Zhang \textit{et al.}, ``DeepTheorem: Advancing LLM reasoning for theorem proving through natural language and reinforcement learning,'' \textit{arXiv:2505.23754}, 2025.
+\bibitem{b7} J.~Avigad and J.~Harrison, ``Formally verified mathematics,'' \textit{Communications of the ACM}, vol.~57, no.~4, pp.~66--75, 2014.
+\bibitem{b8} G.~Lample \textit{et al.}, ``HyperTree proof search for neural theorem proving,'' in \textit{Proc.\ NeurIPS}, 2022.
+\bibitem{b9} A.~Paliwal \textit{et al.}, ``Graph representations for higher-order logic and theorem proving,'' in \textit{Proc.\ AAAI}, 2020.
+\bibitem{b10} Z.~Shao \textit{et al.}, ``DeepSeekMath: Pushing the limits of mathematical reasoning in open language models,'' \textit{arXiv:2402.03300}, 2024.
+\bibitem{b11} F.~R.~K.\ Chung, \textit{Spectral Graph Theory}. Providence, RI: AMS, 1997.
+\bibitem{b12} M.~Fiedler, ``Algebraic connectivity of graphs,'' \textit{Czechoslovak Mathematical Journal}, vol.~23, no.~2, pp.~298--305, 1973.
+\bibitem{b13} N.~Shervashidze \textit{et al.}, ``Weisfeiler-Lehman graph kernels,'' \textit{Journal of Machine Learning Research}, vol.~12, pp.~2539--2561, 2011.
+\bibitem{b14} K.~Guo and B.~Mohar, ``Hermitian adjacency matrix of digraphs and mixed graphs,'' \textit{Journal of Graph Theory}, vol.~85, no.~1, pp.~217--248, 2017.
+\end{thebibliography}
+
+\end{document}
+
+
+math modeling project
+Skip to Main Content
+American Diabetes Association Logo
+Open Menu
+header search
+search input
+Search...
+Search input auto suggest
+filter your search
+Diabetes
+Search
+Advanced Search
+Sign In
+Open Menu
+Diabetes
+CurrentOpen Menu
+BrowseOpen Menu
+Info & AboutOpen Menu
+PodcastsOpen Menu
+SubscriptionsOpen Menu
+Email Alerts
+SubmitOpen Menu
+Skip Nav Destination
+Volume 74, Issue Supplement_1
+June 2025
+Diabetes Cover Image for Volume 74, Issue Supplement_1
+Previous Article
+Next Article
+P: Health Care Delivery—Economics| June 20 2025
+1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover? Free
+WENHAO LU; AMELIA XIE; YIMEI YOU
+Crossmark: Check for Updates
+Diabetes 2025;74(Supplement_1):1050-P
+https://doi.org/10.2337/db25-1050-P
+Split-Screen
+Share Icon
+Share 
+Cite Icon
+Cite
+Get Permissions
+Introduction and Objective: We created a data-driven prioritizing system to determine which groups of patients benefit most by insurance coverage of Semaglutide based on short- and long-term cost effectiveness in managing obesity and related chronic diseases. This prioritizing model will enhance societal health outcomes and promote equitable access compared to current affordability-based coverage models.
+
+Methods: This study uses a retrospective cohort design with CDC survey data from 2019-2023. We analyzed the prevalence of obesity-related diseases across different weight groups to simulate the potential effectiveness of Semaglutide in managing chronic conditions. Correlation analysis was used to identify significant risks of chronic conditions, assign priority scores based on the strength of correlation, and incorporate an AI neural network to model complex relationships between predictors and outcomes.
+
+Results: We found a strong correlation between BMI increases and the prevalence of several chronic conditions, such as hypertension, hypercholesterolemia, and prediabetes. Priority scores were assigned to these conditions based on the strength of their correlation with BMI increments and the associated annual medical costs of their increased prevalence. Our model indicates that Semaglutide as a weight control intervention will yield the greatest benefits for populations with higher priority scores, ultimately reducing overall healthcare costs.
+
+Conclusion: The prioritizing model is an effective way to suggest patient coverage of Semaglutide based on medical necessity because it shows a significant reduction in predicted long-term healthcare costs. This model ensures that those with the greatest need receive the medication, while minimizing strain on the overburdened healthcare system to maintain economic sustainability. The priority model can be further improved upon to increase its accuracy by adding more datasets and exploring alternate factors.
+
+Disclosure
+W. Lu: None. A. Xie: None. Y. You: None.
+
+© 2025 by the American Diabetes Association
+Readers may use this article as long as the work is properly cited, the use is educational and not for profit, and the work is not altered. More information is available at http://www.diabetesjournals.org/content/license.
+View Metrics
+Email alerts
+Article Activity Alert
+Online Ahead of Print Alert
+Latest Issue Alert
+Most Read
+Most Cited
+1296-P: Sex Differences in the Initiation of Blood Pressure (BP) Medications in Type 1 Diabetes (T1D)
+The Role of GIP in the Regulation of GLP-1 Satiety and Nausea
+300-OR: Beneficial Effect of the Combination Therapy of Cagrilintide, a Dual Amylin/Calcitonin Agonist, and Tirzepatide, a Dual GLP-1/GIP Agonist, on Body Weight Loss in Obese Rats
+713-P: Is There a Correct Time to Measure Fasting Blood Sugar in Persons with Type 2 Diabetes Melitus?
+Cushing Syndrome, Hypercortisolism, and Glucose Homeostasis: A Review
+Online ISSN 1939-327X Print ISSN 0012-1797
+Journals
+Diabetes
+Diabetes Care
+Diabetes, Obesity, and CardioMetabolic CARE
+Clinical Diabetes
+Diabetes Spectrum
+Standards of Medical Care in Diabetes
+Scientific Sessions Abstracts
+BMJ Open Diabetes Research & Care
+Books
+ShopDiabetes.org
+ADA Professional Books
+Clinical Compendia
+Clinical Compendia Home
+News
+Latest News
+DiabetesPro SmartBrief
+Podcasts
+Diabetes Core Update
+Diabetes Care "On Air"
+DiabetesBio
+Diabetes Day by Day
+Diabetes Core Update: Special Editions
+The Points of CARE
+Other
+Special Collections
+DiabetesPro®
+Diabetes Food Hub™
+Know Diabetes By Heart™
+About
+About the ADA
+Journal Policies
+Accessibility
+For Reviewers
+Advertising in ADA Journals
+Reprints and Permission for Reuse
+Copyright Notice/Public Access Policy
+Privacy Policy
+Resources
+ADA Professional Membership
+ADA Member Directory
+Diabetes.org
+
+Bluesky
+X (Twitter)
+Facebook
+LinkedIn
+Contact Us Cookie Policy Accessibility Terms & Conditions Get Adobe Acrobat Reader© Copyright American Diabetes Association
+This site uses cookies. By continuing to use our website, you are agreeing to our privacy policy.
+Accept
+close advertisement
