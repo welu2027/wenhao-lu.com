@@ -284,6 +284,7 @@ GEM
     webrick (1.9.2)
 
 PLATFORMS
+  aarch64-linux
   aarch64-linux-gnu
   aarch64-linux-musl
   arm-linux-gnu
@@ -326,4 +327,4 @@ DEPENDENCIES
   ostruct
 
 BUNDLED WITH
-  2.5.23
+  4.0.4
