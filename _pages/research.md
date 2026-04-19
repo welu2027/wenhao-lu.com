@@ -23,7 +23,7 @@ Building [WorldModelLens](https://github.com/Bhavith-Chandra/WorldModelLens), th
 
 ## Stevens Institute of Technology, Spectral Graph Theory
 
-**Independent research under mentorship of [Prof. Zhuo Feng](https://www.stevens.edu/profile/zfeng7) (on sabbatical at NVIDIA Research)** | 2025 – present
+**Independent research under mentorship at Stevens Institute of Technology** | 2025 – present
 
 Established proof graphs as an interpretable mathematical structure by applying [algebraic graph theory](https://en.wikipedia.org/wiki/Algebraic_graph_theory) and [spectral methods](https://en.wikipedia.org/wiki/Spectral_graph_theory) to show that logically coherent proofs form spectrally more robust dependency graphs via the [Fiedler value](https://en.wikipedia.org/wiki/Algebraic_connectivity) and [Cheeger's inequality](https://en.wikipedia.org/wiki/Cheeger_constant_(graph_theory)), enabling structural AI reasoning evaluation entirely independent of semantic content. This groundwork enabled [Graph2Proof](/projects/graph2proof/), a framework that uses GNN-derived structural rewards to train 7B LLMs to surpass open-source 32-72B models at natural language theorem proving. Currently extending spectral techniques to [image segmentation](https://arxiv.org/abs/2006.11462).
 
@@ -38,7 +38,7 @@ Established proof graphs as an interpretable mathematical structure by applying 
 
 ## Wellesley College, Mathematics & Democracy
 
-**Research group mentored by [Brian Brubach](https://www.wellesley.edu/cs/faculty/brubach)** | Incoming summer 2026
+**Research group at Wellesley College** | Incoming summer 2026
 
 Conducting interdisciplinary mathematical research on democratic systems and voting as part of Wellesley College's [Institute for Mathematics and Democracy](https://www.wellesley.edu/imd).
 
@@ -50,7 +50,7 @@ Conducting interdisciplinary mathematical research on democratic systems and vot
 
 ## Bridgewater Internal Medicine, Math Modeling & Actuarial Science
 
-**Independent research mentored by Yimei You MD** | 2024 – 2025
+**Independent research** | 2024 – 2025
 
 Developed a novel risk stratification model for [Semaglutide](https://www.nejm.org/doi/full/10.1056/NEJMoa2032583) insurance coverage that replaces traditional affordability criteria with a necessity-driven approach, advancing health equity and projecting **$269 billion in 10-year savings** for the U.S. healthcare system. First-author publication in [*Diabetes*](https://doi.org/10.2337/db25-1050-P). Sole high school poster presenter at the [ADA 85th Scientific Sessions](https://professional.diabetes.org/scientific-sessions).
 
