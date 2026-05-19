@@ -352,7 +352,8 @@ section { padding: var(--pad-y) 0; }
 .preview-card:hover { background: var(--bg-2); }
 .pv-key { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); }
 .pv-title { font-family: var(--serif); font-size: 22px; line-height: 1.05; margin: 2px 0 4px; }
-.pv-desc { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.pv-desc { font-size: 13.5px; color: #837866; line-height: 1.45; }
+.pv-desc em { color: inherit; }
 .pv-arrow {
   position: absolute;
   top: 14px; right: 14px;
