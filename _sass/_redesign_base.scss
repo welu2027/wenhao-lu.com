@@ -3,8 +3,8 @@
 * { box-sizing: border-box; }
 
 html, body {
-  background: var(--bg) !important;
-  color: var(--fg) !important;
+  background: #f3ede1 !important;
+  color: #1d1a14 !important;
   font-family: var(--body) !important;
   font-size: 17px !important;
   line-height: 1.6 !important;
@@ -25,6 +25,6 @@ body::before {
   opacity: 0.5;
 }
 
-a { color: var(--fg); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { color: var(--accent); }
-::selection { background: var(--accent-soft); color: var(--fg); }
+a { color: #1d1a14; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #b06a2a; }
+::selection { background: #e8c69a; color: #1d1a14; }
