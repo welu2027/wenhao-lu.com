@@ -38,8 +38,8 @@
 
     <div class="pub-venue">
       {% if entry.abbr %}<span class="badge">{{ entry.abbr }}</span>{% endif %}
-      {% if entry.journal %}{{ entry.journal }}
-      {% elsif entry.booktitle %}{{ entry.booktitle }}{% endif %}
+      {% if entry.journal %}<em>{{ entry.journal }}</em>
+      {% elsif entry.booktitle %}<em>{{ entry.booktitle }}</em>{% endif %}
       {% if entry.additional_info %} · {{ entry.additional_info | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% endif %}
     </div>
 
