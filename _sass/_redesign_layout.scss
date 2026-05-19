@@ -150,7 +150,7 @@
   letter-spacing: 0.3px;
 }
 .meta-strip .meta-item { display: flex; gap: 8px; }
-.meta-strip .meta-key { color: var(--muted-2); text-transform: uppercase; letter-spacing: 1.2px; font-size: 11px; }
+.meta-strip .meta-key { color: var(--muted-2); font-size: 13px; display: flex; align-items: center; }
 .meta-strip a { color: var(--fg-2); text-decoration: none; }
 .meta-strip a:hover { color: var(--accent); }
 
