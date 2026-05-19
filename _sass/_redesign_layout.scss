@@ -266,6 +266,18 @@ section { padding: var(--pad-y) 0; }
   position: relative;
 }
 .now-card:hover { background: var(--bg-2); }
+.now-card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.now-card-img img {
+  max-width: 100%;
+  max-height: 160px;
+  width: auto;
+  object-fit: contain;
+}
 .now-kicker {
   font-family: var(--mono);
   font-size: 11px;

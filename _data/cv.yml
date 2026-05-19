@@ -4,7 +4,7 @@ cv:
   phone: "(862)-340-3152"
   location: Millburn, NJ
   image: ""
-  summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NXT Horizon, a STEM talent accelerator spanning 25+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
+  summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NXT Horizon, a AI talent accelerator spanning 50+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
 
   social_networks:
     - network: GitHub
@@ -67,7 +67,7 @@ cv:
         start_date: 2024
         end_date: present
         highlights:
-          - "Scaled talent accelerator equipping underrepresented students left behind in STEM with the skills, mentorship, and real-world experience to unlock STEM pathways and careers; expanded to 25+ countries and 650+ in career pipeline"
+          - "Scaled talent accelerator equipping underrepresented students left behind in STEM with the skills, mentorship, and real-world experience to unlock STEM pathways and careers; expanded to 50+ countries and 1.2K+ in career pipeline"
           - "Backed by 10 sponsors including HRT and CodeCrafters (YC S22); partnered with executives from PayPal, AWS, Meta, Microsoft"
 
       - company: Mustang Math
