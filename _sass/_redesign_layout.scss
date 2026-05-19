@@ -198,6 +198,39 @@ section { padding: var(--pad-y) 0; }
 
 /* ---------- tag chips ---------- */
 .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+
+.affil-strip {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.affil-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.affil-logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.affil-logos img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.affil-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
 .tag {
   font-family: var(--mono);
   font-size: 11.5px;

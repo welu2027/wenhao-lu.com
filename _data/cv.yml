@@ -4,7 +4,7 @@ cv:
   phone: "(862)-340-3152"
   location: Millburn, NJ
   image: ""
-  summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NEXT Horizon, a STEM talent accelerator spanning 25+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
+  summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NXT Horizon, a STEM talent accelerator spanning 25+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
 
   social_networks:
     - network: GitHub
@@ -60,7 +60,7 @@ cv:
           - "Collaborated with MD for clinical validation; sole high school poster presenter at ADA 85th Scientific Sessions; first-author publication in Diabetes (DOI: 10.2337/db25-1050-P)"
 
     Experience:
-      - company: NEXT Horizon
+      - company: NXT Horizon
         position: Founder & CEO
         location: Remote
         url: https://nxthorizon.org
