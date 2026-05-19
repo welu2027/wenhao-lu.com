@@ -7,18 +7,6 @@ nav: true
 nav_order: 4
 ---
 
-<img src="{{ '/assets/img/nyu.png' | relative_url }}" alt="NYU" style="float:right; width:110px; margin:0 0 1rem 1.5rem; border-radius:6px;">
-
-## New York University, AI Safety
-
-**Working with research group, led by grad student at NYU CoPHEE** | 2026 – present
-
-Building [WorldModelLens](https://github.com/Bhavith-Chandra/WorldModelLens), the first interpretability and observability library for world models. It serves the same role that [TransformerLens](https://github.com/TransformerLensOrg/TransformerLens) serves for LLMs, purpose-built for [IRIS](https://arxiv.org/abs/2209.00588), [DreamerV3](https://arxiv.org/abs/2301.04104), [V-JEPA](https://arxiv.org/abs/2404.08471), and other WM architectures. Also developing a [Neuronpedia](https://www.neuronpedia.org/)-style interactive visualization platform to allow researchers to inspect world model internals in real time.
-
-<div style="clear:both;"></div>
-
----
-
 <img src="{{ '/assets/img/stevens.png' | relative_url }}" alt="Stevens Institute of Technology" style="float:right; width:110px; margin:0 0 1rem 1.5rem; border-radius:6px;">
 
 ## Stevens Institute of Technology, Spectral Graph Theory

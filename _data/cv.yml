@@ -31,8 +31,6 @@ cv:
         start_date: 2026
         end_date: present
         highlights:
-          - "Building WorldModelLens, the first interpretability and observability library for world models and SSMs, analogous to TransformerLens but for WM architectures (IRIS, DreamerV3, V-JEPA); only high schooler in research group of NYU grad students"
-          - "Developing a Neuronpedia-style interactive visualization platform to allow researchers to inspect world model internals in real time"
 
       - company: Wellesley College
         position: "Mathematics & Democracy Researcher"
@@ -138,7 +136,7 @@ cv:
 
       - name: Machine Learning
         icon: fa-solid fa-brain
-        keywords: "PyTorch, scikit-learn, world models"
+        keywords: "PyTorch, scikit-learn"
 
       - name: Data Analysis
         icon: fa-solid fa-chart-line
