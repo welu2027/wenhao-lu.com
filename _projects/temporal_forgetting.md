@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: redesign_default
 title: Where Does Knowledge Go?
 description: Mechanistic tracing of temporal forgetting in RL-trained LLMs.
 importance: 4

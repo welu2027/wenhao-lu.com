@@ -3,8 +3,7 @@ layout: page
 permalink: /outreach/
 title: initiatives
 description: Leadership and community building in STEM education.
-nav: true
-nav_order: 5
+nav: false
 ---
 
 <img src="{{ '/assets/img/nxthorizon.png' | relative_url }}" alt="NXT Horizon" style="float:right; width:130px; margin:0 0 1rem 1.5rem; border-radius:6px;">

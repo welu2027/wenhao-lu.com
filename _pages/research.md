@@ -3,8 +3,7 @@ layout: page
 permalink: /research/
 title: research
 description: An overview of my research across AI safety, math, and policy.
-nav: true
-nav_order: 4
+nav: false
 ---
 
 <img src="{{ '/assets/img/stevens.png' | relative_url }}" alt="Stevens Institute of Technology" style="float:right; width:110px; margin:0 0 1rem 1.5rem; border-radius:6px;">

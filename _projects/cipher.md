@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: redesign_default
 title: CIPHER
 description: "CIPHER (Calibrated Introspection via Partially Hidden Environment Rules) is a procedural benchmark for metacognitive calibration in large language models."
 importance: 3

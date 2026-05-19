@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: redesign_default
 title: "Equitable Semaglutide Coverage via Ensemble-Based Risk Scoring"
 description: Necessity-driven insurance coverage model replacing affordability criteria for Semaglutide.
 ---

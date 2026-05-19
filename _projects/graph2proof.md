@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: redesign_default
 title: "Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving"
 description: GNN-derived structural reward for RL-based natural language theorem proving.
 github: https://github.com/welu2027/Graph2Proof
