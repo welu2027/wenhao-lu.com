@@ -41,20 +41,13 @@
       rgba(243, 237, 225, 0.72) 100%);
 }
 
-/* the base theme paints an opaque cream on html/body — let the
-   painting show through instead. */
+/* every page lets the painting show through the base cream fill */
 html,
 body {
   background: transparent !important;
 }
 body {
   position: relative;
-}
-
-/* On dense inner pages we lift the wash so long-form text is calm.
-   Homepage (layout: about) keeps the vivid backdrop. */
-body:not(.home) .ink-bg::after {
-  background: rgba(243, 237, 225, 0.9);
 }
 
 /* ---------- homepage hero: vertical calligraphy + intro ---------- */
@@ -87,11 +80,7 @@ body:not(.home) .ink-bg::after {
   color: var(--fg);
 }
 .ink-intro p {
-  display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  background: rgba(235, 227, 212, 0.82);
-  box-shadow: 0 0 0 4px rgba(235, 227, 212, 0.82);
+  background: none;
 }
 .ink-intro p + p {
   margin-top: 26px;
