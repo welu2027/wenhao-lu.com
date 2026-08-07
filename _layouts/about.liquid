@@ -1,49 +1,27 @@
 ---
 layout: redesign_default
 ---
-<div class="fade-in">
+<div class="fade-in ink-page-body">
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-photo">
-      <img src="{{ '/assets/img/selfie.jpg' | relative_url }}" alt="Wenhao Lu">
-    </div>
-    <div class="hero-info">
-      <div class="hero-role">
-        <span class="dot"></span>
-        AI SAFETY RESEARCHER <span class="dot"></span> BUILDER
+  <!-- Ink-landscape hero -->
+  {%- comment -%}
+    ink_name  = vertical name of the site owner. Given name 文灏 (wén hào).
+    Prepend your surname character once confirmed, e.g. 陆文灏 / 卢文灏.
+  {%- endcomment -%}
+  {% assign ink_name = "文灏" %}
+  <header class="ink-hero">
+    <h1 class="ink-name">{{ ink_name }}</h1>
 
-      </div>
-      <h1 class="hero-name">
-        <span class="last">Wenhao</span>
-        <span class="accent">Lu</span>
-      </h1>
+    <div class="ink-intro">
+      <span class="block"
+        ><p>hey, i'm Wenhao Lu — a 17-year-old into AI safety research and building startups. i work on mechanistic interpretability, spectral graph theory, and AI4Math.</p></span
+      >
+      <span class="block"
+        ><p>i built this site to share what i'm thinking about, document projects i've shipped, and everything in between.</p></span
+      >
     </div>
+
   </header>
-
-  <!-- Meta strip -->
-  <div class="meta-strip">
-    <div class="meta-item">
-      <span class="meta-key"><i class="fa-solid fa-envelope"></i></span>
-      <a href="mailto:{{ site.data.socials.email }}">{{ site.data.socials.email }}</a>
-    </div>
-    <div class="meta-item">
-      <span class="meta-key"><i class="ai ai-google-scholar"></i></span>
-      <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener">google scholar</a>
-    </div>
-    <div class="meta-item">
-      <span class="meta-key"><i class="ai ai-orcid"></i></span>
-      <a href="https://orcid.org/{{ site.data.socials.orcid_id }}" target="_blank" rel="noopener">orcid</a>
-    </div>
-    <div class="meta-item">
-      <span class="meta-key"><i class="fa-brands fa-github"></i></span>
-      <a href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener">{{ site.data.socials.github_username }}</a>
-    </div>
-    <div class="meta-item">
-      <span class="meta-key"><i class="fa-brands fa-linkedin"></i></span>
-      <a href="https://linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener">{{ site.data.socials.linkedin_username }}</a>
-    </div>
-  </div>
 
   <!-- § 01 About -->
   <section>

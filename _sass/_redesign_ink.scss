@@ -1,0 +1,117 @@
+/* ============================================================
+   Ink-landscape theme — sansuhwa / shanshui aesthetic
+   Full-bleed watercolor backdrop + brush calligraphy hero
+   ============================================================ */
+
+/* ---------- fixed background layer (all pages) ---------- */
+.ink-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: image-set(
+    url("/assets/img/ink-landscape.avif") type("image/avif"),
+    url("/assets/img/ink-landscape.jpg") type("image/jpeg")
+  );
+  background-image: url("/assets/img/ink-landscape.jpg"); /* fallback for old parsers */
+  background-image: image-set(
+    url("/assets/img/ink-landscape.avif") type("image/avif"),
+    url("/assets/img/ink-landscape.jpg") type("image/jpeg")
+  );
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* cream wash so text stays legible over the painting.
+   left edge is washed harder (that's where the hero text sits). */
+.ink-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(243, 237, 225, 0.94) 0%,
+      rgba(243, 237, 225, 0.72) 26%,
+      rgba(243, 237, 225, 0.45) 55%,
+      rgba(243, 237, 225, 0.55) 100%),
+    linear-gradient(180deg,
+      rgba(243, 237, 225, 0.55) 0%,
+      rgba(243, 237, 225, 0.35) 40%,
+      rgba(243, 237, 225, 0.72) 100%);
+}
+
+/* the base theme paints an opaque cream on html/body — let the
+   painting show through instead. */
+html,
+body {
+  background: transparent !important;
+}
+body {
+  position: relative;
+}
+
+/* On dense inner pages we lift the wash so long-form text is calm.
+   Homepage (layout: about) keeps the vivid backdrop. */
+body:not(.home) .ink-bg::after {
+  background: rgba(243, 237, 225, 0.9);
+}
+
+/* ---------- homepage hero: vertical calligraphy + intro ---------- */
+.ink-hero {
+  position: relative;
+  min-height: min(88vh, 760px);
+  padding: 46px 0 40px;
+}
+
+/* giant vertical name down the left */
+.ink-name {
+  font-family: var(--brush);
+  font-weight: 400;
+  color: var(--fg);
+  font-size: clamp(76px, 12vw, 150px);
+  line-height: 0.94;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 4px;
+  margin: 40px 0 0 6px;
+}
+
+/* monospace intro blocks with translucent paper highlight, like the ref */
+.ink-intro {
+  margin-top: 40px;
+  max-width: 340px;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--fg);
+}
+.ink-intro p {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: rgba(235, 227, 212, 0.82);
+  box-shadow: 0 0 0 4px rgba(235, 227, 212, 0.82);
+}
+.ink-intro p + p {
+  margin-top: 26px;
+}
+.ink-intro .block {
+  display: block;
+  margin-bottom: 22px;
+}
+.ink-intro a {
+  text-decoration-thickness: 1px;
+}
+
+@media (max-width: 720px) {
+  .ink-hero { min-height: auto; padding: 24px 0 20px; }
+  .ink-name { font-size: clamp(64px, 20vw, 100px); margin-top: 20px; }
+  .ink-intro { margin-top: 30px; max-width: 100%; }
+}
+
+/* ---------- give content sections a soft paper backing ---------- */
+.ink-page-body section,
+.ink-page-body .prose {
+  position: relative;
+}

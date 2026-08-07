@@ -3,7 +3,8 @@
   <head>
     {% include head.liquid %}
   </head>
-  <body>
+  <body class="{% if page.permalink == '/' %}home{% endif %}">
+    <div class="ink-bg" aria-hidden="true"></div>
     <div class="shell">
       {% include redesign_nav.liquid %}
       {{ content }}
