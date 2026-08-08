@@ -57,6 +57,19 @@ body {
   padding: 46px 0 40px;
 }
 
+/* circular portrait, upper-right of the hero */
+.ink-photo {
+  position: absolute;
+  top: 46px;
+  right: 8px;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg);
+  box-shadow: 0 6px 22px rgba(29, 26, 20, 0.22);
+}
+
 /* giant vertical name down the left */
 .ink-name {
   font-family: var(--brush);
