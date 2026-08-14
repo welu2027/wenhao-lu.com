@@ -4,7 +4,7 @@ title: IIMOC 2026 gold medal writeup
 date: 2026-08-14
 ---
 
-The [International Invitational Mathematical Olympiad in Computing (IIMOC)](https://iimoc.org/) sources its problems from the [Frontier CS benchmark](https://arxiv.org/abs/2512.15699), a set of NP-hard optimization tasks where the global optimum is likely unknown. Entrants are scored on how good a solution they can actually construct rather than on proving optimality.
+The [International Invitational Math Optimization Challenge (IIMOC)](https://iimoc.org/) sources its problems from the [Frontier CS benchmark](https://arxiv.org/abs/2512.15699), a set of NP-hard optimization tasks where the global optimum is likely unknown. Entrants are scored on how good a solution they can construct rather than proving optimality.
 
 Competing solo, I placed **8th out of 306 teams** across **15,346 total submissions**, earning a gold medal. See the [final leaderboard](https://iimoc.org/leaderboard2026.html).
 

@@ -21,14 +21,12 @@ layout: redesign_default
   {% else %}
     <div>
       {% for post in site.posts %}
-        {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
         <a class="blog-row" href="{{ post.url | relative_url }}" style="text-decoration:none;">
           <div class="blog-date">{{ post.date | date: '%b %Y' }}</div>
           <div>
             <div class="blog-title">{{ post.title }}</div>
             {% if post.description %}<div class="blog-summary">{{ post.description }}</div>{% endif %}
           </div>
-          <div class="blog-len">{{ read_time }} min</div>
         </a>
       {% endfor %}
     </div>

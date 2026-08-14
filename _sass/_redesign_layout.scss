@@ -657,11 +657,11 @@ details.proj-details summary:hover { color: var(--accent); }
   background: var(--bg-2, #fff);
   display: block;
 }
-/* single-page certificate: match the US Letter page ratio so the whole
-   page fits with no scrollbar and no dead viewer background below it */
+/* single-page certificate: matches the pdf's cropped page box (612x642)
+   so the whole page fits with no scrollbar and no dead space below it */
 .pdf-embed-fit iframe {
   height: auto;
-  aspect-ratio: 612 / 792;
+  aspect-ratio: 612 / 642;
 }
 @media (max-width: 700px) {
   .pdf-embed iframe { height: 460px; }
