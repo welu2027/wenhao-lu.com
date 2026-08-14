@@ -645,6 +645,40 @@ details.proj-details summary:hover { color: var(--accent); }
 .foot-left a i { font-size: 17px; line-height: 1; vertical-align: middle; }
 .foot-right { color: var(--muted-2); }
 
+/* ---------- image pair (dexter left, repo right) ---------- */
+/* transparent pngs sitting straight on the paper: no cards, no frames */
+/* dexter on the left, the text in the middle, the repo link on the right */
+.img-duo {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin: 26px 0;
+}
+.img-duo .duo-art,
+.img-duo .repo-img { flex: 0 0 200px; max-width: 200px; }
+/* the middle column is plain body copy, styled like every other paragraph */
+.duo-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  text-wrap: pretty;
+}
+.duo-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.repo-img {
+  display: block;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.repo-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.repo-img:hover { transform: translateY(-2px); opacity: 0.88; }
+
 /* ---------- embedded pdfs ---------- */
 .pdf-embed {
   margin: 24px 0 32px;
@@ -657,15 +691,43 @@ details.proj-details summary:hover { color: var(--accent); }
   background: var(--bg-2, #fff);
   display: block;
 }
-/* single-page certificate: matches the pdf's cropped page box (612x642)
-   so the whole page fits with no scrollbar and no dead space below it */
-.pdf-embed-fit iframe {
-  height: auto;
-  aspect-ratio: 612 / 642;
+/* the certificate is a flat image, not a pdf viewer: nothing to zoom,
+   scroll, or shrink, so it always fills its frame exactly */
+.cert-embed {
+  margin: 24px 0 32px;
 }
+.cert-embed img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+/* multi-page paper rendered to flat images inside a scroll box: the pages
+   scroll, but there is no pdf viewer to zoom out or shrink them */
+.paper-scroll {
+  margin: 24px 0 32px;
+  height: 780px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg-2, #fff);
+  -webkit-overflow-scrolling: touch;
+}
+.paper-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.paper-scroll img + img { border-top: 1px solid var(--rule); }
+
 @media (max-width: 700px) {
+  .img-duo { flex-direction: column; gap: 18px; }
+  .img-duo .duo-art,
+  .img-duo .repo-img { flex: 0 0 auto; max-width: 200px; }
   .pdf-embed iframe { height: 460px; }
-  .pdf-embed-fit iframe { height: auto; }
+  .paper-scroll { height: 520px; }
 }
 
 /* ---------- animations ---------- */
