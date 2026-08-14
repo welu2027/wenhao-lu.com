@@ -657,16 +657,15 @@ details.proj-details summary:hover { color: var(--accent); }
   background: var(--bg-2, #fff);
   display: block;
 }
-.pdf-embed-short iframe { height: 520px; }
-.pdf-embed figcaption {
-  margin-top: 8px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
+/* single-page certificate: match the US Letter page ratio so the whole
+   page fits with no scrollbar and no dead viewer background below it */
+.pdf-embed-fit iframe {
+  height: auto;
+  aspect-ratio: 612 / 792;
 }
 @media (max-width: 700px) {
   .pdf-embed iframe { height: 460px; }
-  .pdf-embed-short iframe { height: 360px; }
+  .pdf-embed-fit iframe { height: auto; }
 }
 
 /* ---------- animations ---------- */
