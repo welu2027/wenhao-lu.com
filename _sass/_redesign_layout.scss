@@ -642,6 +642,7 @@ details.proj-details summary:hover { color: var(--accent); }
 }
 .foot a { color: var(--fg-2); margin-right: 16px; text-decoration: none; }
 .foot a:hover { color: var(--accent); }
+.foot-left a i { font-size: 17px; line-height: 1; vertical-align: middle; }
 .foot-right { color: var(--muted-2); }
 
 /* ---------- animations ---------- */
