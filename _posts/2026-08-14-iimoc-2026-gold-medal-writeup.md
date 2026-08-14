@@ -16,12 +16,6 @@ Competing solo, I placed **8th out of 306 teams** across **15,346 total submissi
   </a>
 </div>
 
-### Certificate
-
-<figure class="cert-embed">
-  <img src="{{ '/assets/img/iimoc-2026-certificate.webp' | relative_url }}" alt="IIMOC 2026 gold award certificate for Wenhao Lu" loading="lazy" width="1840" height="1931">
-</figure>
-
 ### Solutions
 
 <figure class="paper-scroll">
@@ -29,4 +23,10 @@ Competing solo, I placed **8th out of 306 teams** across **15,346 total submissi
     {% assign num = n | prepend: '0' | slice: -2, 2 %}
     <img src="{{ '/assets/img/iimoc-solutions/page-' | append: num | append: '.webp' | relative_url }}" alt="IIMOC 2026 solutions, page {{ n }} of 9" loading="lazy" width="1400" height="1812">
   {% endfor %}
+</figure>
+
+### Certificate
+
+<figure class="cert-embed">
+  <img src="{{ '/assets/img/iimoc-2026-certificate.webp' | relative_url }}" alt="IIMOC 2026 gold award certificate for Wenhao Lu" loading="lazy" width="1840" height="1931">
 </figure>
