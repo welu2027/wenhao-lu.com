@@ -2,33 +2,67 @@
 layout: redesign_default
 ---
 <div class="fade-in ink-page-body">
-
   <!-- Ink-landscape hero -->
   {%- comment -%}
     ink_name  = vertical name of the site owner. Given name 文灏 (wén hào).
     Prepend your surname character once confirmed, e.g. 陆文灏 / 卢文灏.
   {%- endcomment -%}
-  {% assign ink_name = "文灏" %}
+  {% assign ink_name = '文灏' %}
   <header class="ink-hero">
     <h1 class="ink-name">{{ ink_name }}</h1>
 
     <div class="ink-profile">
       <img class="ink-photo" src="{{ '/assets/img/selfie.jpg' | relative_url }}" alt="Wenhao Lu" />
       <div class="ink-lanterns" aria-label="find me elsewhere">
-        <a class="lantern" href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.data.socials.email }}" target="_blank" rel="noopener" title="email" aria-label="email"><span class="globe"><i class="fa-solid fa-envelope"></i></span></a>
-        <a class="lantern" href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" title="google scholar" aria-label="google scholar"><span class="globe"><i class="ai ai-google-scholar"></i></span></a>
-        <a class="lantern" href="https://orcid.org/{{ site.data.socials.orcid_id }}" target="_blank" rel="noopener" title="orcid" aria-label="orcid"><span class="globe"><i class="ai ai-orcid"></i></span></a>
-        <a class="lantern" href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener" title="github" aria-label="github"><span class="globe"><i class="fa-brands fa-github"></i></span></a>
-        <a class="lantern" href="https://linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" title="linkedin" aria-label="linkedin"><span class="globe"><i class="fa-brands fa-linkedin"></i></span></a>
+        <a
+          class="lantern"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.data.socials.email }}"
+          target="_blank"
+          rel="noopener"
+          title="email"
+          aria-label="email"
+          ><span class="globe"><i class="fa-solid fa-envelope"></i></span
+        ></a>
+        <a
+          class="lantern"
+          href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}"
+          target="_blank"
+          rel="noopener"
+          title="google scholar"
+          aria-label="google scholar"
+          ><span class="globe"><i class="ai ai-google-scholar"></i></span
+        ></a>
+        <a class="lantern" href="https://orcid.org/{{ site.data.socials.orcid_id }}" target="_blank" rel="noopener" title="orcid" aria-label="orcid"
+          ><span class="globe"><i class="ai ai-orcid"></i></span
+        ></a>
+        <a
+          class="lantern"
+          href="https://github.com/{{ site.data.socials.github_username }}"
+          target="_blank"
+          rel="noopener"
+          title="github"
+          aria-label="github"
+          ><span class="globe"><i class="fa-brands fa-github"></i></span
+        ></a>
+        <a
+          class="lantern"
+          href="https://linkedin.com/in/{{ site.data.socials.linkedin_username }}"
+          target="_blank"
+          rel="noopener"
+          title="linkedin"
+          aria-label="linkedin"
+          ><span class="globe"><i class="fa-brands fa-linkedin"></i></span
+        ></a>
       </div>
     </div>
 
     <div class="ink-intro">
-      <span class="block"
-        ><p>hi! i'm wenhao lu, a 17 year old builder &amp; ai researcher. i'm interested in AI safety, math (research focus: incidence geometry), and effective altruism.</p></span
-      >
+      <span class="block">
+        <p>
+          hi! i'm wenhao lu, a 17 year old builder &amp; ai researcher. i'm interested in AI safety (focus: mech interp, metacognition), math (research focus: discrete geometry), and
+          effective altruism.
+        </p>
+      </span>
     </div>
-
   </header>
-
 </div>

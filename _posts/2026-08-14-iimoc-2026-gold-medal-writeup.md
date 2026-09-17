@@ -1,6 +1,6 @@
 ---
 layout: post_redesigned
-title: IIMOC 2026 gold medal writeup
+title: Almost Optimal
 date: 2026-08-14
 ---
 

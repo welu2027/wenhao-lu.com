@@ -1098,6 +1098,43 @@ details.proj-details summary:hover {
   border: 1px solid var(--rule);
   border-radius: 4px;
 }
+/* plain diagram figure: transparent art straight on the paper, no frame */
+.fig-diagram {
+  margin: 28px 0 30px;
+  text-align: center;
+}
+.fig-diagram img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin: 0 auto;
+}
+.fig-diagram figcaption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: var(--col);
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: pretty;
+}
+/* diagram thumbnails in project cards are contained, not cropped */
+.now-card-img.is-diagram {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.now-card-img.is-diagram img {
+  object-fit: contain;
+  width: auto;
+  max-width: 100%;
+  max-height: 260px;
+}
+
 @media (max-width: 700px) {
   .img-duo {
     flex-direction: column;
@@ -1110,6 +1147,106 @@ details.proj-details summary:hover {
   }
   .pdf-embed iframe {
     height: 460px;
+  }
+}
+
+/* ---------- initiatives ---------- */
+.init-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.init-card:last-child {
+  border-bottom: 0;
+}
+.init-logo {
+  flex: 0 0 72px;
+  width: 72px;
+  display: block;
+  margin-top: 2px;
+}
+.init-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.init-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.init-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.1;
+  margin: 0;
+}
+.init-name a {
+  color: var(--fg);
+  text-decoration: none;
+}
+.init-name a:hover {
+  color: var(--accent);
+}
+.init-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 6px 0 0;
+}
+.init-tagline {
+  margin: 10px 0 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.init-stats {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.init-stats li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.init-stats li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.init-contact {
+  margin: 12px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.init-contact a {
+  color: var(--fg-2);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+.init-contact a:hover {
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .init-card {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .init-logo {
+    flex: 0 0 auto;
+    width: 60px;
   }
 }
 
