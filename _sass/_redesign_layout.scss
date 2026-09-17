@@ -1331,8 +1331,8 @@ details.proj-details summary:hover {
 /* ---------- award cards: title, then the proof right under it ---------- */
 .award-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(226px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 26px;
   margin: 28px 0 10px;
   align-items: stretch;
 }
@@ -1357,9 +1357,9 @@ details.proj-details summary:hover {
 .award-title {
   display: flex;
   align-items: flex-start;
-  min-height: 4em;
+  min-height: 3.5em;
   font-family: var(--mono);
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: 0.2px;

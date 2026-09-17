@@ -8,7 +8,7 @@ nav: false
 <div class="page-anim">
     <div class="page-header">
       <div>
-        <h1 class="page-title">initiatives</h1>
+        <h1 class="page-title">initiatives (EA)</h1>
       </div>
       <div class="page-aside">
         <div class="crumb"><a href="{{ '/' | relative_url }}">&larr; back home</a></div>

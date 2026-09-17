@@ -18,7 +18,7 @@ nav: false
     <div class="now-grid">
       <a class="now-card" href="https://zenodo.org/records/22683569" target="_blank" rel="noopener">
         <span class="now-kicker">discrete geometry</span>
-        <h2 class="now-title">geometric (23<sub>4</sub>) configurations</h2>
+        <h2 class="now-title">Closing the existence problem for geometric (n<sub>4</sub>) configurations</h2>
         <p class="now-desc">
           The closure of an open problem posed by Gr&uuml;nbaum in 2000. Closes the last remaining
           case, n = 23, so it follows that a geometric (n<sub>4</sub>) configuration exists if and only if n &ge; 18
