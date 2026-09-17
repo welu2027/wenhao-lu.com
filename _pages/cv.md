@@ -35,6 +35,33 @@ nav: false
         <span class="award-title">Scholastic Gold Key + National Silver Medal (~2,500 / 330,000)</span>
         <img src="{{ '/assets/img/scholastic-silver-medal.png' | relative_url }}" alt="Scholastic Art &amp; Writing Awards 2026 National Silver Medal certificate for Wenhao Lu" loading="lazy" width="2376" height="1836">
       </a>
+
+      <a
+        class="award-card"
+        href="https://www.perfectgame.org/Players/Playerprofile.aspx?ID=1190614"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="award-title">2x Perfect Game Baseball, Northeast All-State Games Invitee</span>
+        <img
+          src="{{ '/assets/img/pg-all-state.png' | relative_url }}"
+          alt="Perfect Game Northeast All-State Games invitation for Wenhao Lu"
+          loading="lazy"
+          width="1264"
+          height="1172"
+        />
+      </a>
+
+      <a class="award-card" href="https://www.non-trivial.org/" target="_blank" rel="noopener">
+        <span class="award-title">Non-Trivial Research Foundations Finalist (1% acceptance rate)</span>
+        <img
+          src="{{ '/assets/img/nontrivial-research-foundations.png' | relative_url }}"
+          alt="Non-Trivial Research Foundations Program certificate for Wenhao Lu"
+          loading="lazy"
+          width="2525"
+          height="1784"
+        />
+      </a>
     </div>
 
 </div>
