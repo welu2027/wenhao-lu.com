@@ -8,15 +8,9 @@
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: image-set(
-    url("/assets/img/ink-landscape.avif") type("image/avif"),
-    url("/assets/img/ink-landscape.jpg") type("image/jpeg")
-  );
+  background-image: image-set(url("/assets/img/ink-landscape.avif") type("image/avif"), url("/assets/img/ink-landscape.jpg") type("image/jpeg"));
   background-image: url("/assets/img/ink-landscape.jpg"); /* fallback for old parsers */
-  background-image: image-set(
-    url("/assets/img/ink-landscape.avif") type("image/avif"),
-    url("/assets/img/ink-landscape.jpg") type("image/jpeg")
-  );
+  background-image: image-set(url("/assets/img/ink-landscape.avif") type("image/avif"), url("/assets/img/ink-landscape.jpg") type("image/jpeg"));
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -30,15 +24,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
-      rgba(243, 237, 225, 0.94) 0%,
-      rgba(243, 237, 225, 0.72) 26%,
-      rgba(243, 237, 225, 0.45) 55%,
-      rgba(243, 237, 225, 0.55) 100%),
-    linear-gradient(180deg,
-      rgba(243, 237, 225, 0.55) 0%,
-      rgba(243, 237, 225, 0.35) 40%,
-      rgba(243, 237, 225, 0.72) 100%);
+    linear-gradient(90deg, rgba(243, 237, 225, 0.96) 0%, rgba(243, 237, 225, 0.9) 26%, rgba(243, 237, 225, 0.84) 55%, rgba(243, 237, 225, 0.86) 100%),
+    linear-gradient(180deg, rgba(243, 237, 225, 0.66) 0%, rgba(243, 237, 225, 0.56) 40%, rgba(243, 237, 225, 0.8) 100%);
 }
 
 /* every page lets the painting show through the base cream fill */
@@ -86,7 +73,7 @@ body {
 }
 /* the cord the lanterns hang from */
 .ink-lanterns::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 4px;
@@ -105,7 +92,7 @@ body {
 }
 /* the short string from cord down to the lantern cap */
 .lantern::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -17px;
   left: 50%;
@@ -125,14 +112,15 @@ body {
   background:
     repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 7px),
     radial-gradient(circle at 34% 30%, #d5573f, #b23a2e 68%, #8f2c22);
-  box-shadow: inset -3px -2px 6px rgba(0, 0, 0, 0.28),
+  box-shadow:
+    inset -3px -2px 6px rgba(0, 0, 0, 0.28),
     inset 3px 2px 5px rgba(255, 220, 190, 0.25),
     0 3px 9px rgba(178, 58, 46, 0.32);
   transition: box-shadow 0.25s ease;
 }
 /* gold cap on top */
 .lantern .globe::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   left: 50%;
@@ -144,7 +132,7 @@ body {
 }
 /* gold cap + hanging tassel on the bottom */
 .lantern .globe::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -153,7 +141,10 @@ body {
   height: 6px;
   border-radius: 2px;
   background: linear-gradient(#eccb7d, #c89a3e);
-  box-shadow: 0 6px 0 -5px #cf3b2c, 0 11px 0 -5px #cf3b2c, 0 15px 0 -6px #cf3b2c;
+  box-shadow:
+    0 6px 0 -5px #cf3b2c,
+    0 11px 0 -5px #cf3b2c,
+    0 15px 0 -6px #cf3b2c;
 }
 .lantern .globe i {
   position: relative;
@@ -162,25 +153,49 @@ body {
   color: #ffe9c8;
 }
 /* stagger the sway so they don't move in unison */
-.lantern:nth-child(1) { animation-delay: -0.1s; animation-duration: 3.6s; }
-.lantern:nth-child(2) { animation-delay: -1.3s; animation-duration: 4.1s; }
-.lantern:nth-child(3) { animation-delay: -0.7s; animation-duration: 3.9s; }
-.lantern:nth-child(4) { animation-delay: -2.0s; animation-duration: 4.3s; }
-.lantern:nth-child(5) { animation-delay: -1.6s; animation-duration: 3.7s; }
+.lantern:nth-child(1) {
+  animation-delay: -0.1s;
+  animation-duration: 3.6s;
+}
+.lantern:nth-child(2) {
+  animation-delay: -1.3s;
+  animation-duration: 4.1s;
+}
+.lantern:nth-child(3) {
+  animation-delay: -0.7s;
+  animation-duration: 3.9s;
+}
+.lantern:nth-child(4) {
+  animation-delay: -2s;
+  animation-duration: 4.3s;
+}
+.lantern:nth-child(5) {
+  animation-delay: -1.6s;
+  animation-duration: 3.7s;
+}
 /* hover: swing faster + warm glow, like it just got lit */
 .lantern:hover {
   animation-duration: 1.1s;
 }
 .lantern:hover .globe {
-  box-shadow: inset -3px -2px 6px rgba(0, 0, 0, 0.28),
-    0 0 16px rgba(230, 130, 70, 0.85), 0 3px 9px rgba(178, 58, 46, 0.4);
+  box-shadow:
+    inset -3px -2px 6px rgba(0, 0, 0, 0.28),
+    0 0 16px rgba(230, 130, 70, 0.85),
+    0 3px 9px rgba(178, 58, 46, 0.4);
 }
 @keyframes lantern-sway {
-  0%, 100% { transform: rotate(-6.5deg); }
-  50% { transform: rotate(6.5deg); }
+  0%,
+  100% {
+    transform: rotate(-6.5deg);
+  }
+  50% {
+    transform: rotate(6.5deg);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lantern { animation: none; }
+  .lantern {
+    animation: none;
+  }
 }
 
 /* giant vertical name down the left */
@@ -220,9 +235,30 @@ body {
 }
 
 @media (max-width: 720px) {
-  .ink-hero { min-height: auto; padding: 24px 0 20px; }
-  .ink-name { font-size: clamp(64px, 20vw, 100px); margin-top: 20px; }
-  .ink-intro { margin-top: 30px; max-width: 100%; }
+  .ink-hero {
+    min-height: auto;
+    padding: 24px 0 20px;
+  }
+  .ink-name {
+    font-size: clamp(64px, 20vw, 100px);
+    margin-top: 20px;
+  }
+  .ink-intro {
+    margin-top: 26px;
+    max-width: 100%;
+  }
+  /* the portrait + lanterns stop floating over the copy and join the flow */
+  .ink-profile {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    margin: 18px auto 0;
+  }
+  .ink-lanterns {
+    margin-top: 28px;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
 }
 
 /* ---------- give content sections a soft paper backing ---------- */

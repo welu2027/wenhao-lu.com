@@ -1,6 +1,6 @@
 ---
 layout: reading_redesigned
-title: reading
-permalink: /reading/
+title: shelf
+permalink: /shelf/
 nav: false
 ---

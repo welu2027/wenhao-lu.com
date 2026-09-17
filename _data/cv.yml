@@ -1,7 +1,7 @@
 cv:
   name: Wenhao Lu
   email: wenhaolu2027@gmail.com
-  phone: "(862)-340-3152"
+  phone: ""
   location: ""
   image: ""
   summary: High school researcher & builder focused on AI safety, spectral graph theory, and AI4Math. Founder & CEO of NXT Horizon, an AI talent incubator spanning 50+ countries. Olympiad competitor turned startup enthusiast, focused on emerging technologies for social good.
@@ -90,8 +90,9 @@ cv:
 
     Awards:
       - title: USACO Platinum Division
-        date: 2026
+        date: 2025-26 season
         awarder: USA Computing Olympiad
+        url: /assets/img/usaco-platinum.png
 
       - title: "Scholastic National Silver Medal"
         date: 2026
@@ -113,7 +114,7 @@ cv:
       - title: USAJMO Honorable Mention
         date: 2025
         awarder: Mathematical Association of America
-        url: http://maa.org/wp-content/uploads/2026/02/2025-USAJMO-Awards-Winner-List.pdf
+        url: https://maa.org/wp-content/uploads/2026/02/2025-USAJMO-Awards-Winner-List.pdf
 
       - title: ADA 85th Scientific Sessions Presenter
         date: 2025

@@ -1250,6 +1250,228 @@ details.proj-details summary:hover {
   }
 }
 
+/* an inset restatement: no card, just indented and italic */
+.reduction {
+  margin: 20px 0 20px 34px;
+  padding-right: 12px;
+  font-style: italic;
+  color: var(--fg-2);
+  max-width: var(--col);
+  text-wrap: pretty;
+}
+
+.init-intro {
+  margin: 22px 0 34px;
+  max-width: var(--col);
+  line-height: 1.6;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+/* award proof images sit uncropped on their own plate */
+.now-card-img.is-proof {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.now-card-img.is-proof img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+}
+/* a card row with no paired image spans the grid */
+.now-grid.is-single {
+  grid-template-columns: 1fr;
+}
+.now-grid + .now-grid {
+  margin-top: 22px;
+}
+
+/* ---------- shelf ---------- */
+.shelf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 30px 24px;
+  margin: 30px 0 10px;
+}
+.shelf-item {
+  margin: 0;
+  width: 172px;
+}
+.shelf-item a {
+  display: block;
+}
+.shelf-item img {
+  display: block;
+  width: 100%;
+  height: 244px;
+  object-fit: contain;
+  object-position: bottom;
+  border-radius: 3px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+.shelf-item a:hover img {
+  transform: translateY(-3px);
+  filter: saturate(1.06);
+}
+
+/* ---------- award cards: title, then the proof right under it ---------- */
+.award-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin: 28px 0 10px;
+}
+.award-card {
+  display: block;
+  margin: 0;
+  width: 358px;
+  max-width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.award-card:hover {
+  background: var(--bg-2);
+  border-color: var(--accent);
+}
+.award-title {
+  display: block;
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--fg);
+  padding: 14px 16px 12px;
+}
+.award-card img {
+  display: block;
+  width: calc(100% - 28px);
+  height: auto;
+  margin: 0 14px 14px;
+  border-radius: 6px;
+  background: #fff;
+}
+@media (max-width: 700px) {
+  .award-card {
+    width: 100%;
+  }
+}
+
+/* a quote with its source mark standing beside it, outside the box */
+.quote-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 26px 0;
+}
+.quote-body,
+.quote-row .ea-quote {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.quote-row .ea-quote {
+  margin: 0;
+  max-width: none;
+}
+.quote-body blockquote {
+  margin: 0;
+}
+.quote-mark {
+  flex: 0 0 104px;
+  width: 104px;
+  display: block;
+}
+.quote-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 700px) {
+  .quote-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .quote-mark {
+    flex: 0 0 auto;
+    width: 76px;
+  }
+}
+
+/* ---------- pull quote: a soft plate with an oversized open quote ---------- */
+.ea-quote {
+  position: relative;
+  margin: 30px 0 34px;
+  padding: 30px 34px 24px 62px;
+  max-width: 660px;
+  background: var(--accent-tint);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+}
+.ea-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  left: 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.38;
+}
+.ea-quote blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 17px;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--fg);
+  text-wrap: pretty;
+}
+.ea-quote figcaption {
+  margin-top: 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ea-quote figcaption a {
+  color: var(--fg-2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  padding-bottom: 1px;
+}
+.ea-quote figcaption a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+@media (max-width: 700px) {
+  .ea-quote {
+    padding: 26px 20px 20px 44px;
+  }
+  .ea-quote::before {
+    left: 12px;
+    font-size: 52px;
+  }
+}
+
 /* ---------- animations ---------- */
 .fade-in {
   opacity: 1 !important;

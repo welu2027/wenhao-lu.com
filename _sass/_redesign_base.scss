@@ -1,8 +1,11 @@
 /* Global base overrides — warm cream aesthetic */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   background: #f3ede1 !important;
   color: #1d1a14 !important;
   font-family: var(--body) !important;
@@ -14,10 +17,21 @@ html, body {
   padding: 0 !important;
 }
 
-p, li, span, div, h1, h2, h3, h4, h5, h6 { color: #1d1a14 !important; }
+p,
+li,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1d1a14 !important;
+}
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -27,6 +41,16 @@ body::before {
   opacity: 0.5;
 }
 
-a { color: #1d1a14; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { color: #b06a2a; }
-::selection { background: #e8c69a; color: #1d1a14; }
+a {
+  color: #1d1a14;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: #b06a2a;
+}
+::selection {
+  background: #e8c69a;
+  color: #1d1a14;
+}

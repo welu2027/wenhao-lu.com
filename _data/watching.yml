@@ -1,0 +1,15 @@
+- title: The Mentalist
+  image: /assets/img/the-mentalist.png
+  url: https://www.imdb.com/title/tt1196946/
+
+- title: How I Met Your Mother
+  image: /assets/img/himym.jpg
+  url: https://www.imdb.com/title/tt0460649/
+
+- title: Jane Eyre
+  image: /assets/img/jane-eyre.jpg
+  url: https://www.goodreads.com/en/book/show/10210.Jane_Eyre
+
+- title: An Infinitely Large Napkin
+  image: /assets/img/napkin.png
+  url: https://venhance.github.io/napkin/Napkin.pdf

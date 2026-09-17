@@ -1,26 +1,26 @@
 /* Design tokens for wenhao-lu.com redesign */
 :root {
-  --bg:        #f3ede1;
-  --bg-2:      #ebe3d4;
-  --bg-3:      #e3dac6;
-  --fg:        #1d1a14;
-  --fg-2:      #3a3528;
-  --muted:     #837866;
-  --muted-2:   #a3998a;
-  --rule:      #d8cebb;
-  --rule-2:    #c8bda7;
-  --accent:        #b06a2a;
-  --accent-soft:   #e8c69a;
-  --accent-tint:   rgba(176, 106, 42, 0.08);
+  --bg: #f3ede1;
+  --bg-2: #ebe3d4;
+  --bg-3: #e3dac6;
+  --fg: #1d1a14;
+  --fg-2: #3a3528;
+  --muted: #837866;
+  --muted-2: #a3998a;
+  --rule: #d8cebb;
+  --rule-2: #c8bda7;
+  --accent: #b06a2a;
+  --accent-soft: #e8c69a;
+  --accent-tint: rgba(176, 106, 42, 0.08);
 
-  --serif:   'Courier Prime', ui-monospace, 'SF Mono', Menlo, monospace;
-  --display: 'Courier Prime', ui-monospace, 'SF Mono', Menlo, monospace;
-  --body:    'Courier Prime', ui-monospace, 'SF Mono', Menlo, monospace;
-  --mono:    'Courier Prime', ui-monospace, 'SF Mono', Menlo, monospace;
-  --brush:   'Ma Shan Zheng', 'Songti SC', 'STSong', serif;
+  --serif: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --body: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --mono: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --brush: "Ma Shan Zheng", "Songti SC", "STSong", serif;
 
-  --seal:      #b23a2e;
+  --seal: #b23a2e;
 
-  --col:   760px;
+  --col: 760px;
   --pad-y: 28px;
 }

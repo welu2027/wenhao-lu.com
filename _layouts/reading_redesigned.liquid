@@ -6,11 +6,10 @@ layout: redesign_default
   <!-- Page header -->
   <div class="page-header">
     <div>
-      <h1 class="page-title">reading</h1>
+      <h1 class="page-title">shelf</h1>
     </div>
     <div class="page-aside">
       <div class="crumb"><a href="{{ '/' | relative_url }}">← back home</a></div>
-      <div>a living shelf</div>
     </div>
   </div>
 
@@ -34,6 +33,18 @@ layout: redesign_default
   </div>
   {% endif %}
 
+  {% if site.data.watching %}
+  <div class="shelf-grid">
+    {% for item in site.data.watching %}
+    <figure class="shelf-item">
+      {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{% endif %}
+      <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      {% if item.url %}</a>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <!-- Listening -->
   {% if site.data.listening %}
   <div class="cv-section">
@@ -50,14 +61,6 @@ layout: redesign_default
       </div>
     </div>
     {% endfor %}
-  </div>
-  {% endif %}
-
-  <!-- Elsewhere (content from the page body) -->
-  {% if content and content != '' %}
-  <div class="cv-section">
-    <h3>Elsewhere</h3>
-    {{ content }}
   </div>
   {% endif %}
 

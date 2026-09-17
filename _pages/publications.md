@@ -4,6 +4,7 @@ permalink: /publications/
 title: research
 nav: false
 ---
+
 <div class="page-anim">
   <div class="shell" style="padding-top:80px;text-align:center;">
     <h1 style="font-family:var(--display);font-size:48px;margin:12px 0;">moved</h1>

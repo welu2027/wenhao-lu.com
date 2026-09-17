@@ -6,7 +6,6 @@ nav: false
 ---
 
 <div class="page-anim">
-  <div class="shell">
     <div class="page-header">
       <div>
         <h1 class="page-title">projects</h1>
@@ -38,5 +37,4 @@ nav: false
       </div>
     </div>
 
-  </div>
 </div>
