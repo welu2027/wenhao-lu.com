@@ -46,6 +46,7 @@ nav: false
           <li>$55k+ in sponsorship support, cash and in-kind</li>
           <li>collaborated with 95+ AI professionals to mentor under-represented students</li>
           <li>collaborated with researchers from UC Berkeley and Purdue to develop AI solutions for under-resourced communities</li>
+          <li>featured on <a href="https://tap-africa.org/" target="_blank" rel="noopener">TAP Africa</a></li>
         </ul>
         <p class="init-contact"><a href="mailto:wenhao@nxthorizon.org">wenhao@nxthorizon.org</a> for business inquiries</p>
       </div>
