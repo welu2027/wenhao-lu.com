@@ -1,7 +1,7 @@
 ---
 layout: post_redesigned
 title: Points and Lines
-date: 2026-09-07
+date: 2026-08-31
 ---
 
 In 2000, Branko Grünbaum proposed the question of which $n$ admit a geometric $(n_4)$ configuration, a set of $n$ points and $n$ straight lines in the real projective plane where each point lies on exactly four of the lines and each line passes through exactly four of the points. It stayed open at a single value for years. Examples were known for each $n \ge 18$ except $n = 23$, and no proof of nonexistence existed either.
