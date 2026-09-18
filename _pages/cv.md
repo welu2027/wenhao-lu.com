@@ -16,6 +16,18 @@ nav: false
     </div>
 
     <div class="section-head">
+      <h2 class="section-title">volunteering</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="page-intro">
+      Refer to the
+      <a href="{{ '/initiatives/' | relative_url }}">initiatives (EA)</a> page.
+    </p>
+
+    <hr class="section-sep" />
+
+    <div class="section-head">
       <h2 class="section-title">awards</h2>
       <div class="section-rule"></div>
     </div>
@@ -90,16 +102,5 @@ nav: false
         />
       </a>
     </div>
-
-
-    <div class="section-head">
-      <h2 class="section-title">volunteering</h2>
-      <div class="section-rule"></div>
-    </div>
-
-    <p class="page-intro">
-      The organizations I build and volunteer with live on the
-      <a href="{{ '/initiatives/' | relative_url }}">initiatives (EA)</a> page.
-    </p>
 
 </div>

@@ -1485,6 +1485,14 @@ details.proj-details summary:hover {
   }
 }
 
+/* a quiet divider between page sections */
+.section-sep {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--rule) 0%, var(--rule) 55%, transparent 100%);
+  margin: 40px 0 38px;
+}
+
 /* ---------- animations ---------- */
 .fade-in {
   opacity: 1 !important;
