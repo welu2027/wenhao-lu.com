@@ -69,4 +69,31 @@ nav: false
       </div>
     </article>
 
+
+    <article class="init-card">
+      <a class="init-logo" href="https://www.mustangmath.com/" target="_blank" rel="noopener">
+        <img
+          src="{{ '/assets/img/mustang-math-logo.png' | relative_url }}"
+          alt="Mustang Math"
+          loading="lazy"
+          width="2084"
+          height="2084"
+        />
+      </a>
+      <div class="init-body">
+        <h2 class="init-name">
+          <a href="https://www.mustangmath.com/" target="_blank" rel="noopener">Mustang Math</a>
+        </h2>
+        <p class="init-role">region lead</p>
+        <p class="init-tagline">
+          a national middle school math competition run by volunteers.
+        </p>
+        <ul class="init-stats">
+          <li>recruit, train and manage 200+ volunteers across 34 U.S. states</li>
+          <li>serve 1,500+ competitors annually</li>
+          <li>doubled regional participants</li>
+        </ul>
+      </div>
+    </article>
+
 </div>
