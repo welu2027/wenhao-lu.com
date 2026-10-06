@@ -13,25 +13,6 @@ layout: redesign_default
     </div>
   </div>
 
-  <!-- Currently reading (books collection) -->
-  {% assign books = site.books | sort: "date" | reverse %}
-  {% if books.size > 0 %}
-  <div class="cv-section">
-    <h3>Currently reading</h3>
-    {% for book in books %}
-    <div class="cv-entry">
-      <div class="cv-when" style="text-transform:uppercase;font-size:11px;letter-spacing:0.6px;">book</div>
-      <div>
-        <div class="cv-where" style="font-size:17px;">
-          {% if book.buy_link %}<a href="{{ book.buy_link }}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}
-        </div>
-        <div class="cv-role">{{ book.author }}{% if book.released %} · {{ book.released }}{% endif %}</div>
-        {% if book.status %}<div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.3px;">{{ book.status }}</div>{% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
 
   <div class="section-head">
     <h2 class="section-title">shelf</h2>
