@@ -1498,8 +1498,12 @@ details.proj-details summary:hover {
   width: 230px;
 }
 .shelf-item-work img {
-  height: 300px;
+  height: 290px;
+  object-fit: contain;
+  object-position: center;
+  padding: 10px;
   border: 1px solid var(--rule);
+  border-radius: 3px;
   background: #fff;
 }
 .shelf-item figcaption {
