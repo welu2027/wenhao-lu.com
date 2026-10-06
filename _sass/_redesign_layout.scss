@@ -1269,7 +1269,7 @@ details.proj-details summary:hover {
 
 .init-intro {
   margin: 22px 0 34px;
-  max-width: var(--col);
+  max-width: none;
   line-height: 1.6;
   color: var(--fg-2);
   text-wrap: pretty;
@@ -1429,7 +1429,7 @@ details.proj-details summary:hover {
   position: relative;
   margin: 30px 0 34px;
   padding: 30px 34px 24px 62px;
-  max-width: 660px;
+  max-width: none;
   background: var(--accent-tint);
   border: 1px solid var(--rule);
   border-left: 3px solid var(--accent);
