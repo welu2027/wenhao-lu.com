@@ -16,3 +16,6 @@ vendor
 papers.txt
 # local source files for site assets (not published)
 .sources/
+
+# stray macOS screenshots (their filenames contain U+202F and break Jekyll builds)
+Screenshot*.png
