@@ -1495,16 +1495,22 @@ details.proj-details summary:hover {
 
 /* "my work" items carry a caption and a short aside */
 .shelf-item-work {
-  width: 230px;
+  width: auto;
+  max-width: 100%;
 }
 .shelf-item-work img {
   height: 290px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
   object-position: center;
   padding: 10px;
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: #fff;
+}
+.shelf-item-work figcaption {
+  max-width: 420px;
 }
 .shelf-item figcaption {
   margin-top: 11px;
