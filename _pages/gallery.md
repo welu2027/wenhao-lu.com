@@ -1,6 +1,6 @@
 ---
 layout: reading_redesigned
-title: shelf
-permalink: /shelf/
+title: gallery
+permalink: /gallery/
 nav: false
 ---

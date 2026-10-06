@@ -101,6 +101,25 @@ nav: false
           height="1628"
         />
       </a>
+
+      <a
+        class="award-card"
+        href="https://www.artandwriting.org/national-student-poets-program/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="award-title"
+          >National Student Poets Program, Semi-Finalist (50 / 36,000), the nation's highest honor
+          for youth poets</span
+        >
+        <img
+          src="{{ '/assets/img/nspp-semifinalist.png' | relative_url }}"
+          alt="National Student Poets Program semi-finalist invitation"
+          loading="lazy"
+          width="2359"
+          height="509"
+        />
+      </a>
     </div>
 
 </div>

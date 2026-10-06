@@ -41,8 +41,8 @@ nav: false
         <p class="init-role">founder &amp; executive director</p>
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <ul class="init-stats">
-          <li>lead a team of 60+ staff and 120+ chapters</li>
-          <li>6.8k+ students from 125+ countries participating in career-access programs</li>
+          <li>lead a team of 60+ staff across 128 chapters</li>
+          <li>4,530 students from 137 countries participating in career-access programs</li>
           <li>$55k+ in sponsorship support, cash and in-kind</li>
           <li>collaborated with 95+ AI professionals to mentor under-represented students</li>
           <li>collaborated with researchers from UC Berkeley and Purdue to develop AI solutions for under-resourced communities</li>
@@ -58,10 +58,10 @@ nav: false
       </a>
       <div class="init-body">
         <h2 class="init-name"><a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a></h2>
-        <p class="init-role">founder &amp; co-director</p>
+        <p class="init-role">co-founder &amp; competition director</p>
         <p class="init-tagline">the fastest growing student-led global math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
         <ul class="init-stats">
-          <li>scaled to 3k participants in 6 months</li>
+          <li>scaled to 2,600+ registrants in 6 months</li>
           <li>300k+ social media impressions</li>
           <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
         </ul>

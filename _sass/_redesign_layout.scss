@@ -1493,6 +1493,40 @@ details.proj-details summary:hover {
   margin: 40px 0 38px;
 }
 
+/* "my work" items carry a caption and a short aside */
+.shelf-item-work {
+  width: 230px;
+}
+.shelf-item-work img {
+  height: 300px;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.shelf-item figcaption {
+  margin-top: 11px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  max-width: 300px;
+  text-wrap: pretty;
+}
+.shelf-item figcaption a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+.shelf-item figcaption a:hover {
+  color: var(--accent);
+}
+.shelf-note {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 /* ---------- animations ---------- */
 .fade-in {
   opacity: 1 !important;

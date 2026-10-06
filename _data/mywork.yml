@@ -1,0 +1,9 @@
+- title: Oranges in two languages
+  image: /assets/img/oranges-poem.png
+  url: https://www.artandwriting.org/gallery/2b16dc9d-69dc-47e1-b101-e8f75f12484b
+  note: (i pretend to be a cantonese girl, since my female friend is a girl from hong kong)
+
+- title: The self-polar (23_4) configuration on the sphere
+  image: /assets/img/config-23-4-sphere-fig3.png
+  url: https://zenodo.org/records/22683569
+  note: 23 points and 23 great circles, four points on every circle and four circles through every point, coloured by symmetry orbit.

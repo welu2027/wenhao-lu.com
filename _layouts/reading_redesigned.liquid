@@ -6,7 +6,7 @@ layout: redesign_default
   <!-- Page header -->
   <div class="page-header">
     <div>
-      <h1 class="page-title">shelf</h1>
+      <h1 class="page-title">gallery</h1>
     </div>
     <div class="page-aside">
       <div class="crumb"><a href="{{ '/' | relative_url }}">← back home</a></div>
@@ -33,6 +33,11 @@ layout: redesign_default
   </div>
   {% endif %}
 
+  <div class="section-head">
+    <h2 class="section-title">shelf</h2>
+    <div class="section-rule"></div>
+  </div>
+
   {% if site.data.watching %}
   <div class="shelf-grid">
     {% for item in site.data.watching %}
@@ -40,6 +45,29 @@ layout: redesign_default
       {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{% endif %}
       <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
       {% if item.url %}</a>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <hr class="section-sep" />
+
+  <div class="section-head">
+    <h2 class="section-title">works</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  {% if site.data.mywork %}
+  <div class="shelf-grid">
+    {% for item in site.data.mywork %}
+    <figure class="shelf-item shelf-item-work">
+      {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{% endif %}
+      <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      {% if item.url %}</a>{% endif %}
+      <figcaption>
+        {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+        {% if item.note %}<span class="shelf-note">{{ item.note }}</span>{% endif %}
+      </figcaption>
     </figure>
     {% endfor %}
   </div>
