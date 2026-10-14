@@ -16,7 +16,7 @@ nav: false
     </div>
 
     <div class="now-grid">
-      <a class="now-card" href="https://zenodo.org/records/22683569" target="_blank" rel="noopener">
+      <a class="now-card" href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">
         <span class="now-kicker">discrete geometry</span>
         <h2 class="now-title">Closing the existence problem for geometric (n<sub>4</sub>) configurations</h2>
         <p class="now-desc">
