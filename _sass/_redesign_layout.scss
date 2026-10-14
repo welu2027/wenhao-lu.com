@@ -364,7 +364,7 @@ section {
   color: inherit;
   position: relative;
 }
-.now-card:hover {
+a.now-card:hover {
   background: var(--bg-2);
 }
 .now-card-img {
@@ -1140,6 +1140,37 @@ details.proj-details summary:hover {
   width: auto;
   max-width: 100%;
   max-height: 260px;
+}
+/* diagram card that doubles as the call to action: image above, button below */
+.now-card-img.is-cta {
+  pointer-events: auto;
+  flex-direction: column;
+  gap: 18px;
+}
+.now-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.4px;
+  color: var(--accent);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.now-cta-arrow {
+  transition: transform 0.2s;
+}
+.now-card.is-cta:hover .now-cta {
+  background: var(--accent);
+  color: var(--bg);
+}
+.now-card.is-cta:hover .now-cta-arrow {
+  transform: translate(2px, -2px);
 }
 
 @media (max-width: 700px) {

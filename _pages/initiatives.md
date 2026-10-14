@@ -90,7 +90,7 @@ nav: false
         <ul class="init-stats">
           <li>recruit, train and manage 200+ volunteers across 34 U.S. states</li>
           <li>serve 1,500+ competitors annually</li>
-          <li>doubled regional participants</li>
+          <li>doubled regional participants in region's 2nd year</li>
         </ul>
       </div>
     </article>
