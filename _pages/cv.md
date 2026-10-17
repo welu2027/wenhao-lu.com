@@ -16,14 +16,63 @@ nav: false
     </div>
 
     <div class="section-head">
-      <h2 class="section-title">volunteering</h2>
+      <h2 class="section-title">leadership &amp; service</h2>
       <div class="section-rule"></div>
     </div>
 
-    <p class="page-intro">
-      Refer to the
-      <a href="{{ '/initiatives/' | relative_url }}">initiatives (EA)</a> page.
-    </p>
+    <div class="lead-list">
+      <div class="lead-item">
+        <a class="lead-logo" href="https://nxthorizon.org/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/nxthorizon-logo.png' | relative_url }}" alt="NXT Horizon" loading="lazy" width="128" height="128" />
+        </a>
+        <div class="lead-body">
+          <h3 class="lead-name">
+            <a href="https://nxthorizon.org/" target="_blank" rel="noopener">NXT Horizon</a>
+            <span class="lead-role">founder &amp; executive director</span>
+          </h3>
+          <p class="lead-desc">Global AI incubator creating pathways for overlooked students.</p>
+          <ul class="lead-stats">
+            <li>lead 60+ staff across 128 chapters; 4,530 participants from 137 countries</li>
+            <li>$55k+ in sponsorships; 95+ AI professionals mentoring under-represented students</li>
+            <li>collaborated with UC Berkeley and Purdue researchers on AI for under-resourced communities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <a class="lead-logo" href="https://yimo-official.org/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/yimo-logo.png' | relative_url }}" alt="Youth International Math Olympiad" loading="lazy" width="399" height="408" />
+        </a>
+        <div class="lead-body">
+          <h3 class="lead-name">
+            <a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a>
+            <span class="lead-role">co-founder &amp; competition director</span>
+          </h3>
+          <p class="lead-desc">Fastest growing student-led global math competition.</p>
+          <ul class="lead-stats">
+            <li>scaled to 2,600+ registered competitors in 6 months; 300k+ social media impressions</li>
+            <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <a class="lead-logo" href="https://www.mustangmath.com/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/mustang-math-logo.png' | relative_url }}" alt="Mustang Math" loading="lazy" width="2084" height="2084" />
+        </a>
+        <div class="lead-body">
+          <h3 class="lead-name">
+            <a href="https://www.mustangmath.com/" target="_blank" rel="noopener">Mustang Math</a>
+            <span class="lead-role">region lead</span>
+          </h3>
+          <p class="lead-desc">National volunteer-run middle school math competition.</p>
+          <ul class="lead-stats">
+            <li>manage 200+ volunteers across 34 U.S. states; serve 1,500+ competitors annually</li>
+            <li>doubled regional participants in the region's 2nd year</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <hr class="section-sep" />
 
