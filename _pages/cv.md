@@ -16,6 +16,83 @@ nav: false
     </div>
 
     <div class="section-head">
+      <h2 class="section-title">education</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="xp-list">
+      <div class="xp-entry">
+        <span class="xp-logo" aria-hidden="true"></span>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">Millburn High School</span>
+            <span class="xp-date">expected June 2027</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-sep" />
+
+    <div class="section-head">
+      <h2 class="section-title">research experience</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="xp-list">
+      <div class="xp-entry">
+        <a class="xp-logo" href="https://www.stevens.edu/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/stevens-logo.png' | relative_url }}" alt="Stevens Institute of Technology" loading="lazy" />
+        </a>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">Stevens Institute of Technology <span class="xp-role">high school researcher</span></span>
+            <span class="xp-date">2025–present</span>
+          </div>
+          <ul class="lead-stats">
+            <li>closed a 26-year open problem in incidence geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>)</li>
+            <li>received Google DeepMind grant for an AI metacognition benchmark; worked with two Google PMs</li>
+            <li>sole-authored <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE paper</a> on spectral graph reward shaping to cut LLM hallucinations; Best Presentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-entry">
+        <a class="xp-logo" href="https://www.nyu.edu/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/nyu-logo.png' | relative_url }}" alt="New York University" loading="lazy" />
+        </a>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">New York University <span class="xp-role">research collaborator, AI safety group</span></span>
+            <span class="xp-date">2026</span>
+          </div>
+          <ul class="lead-stats">
+            <li>built the first interpretability library for world models, with NYU, USC, and Georgia Tech researchers</li>
+            <li>subproject: 1st-author paper at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 Compositional Learning workshop</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-entry">
+        <span class="xp-logo">
+          <img src="{{ '/assets/img/bridgewater-logo.png' | relative_url }}" alt="Bridgewater Internal Medicine" loading="lazy" />
+        </span>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">Bridgewater Internal Medicine <span class="xp-role">research intern</span></span>
+            <span class="xp-date">2024–2025</span>
+          </div>
+          <ul class="lead-stats">
+            <li>built a need-based GLP-1 coverage model projecting $269B in 10-year savings</li>
+            <li>1st-author <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener">abstract in <em>Diabetes</em></a>; presented at ADA 85th Scientific Sessions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-sep" />
+
+    <div class="section-head">
       <h2 class="section-title">leadership &amp; service</h2>
       <div class="section-rule"></div>
     </div>
@@ -32,9 +109,9 @@ nav: false
           </h3>
           <p class="lead-desc">Global AI incubator creating pathways for overlooked students.</p>
           <ul class="lead-stats">
-            <li>lead 60+ staff across 128 chapters; 4,530 participants from 137 countries</li>
-            <li>$55k+ in sponsorships; 95+ AI professionals mentoring under-represented students</li>
-            <li>collaborated with UC Berkeley and Purdue researchers on AI for under-resourced communities</li>
+            <li>lead 60+ staff and 128 chapters; 4,530 participants from 137 countries</li>
+            <li>$55k+ in sponsorships; recruited 95+ AI professionals mentoring under-represented students</li>
+            <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities</li>
           </ul>
         </div>
       </div>
@@ -65,7 +142,7 @@ nav: false
             <a href="https://www.mustangmath.com/" target="_blank" rel="noopener">Mustang Math</a>
             <span class="lead-role">region lead</span>
           </h3>
-          <p class="lead-desc">National volunteer-run middle school math competition.</p>
+          <p class="lead-desc">National middle school math competition.</p>
           <ul class="lead-stats">
             <li>manage 200+ volunteers across 34 U.S. states; serve 1,500+ competitors annually</li>
             <li>doubled regional participants in the region's 2nd year</li>
@@ -73,6 +150,58 @@ nav: false
         </div>
       </div>
     </div>
+
+    <hr class="section-sep" />
+
+    <div class="section-head">
+      <h2 class="section-title">work experience</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="xp-list">
+      <div class="xp-entry">
+        <a class="xp-logo" href="https://www.venu.ai/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/venu-logo.png' | relative_url }}" alt="Venu AI (YC W21)" loading="lazy" />
+        </a>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">Venu AI (YC W21) <span class="xp-role">software engineering intern</span></span>
+            <span class="xp-date">2026–present</span>
+          </div>
+          <ul class="lead-stats">
+            <li>report to CEO on AI sales-lead tools; shipped 2,900+ lines of production code; served as incident lead unblocking customer campaigns</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-entry">
+        <span class="xp-logo">
+          <img src="{{ '/assets/img/csya-logo.png' | relative_url }}" alt="Computer Science Youth of America" loading="lazy" />
+        </span>
+        <div class="xp-body">
+          <div class="xp-head">
+            <span class="xp-org">Computer Science Youth of America <span class="xp-role">software engineering intern</span></span>
+            <span class="xp-date">summer 2024</span>
+          </div>
+          <ul class="lead-stats">
+            <li>built an interview dataset for AI training on a mock-interview platform serving 1,000+ students</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-sep" />
+
+    <div class="section-head">
+      <h2 class="section-title">publications</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <ol class="cv-pubs">
+      <li>“Closing the existence problem for geometric (n₄) configurations,” <a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a> <span class="cv-note">(sole author)</span></li>
+      <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE AIIoT 2026</a> <span class="cv-note">(sole author)</span></li>
+      <li>“1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover?”, <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener"><em>Diabetes</em> 74(S1)</a> <span class="cv-note">(1st author)</span></li>
+    </ol>
 
     <hr class="section-sep" />
 

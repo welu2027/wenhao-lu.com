@@ -1222,10 +1222,9 @@ details.proj-details summary:hover {
 }
 .init-role {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--fg-2);
   margin: 6px 0 0;
 }
 .init-tagline {
@@ -1353,6 +1352,68 @@ details.proj-details summary:hover {
 }
 
 /* ---------- award cards: title, then the proof right under it ---------- */
+/* CV: education / research / work entries */
+.xp-list {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0 10px;
+}
+.xp-entry {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.xp-logo {
+  flex: 0 0 44px;
+  width: 44px;
+  display: block;
+}
+.xp-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.xp-body {
+  flex: 1;
+  min-width: 0;
+}
+.xp-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2px 16px;
+  margin-bottom: 4px;
+}
+.xp-org {
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 700;
+}
+.xp-role {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--fg-2);
+}
+.xp-date {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.cv-pubs {
+  margin: 22px 0 10px;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.cv-pubs li + li {
+  margin-top: 6px;
+}
+.cv-note {
+  color: var(--muted);
+}
+
 /* CV: leadership & service */
 .lead-list {
   display: grid;
@@ -1390,11 +1451,9 @@ details.proj-details summary:hover {
   margin: 0;
 }
 .lead-role {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--accent);
+  color: var(--fg-2);
 }
 .lead-desc {
   margin: 4px 0 6px;
