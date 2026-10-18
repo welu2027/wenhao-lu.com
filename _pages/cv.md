@@ -201,7 +201,7 @@ nav: false
 
     <ol class="cv-pubs">
       <li>“Closing the existence problem for geometric (n₄) configurations,” <a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a> <span class="cv-note">(sole author)</span></li>
-      <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE AIIoT 2026</a> <span class="cv-note">(sole author)</span></li>
+      <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE Xplore</a> <span class="cv-note">(sole author)</span></li>
       <li>“1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover?”, <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener"><em>Diabetes</em> 74(S1)</a> <span class="cv-note">(1st author)</span></li>
     </ol>
 
