@@ -41,7 +41,7 @@ nav: false
         <p class="init-role">founder &amp; executive director</p>
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <ul class="init-stats">
-          <li>lead a team of 60+ staff across 128 chapters</li>
+          <li>lead a team of 60+ staff and 128 chapters</li>
           <li>4,530 students from 137 countries participating in career-access programs</li>
           <li>$55k+ in sponsorship support, cash and in-kind</li>
           <li>collaborated with 95+ AI professionals to mentor under-represented students</li>

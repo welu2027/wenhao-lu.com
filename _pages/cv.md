@@ -84,7 +84,7 @@ nav: false
             <span class="xp-date">2024–2025</span>
           </div>
           <ul class="lead-stats">
-            <li>built a need-based GLP-1 coverage model projecting $269B in 10-year savings</li>
+            <li>built a need-based GLP-1 coverage mathematical model projecting $269B in 10-year savings</li>
             <li>1st-author <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener">abstract in <em>Diabetes</em></a>; presented at ADA 85th Scientific Sessions</li>
           </ul>
         </div>
@@ -112,7 +112,7 @@ nav: false
           <ul class="lead-stats">
             <li>lead 60+ staff and 128 chapters; 4,530 participants from 137 countries</li>
             <li>$55k+ in sponsorships; recruited 95+ AI professionals mentoring under-represented students</li>
-            <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities</li>
+            <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities; accepted to NeurIPS Workshops (x5), NeurIPS Creative AI (x2, main conference)</li>
           </ul>
         </div>
       </div>
