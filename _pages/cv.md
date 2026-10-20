@@ -52,7 +52,7 @@ nav: false
           </div>
           <ul class="lead-stats">
             <li>closed a 26-year open problem in incidence geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>)</li>
-            <li>received Google DeepMind grant for an AI metacognition benchmark; worked with two Google PMs</li>
+            <li>received Google grant for an AI metacognition benchmark; worked with two Google PMs</li>
             <li>sole-authored <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE paper</a> on spectral graph reward shaping to cut LLM hallucinations; Best Presentation</li>
           </ul>
         </div>
