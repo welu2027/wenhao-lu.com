@@ -110,7 +110,7 @@ nav: false
           </h3>
           <p class="lead-desc">Global AI incubator creating pathways for overlooked students.</p>
           <ul class="lead-stats">
-            <li>lead 60+ staff and 128 chapters; 4,530 participants from 137 countries</li>
+            <li>lead 60+ staff and 128 chapters; 4,700 participants (including YIMO) from 137 countries</li>
             <li>$55k+ in sponsorships; recruited 95+ AI professionals mentoring under-represented students</li>
             <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities; mentored students into acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
             <li>organized a special journal issue with ReScience C</li>
