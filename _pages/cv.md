@@ -183,7 +183,7 @@ nav: false
         <div class="xp-body">
           <div class="xp-head">
             <span class="xp-org">Computer Science Youth of America <span class="xp-role">software engineering intern</span></span>
-            <span class="xp-date">summer 2024</span>
+            <span class="xp-date">summer 2025</span>
           </div>
           <ul class="lead-stats">
             <li>built an interview dataset for AI training on a mock-interview platform serving 1,000+ students</li>
