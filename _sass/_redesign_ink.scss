@@ -286,6 +286,16 @@ body {
   color: var(--seal);
   font-weight: 700;
 }
+.ink-highlights .hl-sub {
+  margin-top: 2px;
+}
+.ink-highlights .hl-sub li::before {
+  content: "–";
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--muted);
+}
 .ink-highlights .hl-note {
   color: var(--muted);
 }

@@ -51,7 +51,7 @@ nav: false
             <span class="xp-date">2025–present</span>
           </div>
           <ul class="lead-stats">
-            <li>closed a 26-year open problem in incidence geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>)</li>
+            <li>closed a 26-year open problem in incidence geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>, JMM contributed paper)</li>
             <li>received Google DeepMind grant for an AI metacognition benchmark; worked with two Google PMs</li>
             <li>sole-authored <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE paper</a> on spectral graph reward shaping to cut LLM hallucinations; Best Presentation</li>
           </ul>
@@ -110,7 +110,7 @@ nav: false
           </h3>
           <p class="lead-desc">Global AI incubator creating pathways for overlooked students.</p>
           <ul class="lead-stats">
-            <li>lead 60+ staff and 128 chapters; 4,530 participants from 137 countries</li>
+            <li>lead 60+ staff and 128 chapters; 4,700 participants (including YIMO) from 137 countries</li>
             <li>$55k+ in sponsorships; recruited 95+ AI professionals mentoring under-represented students</li>
             <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities; mentored students into acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
             <li>organized a special journal issue with ReScience C</li>
@@ -183,7 +183,7 @@ nav: false
         <div class="xp-body">
           <div class="xp-head">
             <span class="xp-org">Computer Science Youth of America <span class="xp-role">software engineering intern</span></span>
-            <span class="xp-date">summer 2024</span>
+            <span class="xp-date">summer 2025</span>
           </div>
           <ul class="lead-stats">
             <li>built an interview dataset for AI training on a mock-interview platform serving 1,000+ students</li>
@@ -200,7 +200,7 @@ nav: false
     </div>
 
     <ol class="cv-pubs">
-      <li>“Closing the existence problem for geometric (n₄) configurations,” <a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a> <span class="cv-note">(sole author)</span></li>
+      <li>“Closing the existence problem for geometric (n₄) configurations,” <a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>, accepted to JMM 2027 <span class="cv-note">(sole author)</span></li>
       <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE Xplore</a> <span class="cv-note">(sole author)</span></li>
       <li>“1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover?”, <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener"><em>Diabetes</em> 74(S1)</a> <span class="cv-note">(1st author)</span></li>
     </ol>

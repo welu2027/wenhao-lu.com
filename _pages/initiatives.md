@@ -42,7 +42,7 @@ nav: false
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <ul class="init-stats">
           <li>lead a team of 60+ staff and 128 chapters</li>
-          <li>4,530 students from 137 countries participating in career-access programs</li>
+          <li>4,700 students from 137 countries participating in career-access programs (including YIMO)</li>
           <li>$55k+ in sponsorship support, cash and in-kind</li>
           <li>collaborated with 95+ AI professionals to mentor under-represented students</li>
           <li>collaborated with researchers from UC Berkeley and Purdue to develop AI solutions for under-resourced communities; mentored students into acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
