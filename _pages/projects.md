@@ -25,10 +25,13 @@ nav: false
           rational coordinates by computing a continuous family of them and parametrizing it by a rational number.
         </p>
       </div>
-      <a class="now-card now-card-img is-diagram is-cta" href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">
+      <div class="now-card now-card-img is-diagram is-cta">
         <img src="{{ '/assets/img/config-23-4-sphere.png' | relative_url }}" alt="A geometric (23_4) configuration drawn on the sphere" loading="lazy" width="1458" height="1458">
-        <span class="now-cta">arXiv <span class="now-cta-arrow">&#8599;</span></span>
-      </a>
+        <div class="now-cta-row">
+          <a class="now-cta" href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv <span class="now-cta-arrow">&#8599;</span></a>
+          <a class="now-cta" href="https://mathworld.wolfram.com/n-4Configuration.html" target="_blank" rel="noopener">Wolfram MathWorld <span class="now-cta-arrow">&#8599;</span></a>
+        </div>
+      </div>
     </div>
 
 </div>

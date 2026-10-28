@@ -1155,14 +1155,20 @@ details.proj-details summary:hover {
     background 0.2s,
     color 0.2s;
 }
+.now-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
 .now-cta-arrow {
   transition: transform 0.2s;
 }
-.now-card.is-cta:hover .now-cta {
+.now-cta:hover {
   background: var(--accent);
   color: var(--bg);
 }
-.now-card.is-cta:hover .now-cta-arrow {
+.now-cta:hover .now-cta-arrow {
   transform: translate(2px, -2px);
 }
 
