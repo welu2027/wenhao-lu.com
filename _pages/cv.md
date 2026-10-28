@@ -51,25 +51,25 @@ nav: false
             <span class="xp-date">2025–present</span>
           </div>
           <ul class="lead-stats">
-            <li>closed a 26-year open problem in incidence geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>, JMM contributed paper)</li>
-            <li>received Google DeepMind grant for an AI metacognition benchmark; worked with two Google PMs</li>
-            <li>sole-authored <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE paper</a> on spectral graph reward shaping to cut LLM hallucinations; Best Presentation</li>
+            <li>closed a 26-year open problem in discrete geometry (geometric n₄ configurations) (<a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>, JMM contributed paper)</li>
+            <li>received Google DeepMind grant for an AI metacognition benchmark; partnered with two Google PMs to publish benchmark</li>
+            <li>sole-authored <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE paper</a> on spectral graph reward shaping to cut LLM hallucinations; won Best Presentation</li>
           </ul>
         </div>
       </div>
 
       <div class="xp-entry">
-        <a class="xp-logo" href="https://www.nyu.edu/" target="_blank" rel="noopener">
-          <img src="{{ '/assets/img/nyu-logo.png' | relative_url }}" alt="New York University" loading="lazy" />
+        <a class="xp-logo" href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/img/favicon-wen.png' | relative_url }}" alt="Wenhao Lu" loading="lazy" />
         </a>
         <div class="xp-body">
           <div class="xp-head">
-            <span class="xp-org">New York University <span class="xp-role">research collaborator, AI safety group</span></span>
+            <span class="xp-org">Independent AI safety research</span>
             <span class="xp-date">2026</span>
           </div>
           <ul class="lead-stats">
-            <li>built the first interpretability library for world models, with NYU, USC, and Georgia Tech researchers</li>
-            <li>subproject: 1st-author paper at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 Compositional Learning workshop</a></li>
+            <li>built the first interpretability library for world models, with NYU, USC, and Georgia Tech researchers; cited in 2026 world model agenda</li>
+            <li>presented 1st-author paper on mechanistic interpretability of latent multi-agent systems at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 workshop</a></li>
           </ul>
         </div>
       </div>
@@ -85,7 +85,7 @@ nav: false
           </div>
           <ul class="lead-stats">
             <li>built a need-based GLP-1 coverage mathematical model projecting $269B in 10-year savings</li>
-            <li>1st-author <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener">abstract in <em>Diabetes</em></a>; presented at ADA 85th Scientific Sessions</li>
+            <li>published 1st-author <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener">abstract in <em>Diabetes</em></a>; presented at ADA 85th Scientific Sessions</li>
           </ul>
         </div>
       </div>
@@ -108,11 +108,11 @@ nav: false
             <a href="https://nxthorizon.org/" target="_blank" rel="noopener">NXT Horizon</a>
             <span class="lead-role">founder &amp; executive director</span>
           </h3>
-          <p class="lead-desc">Global AI incubator creating pathways for overlooked students.</p>
+          <p class="lead-desc">A global AI incubator creating pathways for overlooked students in the AI age.</p>
           <ul class="lead-stats">
             <li>lead 60+ staff and 128 chapters; 4,700 participants (including YIMO) from 137 countries</li>
-            <li>$55k+ in sponsorships; recruited 95+ AI professionals mentoring under-represented students</li>
-            <li>collaborated with UC Berkeley and Purdue researchers on AI solutions for under-resourced communities; mentored students into acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
+            <li>$55k+ in sponsorships from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
+            <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
             <li>organized a special journal issue with ReScience C</li>
           </ul>
         </div>
@@ -127,9 +127,9 @@ nav: false
             <a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a>
             <span class="lead-role">co-founder &amp; competition director</span>
           </h3>
-          <p class="lead-desc">Fastest growing student-led global math competition.</p>
+          <p class="lead-desc">The fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
           <ul class="lead-stats">
-            <li>scaled to 2,600+ registered competitors in 6 months; 300k+ social media impressions</li>
+            <li>scaled to 2,700+ registered competitors in 6 months; 300k+ social media impressions</li>
             <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
           </ul>
         </div>
@@ -144,9 +144,9 @@ nav: false
             <a href="https://www.mustangmath.com/" target="_blank" rel="noopener">Mustang Math</a>
             <span class="lead-role">region lead</span>
           </h3>
-          <p class="lead-desc">National middle school math competition.</p>
+          <p class="lead-desc">A national middle school math competition run by volunteers.</p>
           <ul class="lead-stats">
-            <li>manage 200+ volunteers across 34 U.S. states; serve 1,500+ competitors annually</li>
+            <li>recruit and manage 200+ volunteers across 34 U.S. states; serve 1,500+ competitors annually</li>
             <li>doubled regional participants in the region's 2nd year</li>
           </ul>
         </div>

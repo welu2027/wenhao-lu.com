@@ -14,7 +14,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: Wenhao Lu, AI safety, mechanistic interpretability, discrete geometry, incidence geometry, geometric configurations, effective altruism, NXT Horizon, YIMO, competitive programming
+keywords: Wenhao Lu, AI safety, mechanistic interpretability, discrete geometry, geometric configurations, effective altruism, NXT Horizon, YIMO, competitive programming
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 encoding: utf-8
 icon: favicon-wen.png # the emoji used as the favicon (alternatively, provide image name in /assets/img/)

@@ -43,9 +43,9 @@ nav: false
         <ul class="init-stats">
           <li>lead a team of 60+ staff and 128 chapters</li>
           <li>4,700 students from 137 countries participating in career-access programs (including YIMO)</li>
-          <li>$55k+ in sponsorship support, cash and in-kind</li>
-          <li>collaborated with 95+ AI professionals to mentor under-represented students</li>
-          <li>collaborated with researchers from UC Berkeley and Purdue to develop AI solutions for under-resourced communities; mentored students into acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
+          <li>$55k+ in sponsorships from 24 sponsors</li>
+          <li>recruited 95+ AI professionals to collaborate on professional workshops</li>
+          <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
           <li>organized a special journal issue with ReScience C</li>
         </ul>
         <p class="init-contact"><a href="mailto:wenhao@nxthorizon.org">wenhao@nxthorizon.org</a> for business inquiries</p>
@@ -59,9 +59,9 @@ nav: false
       <div class="init-body">
         <h2 class="init-name"><a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a></h2>
         <p class="init-role">co-founder &amp; competition director</p>
-        <p class="init-tagline">the fastest growing student-led global math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
+        <p class="init-tagline">the fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
         <ul class="init-stats">
-          <li>scaled to 2,600+ registrants in 6 months</li>
+          <li>scaled to 2,700+ registrants in 6 months</li>
           <li>300k+ social media impressions</li>
           <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
         </ul>
