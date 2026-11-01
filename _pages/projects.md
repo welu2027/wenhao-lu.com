@@ -10,9 +10,6 @@ nav: false
       <div>
         <h1 class="page-title">projects</h1>
       </div>
-      <div class="page-aside">
-        <div class="crumb"><a href="{{ '/' | relative_url }}">&larr; back home</a></div>
-      </div>
     </div>
 
     <div class="now-grid">

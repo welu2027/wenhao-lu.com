@@ -5,8 +5,7 @@
     <a class="nav-link {% if page.permalink == '/projects/' %}active{% endif %}" href="{{ '/projects/' | relative_url }}">projects</a>
     <a class="nav-link {% if page.permalink == '/initiatives/' %}active{% endif %}" href="{{ '/initiatives/' | relative_url }}">initiatives (EA)</a>
     <a class="nav-link {% if page.permalink == '/cv/' %}active{% endif %}" href="{{ '/cv/' | relative_url }}">cv</a>
-    <span class="nav-sep">|</span>
-    <a class="nav-link {% if page.permalink == '/blog/' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">blog</a>
+    <a class="nav-link nav-group-start {% if page.permalink == '/blog/' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">blog</a>
     <a class="nav-link {% if page.permalink == '/gallery/' %}active{% endif %}" href="{{ '/gallery/' | relative_url }}">gallery</a>
     <a class="nav-link {% if page.permalink == '/contact/' %}active{% endif %}" href="{{ '/contact/' | relative_url }}">contact</a>
   </span>

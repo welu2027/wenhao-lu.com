@@ -2,9 +2,8 @@
 
 /* ---------- layout shell ---------- */
 .shell {
-  /* fluid: fills most of a wide monitor instead of a fixed 920px column */
-  width: min(86vw, 1500px);
-  max-width: 100%;
+  /* one reading column on every page: 900px of content inside the padding */
+  width: min(100%, 996px);
   margin: 0 auto;
   padding: 36px 48px 120px;
   position: relative;
@@ -70,9 +69,8 @@
   text-underline-offset: 6px;
   text-decoration-color: var(--accent);
 }
-.nav-sep {
-  color: var(--rule-2);
-  user-select: none;
+.nav-group-start {
+  margin-left: 26px;
 }
 .topbar-spacer {
   flex: 1;
@@ -1214,6 +1212,10 @@ details.proj-details summary:hover {
   min-width: 0;
 }
 .init-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
   font-family: var(--serif);
   font-size: 24px;
   line-height: 1.1;
@@ -1600,7 +1602,7 @@ details.proj-details summary:hover {
   position: absolute;
   top: 6px;
   left: 20px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--mono);
   font-size: 64px;
   line-height: 1;
   color: var(--accent);
@@ -1655,6 +1657,7 @@ details.proj-details summary:hover {
 
 /* "my work" items carry a caption and a short aside */
 .shelf-item-work {
+  align-self: flex-start;
   width: auto;
   max-width: 100%;
 }
@@ -1668,6 +1671,14 @@ details.proj-details summary:hover {
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: #fff;
+}
+/* small logos stay crisp in the middle of a full-size white tile */
+.shelf-item-work img.is-logo {
+  width: 272px;
+  padding: 60px;
+}
+.shelf-item-work:has(.is-logo) figcaption {
+  max-width: 272px;
 }
 .shelf-item-work figcaption {
   max-width: 420px;
@@ -1695,6 +1706,201 @@ details.proj-details summary:hover {
   margin-top: 5px;
   font-size: 12px;
   color: var(--muted);
+}
+
+/* ---------- reading pages (initiatives, cv) ---------- */
+/* a stronger wash and a comfortable measure for running text */
+.page-reading .ink-bg::after {
+  background: rgba(243, 237, 225, 0.975);
+}
+.page-reading .lead-stats li {
+  padding-left: 24px;
+}
+.page-reading .init-intro,
+.page-reading .init-tagline,
+.page-reading .init-stats li,
+.page-reading .lead-desc,
+.page-reading .lead-stats,
+.page-reading .xp-line,
+.page-reading .cv-pubs {
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 80ch;
+}
+.page-reading .init-intro {
+  font-size: 18px;
+  margin: 22px 0 14px;
+}
+
+/* identical plates so every org mark reads at the same size */
+.page-reading .init-logo,
+.page-reading .lead-logo {
+  aspect-ratio: 1;
+  padding: 6px;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+}
+.page-reading .init-logo img,
+.page-reading .lead-logo img {
+  height: 100%;
+  object-fit: contain;
+}
+
+/* metadata: the !important beats the blanket text color in _redesign_base */
+.page-reading .init-role,
+.page-reading .lead-role,
+.page-reading .xp-role,
+.page-reading .xp-date,
+.page-reading .org-date {
+  color: var(--meta) !important;
+}
+.page-reading .init-role {
+  font-size: 13px;
+  margin-top: 4px;
+}
+.org-date {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.org-parent {
+  padding: 2px 9px;
+  border: 1px solid var(--rule-2);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--meta) !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.org-parent:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent);
+}
+
+/* the numbers on an unrolled handscroll: paper between two rollers,
+   a faint ink ridgeline along the foot, and a red name seal in the corner */
+.init-figures {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  gap: 16px 0;
+  margin: 20px 11px 18px;
+  padding: 20px 46px 20px 22px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 60' preserveAspectRatio='none'%3E%3Cpath fill='%233a3528' d='M0 60V42l60-14 50 12 80-26 70 22 60-10 90-22 70 28 80-16 90 18 70-12 80 14v24z'/%3E%3C/svg%3E")
+      left bottom / 100% 54px no-repeat,
+    var(--paper);
+  background-blend-mode: soft-light, normal;
+  border-top: 1px solid var(--rule-2);
+  border-bottom: 1px solid var(--rule-2);
+  box-shadow: 0 12px 20px -18px rgba(40, 30, 10, 0.55);
+}
+.init-figures::before,
+.init-figures::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 11px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #3f2a1a, var(--roller) 40%, #a67c52 58%, #3f2a1a);
+}
+.init-figures::before {
+  left: -11px;
+}
+.init-figures::after {
+  right: -11px;
+}
+.init-figures div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0 14px;
+}
+.init-figures div:first-child {
+  padding-left: 0;
+}
+/* ink hairlines that fade out at both ends, like a lifted brush */
+.init-figures div + div {
+  border-left: 1px solid;
+  border-image: linear-gradient(transparent, var(--muted-2), transparent) 1;
+}
+.init-figures div:last-child::after {
+  content: "\6587";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--seal);
+  font-family: var(--brush);
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--paper);
+  transform: rotate(-4deg);
+  opacity: 0.88;
+}
+.init-figures dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--fg);
+}
+.init-figures dt {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--meta);
+}
+@media (max-width: 700px) {
+  .init-figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .init-figures div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+.init-epigraph {
+  margin: 0 0 22px;
+  max-width: 70ch;
+}
+.init-epigraph blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--meta);
+}
+.init-epigraph figcaption {
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--meta);
+}
+.init-epigraph figcaption::before {
+  content: "\2014\00a0";
+}
+.init-epigraph figcaption a {
+  color: inherit;
+  text-decoration-color: var(--accent-soft);
 }
 
 /* ---------- animations ---------- */
@@ -1746,6 +1952,12 @@ details.proj-details summary:hover {
   }
   .topbar-meta {
     display: none;
+  }
+  .nav-group-start {
+    margin-left: 0;
+  }
+  .org-date {
+    margin-left: 0;
   }
   .news-row {
     grid-template-columns: 1fr;

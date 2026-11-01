@@ -6,9 +6,9 @@
   image: /assets/img/himym.jpg
   url: https://www.imdb.com/title/tt0460649/
 
-- title: Jane Eyre
-  image: /assets/img/jane-eyre.jpg
-  url: https://www.goodreads.com/en/book/show/10210.Jane_Eyre
+- title: Shark Tank
+  image: /assets/img/shark-tank.jpg
+  url: https://www.imdb.com/title/tt1442550/
 
 - title: An Infinitely Large Napkin
   image: /assets/img/napkin.png
@@ -21,3 +21,7 @@
 - title: Othello
   image: /assets/img/othello.jpg
   url: https://www.goodreads.com/book/show/12996.Othello
+
+- title: Spring Night, Happy Rain by Du Fu
+  image: /assets/img/du-fu.jpg
+  url: https://zh.wikisource.org/wiki/春夜喜雨

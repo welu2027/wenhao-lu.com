@@ -10,9 +10,6 @@ nav: false
       <div>
         <h1 class="page-title">CV</h1>
       </div>
-      <div class="page-aside">
-        <div class="crumb"><a href="{{ '/' | relative_url }}">&larr; back home</a></div>
-      </div>
     </div>
 
     <div class="section-head">
@@ -22,7 +19,9 @@ nav: false
 
     <div class="xp-list">
       <div class="xp-entry">
-        <span class="xp-logo" aria-hidden="true"></span>
+        <a class="xp-logo" href="https://mhs.millburn.org/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/millburn-logo.png' | relative_url }}" alt="Millburn High School" loading="lazy" />
+        </a>
         <div class="xp-body">
           <div class="xp-head">
             <span class="xp-org">Millburn High School</span>
@@ -107,12 +106,13 @@ nav: false
           <h3 class="lead-name">
             <a href="https://nxthorizon.org/" target="_blank" rel="noopener">NXT Horizon</a>
             <span class="lead-role">founder &amp; executive director</span>
+            <span class="org-date">2024–present</span>
           </h3>
           <p class="lead-desc">A global AI incubator creating pathways for overlooked students in the AI age.</p>
           <ul class="lead-stats">
-            <li>lead 60+ staff and 128 chapters; 4,700 participants (including YIMO) from 137 countries</li>
-            <li>$55k+ in sponsorships from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
-            <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS Creative AI (x2, main conference) and workshops (x5)</li>
+            <li>scaled to 60+ staff, 128 chapters, and 5,000 participants (including YIMO) from 137 countries</li>
+            <li>raised $55k+ from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
+            <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS (2x Creative AI Track, main conference; 5x workshop)</li>
             <li>organized a special journal issue with ReScience C</li>
           </ul>
         </div>
@@ -125,12 +125,33 @@ nav: false
         <div class="lead-body">
           <h3 class="lead-name">
             <a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a>
-            <span class="lead-role">co-founder &amp; competition director</span>
+            <span class="lead-role">co-founder &amp; former executive director, now advisor</span>
+            <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">part of NXT Horizon</a>
+            <span class="org-date">2026–present</span>
           </h3>
           <p class="lead-desc">The fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
           <ul class="lead-stats">
-            <li>scaled to 2,700+ registered competitors in 6 months; 300k+ social media impressions</li>
+            <li>scaled to 2,700+ participants in 6 months; 300k+ social media impressions</li>
             <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <a class="lead-logo" href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/dsh-logo.png' | relative_url }}" alt="DSH Hacks" loading="lazy" width="202" height="202" />
+        </a>
+        <div class="lead-body">
+          <h3 class="lead-name">
+            <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">DSH Hacks</a>
+            <span class="lead-role">co-founder &amp; executive director</span>
+            <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">part of NXT Horizon</a>
+            <span class="org-date">2026–present</span>
+          </h3>
+          <p class="lead-desc">A global hackathon series that teaches students to build for their communities.</p>
+          <ul class="lead-stats">
+            <li>drew 2,100+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
+            <li>secured $100k+ in non-cash prizes for V2</li>
           </ul>
         </div>
       </div>
@@ -143,11 +164,13 @@ nav: false
           <h3 class="lead-name">
             <a href="https://www.mustangmath.com/" target="_blank" rel="noopener">Mustang Math</a>
             <span class="lead-role">region lead</span>
+            <span class="org-date">2025–present</span>
           </h3>
           <p class="lead-desc">A national middle school math competition run by volunteers.</p>
           <ul class="lead-stats">
-            <li>recruit and manage 200+ volunteers across 34 U.S. states; serve 1,500+ competitors annually</li>
+            <li>recruited and managed 200+ volunteers across 34 U.S. states, serving 1,500+ competitors annually</li>
             <li>doubled regional participants in the region's 2nd year</li>
+            <li>host the annual NJ Mustang Math Tournament (MMT) at Rutgers University</li>
           </ul>
         </div>
       </div>
@@ -171,7 +194,7 @@ nav: false
             <span class="xp-date">2026–present</span>
           </div>
           <ul class="lead-stats">
-            <li>report to CEO on AI sales-lead tools; shipped 2,900+ lines of production code; served as incident lead unblocking customer campaigns</li>
+            <li>reported to CEO on AI sales-lead tools; shipped 2,900+ lines of production code; served as incident lead unblocking customer campaigns</li>
           </ul>
         </div>
       </div>

@@ -8,14 +8,11 @@ layout: redesign_default
     <div>
       <h1 class="page-title">gallery</h1>
     </div>
-    <div class="page-aside">
-      <div class="crumb"><a href="{{ '/' | relative_url }}">← back home</a></div>
-    </div>
   </div>
 
 
   <div class="section-head">
-    <h2 class="section-title">works</h2>
+    <h2 class="section-title">gallery</h2>
     <div class="section-rule"></div>
   </div>
 
@@ -24,7 +21,7 @@ layout: redesign_default
     {% for item in site.data.mywork %}
     <figure class="shelf-item shelf-item-work">
       {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{% endif %}
-      <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      <img {% if item.logo %}class="is-logo" {% endif %}src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
       {% if item.url %}</a>{% endif %}
       <figcaption>
         {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
