@@ -25,6 +25,12 @@ layout: redesign_default
     </div>
   </div>
 
+  <div class="fantasy" id="fantasy" hidden>
+    <h3 class="fantasy-team" id="fantasy-team"></h3>
+    <p class="fantasy-record" id="fantasy-record"></p>
+    <ol class="fantasy-roster" id="fantasy-roster"></ol>
+  </div>
+
   <hr class="section-sep" />
 
   <div class="section-head">
@@ -99,6 +105,36 @@ layout: redesign_default
         var scroller = document.getElementById("contrib-scroll");
         scroller.hidden = false;
         scroller.scrollLeft = scroller.scrollWidth; // phones start on the latest weeks
+      })
+      .catch(function () {});
+  })();
+
+  // served by worker/index.js; stays hidden if ESPN can't be reached
+  (function () {
+    fetch("/api/fantasy")
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then(function (team) {
+        var record = team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "");
+        var stats = ["fantasy basketball", record];
+        if (team.points !== null) stats.push(team.points.toLocaleString("en-US") + " pts");
+        if (team.rank) stats.push("#" + team.rank + " of " + team.teams);
+        document.getElementById("fantasy-team").textContent = team.name;
+        document.getElementById("fantasy-record").textContent = stats.join(" · ");
+        var list = document.getElementById("fantasy-roster");
+        team.roster.forEach(function (player) {
+          var row = document.createElement("li");
+          row.className = player.starter ? "fantasy-player" : "fantasy-player is-bench";
+          [player.name, player.position, player.average === null ? "" : player.average + " avg"].forEach(function (text) {
+            var cell = document.createElement("span");
+            cell.textContent = text;
+            row.appendChild(cell);
+          });
+          list.appendChild(row);
+        });
+        document.getElementById("fantasy").hidden = false;
       })
       .catch(function () {});
   })();

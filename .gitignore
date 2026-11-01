@@ -12,6 +12,8 @@ assets/libs/
 assets/rendercv/rendercv_output/*.typ
 Gemfile.lock
 node_modules/
+.dev.vars
+.wrangler/
 vendor
 papers.txt
 # local source files for site assets (not published)

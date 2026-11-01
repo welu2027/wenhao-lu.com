@@ -180,6 +180,8 @@ exclude:
   - purgecss.config.js
   - README.md
   - vendor
+  - worker/
+  - wrangler.jsonc
 keep_files:
   - CNAME
   - .nojekyll

@@ -970,6 +970,46 @@ details.proj-details summary:hover {
   background: #216e39;
 }
 
+/* ---------- daily: fantasy basketball ---------- */
+.fantasy {
+  margin-top: 30px;
+}
+.fantasy-team {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 20px;
+}
+.fantasy-record {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  color: var(--meta) !important;
+}
+.fantasy-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+}
+.fantasy-player {
+  display: grid;
+  grid-template-columns: 1fr 34px 76px;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.fantasy-player span:last-child {
+  text-align: right;
+}
+.fantasy-player span:not(:first-child) {
+  color: var(--meta) !important;
+}
+.fantasy-player.is-bench span:first-child {
+  color: var(--meta) !important;
+}
+
 /* ---------- reading / listening ---------- */
 .living {
   background: var(--bg-2);
