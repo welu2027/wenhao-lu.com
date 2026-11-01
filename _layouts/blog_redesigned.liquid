@@ -6,8 +6,30 @@ layout: redesign_default
   <!-- Page header -->
   <div class="page-header">
     <div>
-      <h1 class="page-title">blog</h1>
+      <h1 class="page-title">life</h1>
     </div>
+  </div>
+
+  <div class="section-head">
+    <h2 class="section-title">daily</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="contrib" id="contrib" data-user="{{ site.data.socials.github_username }}">
+    <p class="contrib-total">
+      <a href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener" id="contrib-total">my GitHub contributions</a>
+    </p>
+    <div class="contrib-scroll" id="contrib-scroll" hidden>
+      <div class="contrib-months" id="contrib-months" aria-hidden="true"></div>
+      <div class="contrib-grid" id="contrib-grid" role="img"></div>
+    </div>
+  </div>
+
+  <hr class="section-sep" />
+
+  <div class="section-head">
+    <h2 class="section-title">blog</h2>
+    <div class="section-rule"></div>
   </div>
 
   {% if site.posts.size == 0 %}
@@ -30,3 +52,54 @@ layout: redesign_default
   {% endif %}
 
 </div>
+
+<script>
+  // static site, so the green squares are fetched in the browser; if the
+  // request fails the section just stays a plain link to the GitHub profile
+  (function () {
+    var root = document.getElementById("contrib");
+    var LEVELS = ["contrib-l0", "contrib-l1", "contrib-l2", "contrib-l3", "contrib-l4"];
+    var MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    fetch("https://github-contributions-api.jogruber.de/v4/" + root.dataset.user + "?y=last")
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var days = data.contributions;
+        var grid = document.getElementById("contrib-grid");
+        var months = document.getElementById("contrib-months");
+        var total = 0;
+        var lastMonth = -1;
+        var offset = new Date(days[0].date + "T00:00:00Z").getUTCDay();
+        var weeks = Math.ceil((days.length + offset) / 7);
+        grid.style.setProperty("--weeks", weeks);
+        months.style.setProperty("--weeks", weeks);
+        days.forEach(function (day, i) {
+          var date = new Date(day.date + "T00:00:00Z");
+          var slot = i + offset;
+          var cell = document.createElement("span");
+          cell.className = "contrib-cell " + LEVELS[day.level];
+          cell.style.gridRow = (slot % 7) + 1;
+          cell.style.gridColumn = Math.floor(slot / 7) + 1;
+          cell.title = day.count + (day.count === 1 ? " contribution on " : " contributions on ") + day.date;
+          grid.appendChild(cell);
+          total += day.count;
+          // label a month at its first full week, skipping a cramped first column
+          if (date.getUTCMonth() !== lastMonth && slot % 7 === 0 && slot > 0) {
+            lastMonth = date.getUTCMonth();
+            var label = document.createElement("span");
+            label.textContent = MONTHS[lastMonth];
+            label.style.gridColumn = Math.floor(slot / 7) + 1 + " / span 4";
+            months.appendChild(label);
+          }
+        });
+        grid.setAttribute("aria-label", total + " GitHub contributions in the last year");
+        document.getElementById("contrib-total").textContent = total.toLocaleString("en-US") + " GitHub contributions in the last year";
+        var scroller = document.getElementById("contrib-scroll");
+        scroller.hidden = false;
+        scroller.scrollLeft = scroller.scrollWidth; // phones start on the latest weeks
+      })
+      .catch(function () {});
+  })();
+</script>
