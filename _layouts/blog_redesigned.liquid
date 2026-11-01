@@ -112,7 +112,7 @@ layout: redesign_default
 
   // served by worker/index.js; stays hidden if ESPN can't be reached
   (function () {
-    fetch("/api/fantasy")
+    fetch("/api/fantasy", { cache: "no-cache" })
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
         return res.json();
