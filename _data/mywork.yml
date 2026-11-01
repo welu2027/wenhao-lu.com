@@ -1,6 +1,9 @@
 - title: The self-polar (23_4) configuration
   image: /assets/img/config-23-4-sphere-fig3.png
   url: https://arxiv.org/abs/2610.14099
+- title: Cited in Wolfram MathWorld
+  image: /assets/img/wolfram-mathworld.png
+  url: https://mathworld.wolfram.com/n-4Configuration.html
 - title: New Jersey Hosts the 2nd Annual Mustang Math Tournament
   image: /assets/img/mustang-math-logo.png
   logo: true

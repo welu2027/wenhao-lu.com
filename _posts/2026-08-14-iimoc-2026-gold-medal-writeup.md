@@ -26,9 +26,7 @@ $$
 
 under a 5 s limit. $K$ is typically far below $N$, so overlapping rectangles have to be merged into fewer, better ones.
 
-**Tactic.** A union-find pass splits the input into connected components solved independently, which is also where most of the speed comes from, since a component of $m$ rectangles has a compressed grid of at most $(2m-1) \times (2m-1)$ cells. Inside a component, rectangles are placed greedily under a _zero-excess_ rule, restricting candidates to lie entirely within the uncovered part of $A$ so the best one falls out of a largest-rectangle-under-a-histogram sweep in $O(n_x n_y)$. That beat the more expressive _max-gain_ rule (new area minus wasted area, i.e. maximum-sum subrectangle in $O(n_x^2 n_y)$) by roughly $25\times$ in speed and on score, because swallowing excess early distorts the residual problem each later placement sees.
-
-$K$ is then spread across components by always granting the next rectangle to the largest pending marginal gain, the standard greedy for monotone submodular maximization. The detail that mattered most is that each component starts at budget _zero_. Guaranteeing each one a rectangle looks safe but starves the large components when $K$ is near the cluster count, and dropping that floor was worth $+0.0245$ average score. Finally, edge sliding closes the seams greedy construction leaves behind, optimizing each of a rectangle's four edges in turn with the other three fixed, coordinate descent with exact $O(1)$ per-cell move evaluation, worth about $+0.011$.
+**Tactic.** Split the input into connected components, greedily place rectangles that stay inside the uncovered area, and give each next rectangle to whichever component gains the most from it. Edge sliding then closes the seams the greedy construction leaves behind.
 
 ### Chromatic Block Harmony (99.92%)
 
@@ -40,11 +38,7 @@ $$
 
 for $k$ blocks and $C$ colors used, under a 3 s limit. Selecting nothing scores 0, which is sometimes optimal.
 
-**Tactic.** The equal-sum constraint makes the color labels immaterial. Relabel so that each color _is_ a distinct sum, and any assignment of blocks to at most $B$ sums is feasible. So the problem is exactly the following.
-
-<p class="reduction">choose a set $S$ of at most $B$ sums, then select a maximum number of pairwise disjoint blocks whose sums lie in $S$.</p>
-
-The inner packing problem is interval scheduling, which the earliest-finish-time greedy solves _exactly_, so all of the approximation lives in the choice of $S$. Blocks of a fixed sum are enumerated with prefix sums and binary search, breaking ties toward the shortest block at each right endpoint. Selection runs in three phases. The first is an exact single-element baseline, where disjointness is automatic, the objective decomposes as $\alpha \sum_{v \in S} \text{freq}(v) - \beta \lvert S \rvert$, and a frequency-sorted greedy is optimal; incremental greedy addition of sums, kept affordable by maintaining a merge of the chosen blocks sorted by right endpoint so each candidate costs one merge plus one sweep instead of a rebuild; and budgeted swap refinement, with prefix and suffix merges precomputed so removing a sum costs one merge rather than $B$.
+**Tactic.** Colors are really just distinct sums, so the problem reduces to choosing at most $B$ sums and packing as many disjoint blocks with those sums as possible. For fixed sums, earliest-finish-time greedy packs blocks exactly, so the only hard part is choosing the sums: start from the best single-element solution, add sums greedily, then refine with swaps.
 
 ### Certificate
 
