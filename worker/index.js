@@ -19,9 +19,7 @@ function round(value) {
 // my score first; live points only exist while games are in progress
 function currentMatchup(league, teamId) {
   const period = league.status?.currentMatchupPeriod;
-  const game = (league.schedule ?? []).find(
-    (g) => g.matchupPeriodId === period && (g.home?.teamId === teamId || g.away?.teamId === teamId),
-  );
+  const game = (league.schedule ?? []).find((g) => g.matchupPeriodId === period && (g.home?.teamId === teamId || g.away?.teamId === teamId));
   if (!game?.home || !game.away) return null; // a bye has no opponent
   const [mine, theirs] = game.home.teamId === teamId ? [game.home, game.away] : [game.away, game.home];
   return { mine: round(mine.totalPointsLive ?? mine.totalPoints ?? 0), theirs: round(theirs.totalPointsLive ?? theirs.totalPoints ?? 0) };
