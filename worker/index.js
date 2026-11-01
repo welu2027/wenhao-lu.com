@@ -4,6 +4,7 @@ const ESPN_API = "https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/season
 const CACHE_SECONDS = 900;
 const BENCH_SLOT = 12;
 const POSITIONS = { 1: "PG", 2: "SG", 3: "SF", 4: "PF", 5: "C" };
+const INJURIES = { OUT: "O", DAY_TO_DAY: "DTD", SUSPENSION: "SSPD" };
 
 function json(body, status = 200) {
   const headers = { "content-type": "application/json; charset=utf-8" };
@@ -28,6 +29,7 @@ export function shapeTeam(league, teamId, season) {
     return {
       name: player.fullName ?? "unknown",
       position: POSITIONS[player.defaultPositionId] ?? "",
+      injury: INJURIES[player.injuryStatus] ?? "",
       starter: entry.lineupSlotId < BENCH_SLOT,
       average: round(stats?.appliedAverage),
       total: round(pool.appliedStatTotal),
@@ -35,7 +37,6 @@ export function shapeTeam(league, teamId, season) {
   });
   roster.sort((a, b) => Number(b.starter) - Number(a.starter) || (b.average ?? 0) - (a.average ?? 0));
   return {
-    name: team.name ?? [team.location, team.nickname].filter(Boolean).join(" "),
     wins: record.wins ?? 0,
     losses: record.losses ?? 0,
     ties: record.ties ?? 0,

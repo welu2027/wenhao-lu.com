@@ -1000,14 +1000,17 @@ details.proj-details summary:hover {
   padding: 6px 0;
   border-bottom: 1px dashed var(--rule);
 }
-.fantasy-player span:last-child {
+.fantasy-player > span:last-child {
   text-align: right;
 }
-.fantasy-player span:not(:first-child) {
+.fantasy-player > span:not(:first-child) {
   color: var(--meta) !important;
 }
-.fantasy-player.is-bench span:first-child {
-  color: var(--meta) !important;
+.fantasy-injury {
+  margin-left: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--seal) !important;
 }
 
 /* ---------- reading / listening ---------- */
