@@ -1,8 +1,22 @@
 {
   "name": "wenhao-lu-com",
   "compatibility_date": "2026-08-14",
+  // Only runs for requests that don't match a static file (e.g. /api/fantasy)
+  "main": "_worker/index.js",
   "assets": {
     "directory": "./_site",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  // ESPN fantasy team shown on /fantasy/. Bump ESPN_SEASON each fall
+  // (ESPN names a season by the year it ends: 2026-27 → 2027).
+  // Private league? Add ESPN_S2 and ESPN_SWID as Secrets in the Cloudflare dashboard.
+  "vars": {
+    "ESPN_LEAGUE_ID": "2073338009",
+    "ESPN_TEAM_ID": "6",
+    "ESPN_SEASON": "2027"
+  },
+  "observability": {
+    "enabled": true
   }
 }

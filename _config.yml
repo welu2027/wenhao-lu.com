@@ -144,7 +144,6 @@ newsletter:
 # Collections
 # -----------------------------------------------------------------------------
 
-
 collections:
   projects:
     output: true
@@ -180,6 +179,7 @@ exclude:
   - purgecss.config.js
   - README.md
   - vendor
+  - wrangler.jsonc
 keep_files:
   - CNAME
   - .nojekyll
