@@ -1881,50 +1881,26 @@ details.proj-details summary:hover {
   border-color: var(--accent);
 }
 
-/* the numbers on an unrolled parchment; the rolled ends stay fixed in the
-   border-image while the sheet between them stretches to fit the stats */
+/* the numbers in a quiet box, ruled like the project cards */
 .init-figures {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   gap: 16px 0;
   margin: 16px 0 18px;
-  padding: 4px 11% 6px;
-  border-style: solid;
-  border-width: 52px 0;
-  border-image: url("/assets/img/scroll-parchment.png") 125 0 fill / 52px 0 stretch;
+  padding: 18px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: rgba(255, 252, 245, 0.45);
 }
 .init-figures div {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
   gap: 6px;
-  padding: 0 10px;
+  padding: 0 16px;
 }
-.init-figures div:first-child {
-  padding-left: 0;
-}
-/* ink hairlines that fade out at both ends, like a lifted brush */
 .init-figures div + div {
-  border-left: 1px solid;
-  border-image: linear-gradient(transparent, rgba(58, 53, 40, 0.5), transparent) 1;
-}
-.init-figures div:last-child::after {
-  content: "\6587";
-  position: absolute;
-  top: 2px;
-  right: 11.5%;
-  width: 24px;
-  height: 24px;
-  border-radius: 3px;
-  background: var(--seal);
-  font-family: var(--brush);
-  font-size: 18px;
-  line-height: 24px;
-  text-align: center;
-  color: var(--paper);
-  transform: rotate(-4deg);
-  opacity: 0.88;
+  border-left: 1px solid var(--rule);
 }
 .init-figures dd {
   margin: 0;
@@ -1944,11 +1920,8 @@ details.proj-details summary:hover {
 @media (max-width: 700px) {
   .init-figures {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-width: 30px 0;
-    border-image-width: 30px 0;
   }
   .init-figures div:nth-child(odd) {
-    padding-left: 0;
     border-left: 0;
   }
 }

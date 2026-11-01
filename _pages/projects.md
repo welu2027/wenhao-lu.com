@@ -35,10 +35,8 @@ nav: false
       <div class="now-card">
         <h2 class="now-title">UCL Load Lab</h2>
         <p class="now-desc">
-          Physics-based elbow injury risk for baseball pitchers. I rebuilt elbow torque from 411
-          motion-captured pitches with Newton&ndash;Euler inverse dynamics (r = 0.90 vs the lab's own),
-          modeled UCL wear as tissue fatigue calibrated to MLB injury rates, and mapped every 2026 MLB
-          pitcher by pitch count and elbow stress. Includes a 3D replay and a risk calculator.
+          Physics-based elbow injury risk for baseball pitchers. I had to stop pitching because of elbow and shoulder injuries, so I built a physics-based model
+          to help pitchers prevent them. Includes a 3D replay and a risk calculator.
         </p>
         <span class="shelf-note">Motion data from Driveline OpenBiomechanics (CC BY-NC-SA 4.0).</span>
       </div>

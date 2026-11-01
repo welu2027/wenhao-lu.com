@@ -151,7 +151,6 @@ nav: false
           <p class="lead-desc">A global hackathon series that teaches students to build for their communities.</p>
           <ul class="lead-stats">
             <li>drew 2,100+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
-            <li>secured $100k+ in non-cash prizes for V2</li>
           </ul>
         </div>
       </div>
