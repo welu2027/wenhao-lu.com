@@ -984,6 +984,11 @@ details.proj-details summary:hover {
   font-size: 13px;
   color: var(--meta) !important;
 }
+.fantasy-matchup {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
 .fantasy-roster {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1004,6 +1009,9 @@ details.proj-details summary:hover {
   text-align: right;
 }
 .fantasy-player > span:not(:first-child) {
+  color: var(--meta) !important;
+}
+.fantasy-player.is-bench > span:first-child {
   color: var(--meta) !important;
 }
 .fantasy-injury {

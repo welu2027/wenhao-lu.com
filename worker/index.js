@@ -16,6 +16,17 @@ function round(value) {
   return typeof value === "number" ? Math.round(value * 10) / 10 : null;
 }
 
+// my score first; live points only exist while games are in progress
+function currentMatchup(league, teamId) {
+  const period = league.status?.currentMatchupPeriod;
+  const game = (league.schedule ?? []).find(
+    (g) => g.matchupPeriodId === period && (g.home?.teamId === teamId || g.away?.teamId === teamId),
+  );
+  if (!game?.home || !game.away) return null; // a bye has no opponent
+  const [mine, theirs] = game.home.teamId === teamId ? [game.home, game.away] : [game.away, game.home];
+  return { mine: round(mine.totalPointsLive ?? mine.totalPoints ?? 0), theirs: round(theirs.totalPointsLive ?? theirs.totalPoints ?? 0) };
+}
+
 // allowlist the fields so nothing else from ESPN's response is ever public
 export function shapeTeam(league, teamId, season) {
   const team = league.teams.find((t) => t.id === teamId);
@@ -43,6 +54,7 @@ export function shapeTeam(league, teamId, season) {
     points: round(record.pointsFor ?? team.points),
     rank: team.playoffSeed ?? null,
     teams: league.teams.length,
+    matchup: currentMatchup(league, teamId),
     roster,
   };
 }
@@ -57,7 +69,7 @@ async function fantasy(request, env, ctx) {
   if (cached) return cached;
 
   const season = Number(env.ESPN_SEASON);
-  const url = `${ESPN_API}/${season}/segments/0/leagues/${env.ESPN_LEAGUE}?view=mTeam&view=mRoster`;
+  const url = `${ESPN_API}/${season}/segments/0/leagues/${env.ESPN_LEAGUE}?view=mTeam&view=mRoster&view=mMatchupScore&view=mLiveScoring`;
   let espn;
   try {
     espn = await fetch(url, {

@@ -28,6 +28,7 @@ layout: redesign_default
   <div class="fantasy" id="fantasy" hidden>
     <h3 class="fantasy-team">Fantasy Basketball</h3>
     <p class="fantasy-record" id="fantasy-record"></p>
+    <p class="fantasy-matchup" id="fantasy-matchup" hidden></p>
     <ol class="fantasy-roster" id="fantasy-roster"></ol>
   </div>
 
@@ -122,10 +123,15 @@ layout: redesign_default
         if (team.points !== null) stats.push(team.points.toLocaleString("en-US") + " pts");
         if (team.rank) stats.push("#" + team.rank + " of " + team.teams);
         document.getElementById("fantasy-record").textContent = stats.join(" · ");
+        if (team.matchup) {
+          var score = document.getElementById("fantasy-matchup");
+          score.textContent = "current matchup: " + team.matchup.mine + " - " + team.matchup.theirs;
+          score.hidden = false;
+        }
         var list = document.getElementById("fantasy-roster");
         team.roster.forEach(function (player) {
           var row = document.createElement("li");
-          row.className = "fantasy-player";
+          row.className = player.starter ? "fantasy-player" : "fantasy-player is-bench";
           [player.name, player.position, player.average === null ? "" : player.average + " avg"].forEach(function (text) {
             var cell = document.createElement("span");
             cell.textContent = text;
