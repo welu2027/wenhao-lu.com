@@ -148,7 +148,7 @@ nav: false
             <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">part of NXT Horizon</a>
             <span class="org-date">2026–present</span>
           </h3>
-          <p class="lead-desc">A global hackathon series that teaches students to build for their communities.</p>
+          <p class="lead-desc">A global hackathon series that teaches students to build AI for their communities.</p>
           <ul class="lead-stats">
             <li>drew 2,100+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
           </ul>
