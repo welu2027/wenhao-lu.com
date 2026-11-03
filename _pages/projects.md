@@ -27,6 +27,7 @@ nav: false
         <div class="now-cta-row">
           <a class="now-cta" href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv <span class="now-cta-arrow">&#8599;</span></a>
           <a class="now-cta" href="https://mathworld.wolfram.com/n-4Configuration.html" target="_blank" rel="noopener">Wolfram MathWorld <span class="now-cta-arrow">&#8599;</span></a>
+          <a class="now-cta" href="https://meetings.ams.org/math/jmm2027/meetingapp.cgi/Paper/66522" target="_blank" rel="noopener">JMM '27 <span class="now-cta-arrow">&#8599;</span></a>
         </div>
       </div>
     </div>
