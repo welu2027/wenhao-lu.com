@@ -67,8 +67,8 @@ nav: false
             <span class="xp-date">2026</span>
           </div>
           <ul class="lead-stats">
-            <li>built the first interpretability library for world models, with NYU, USC, and Georgia Tech researchers; cited in 2026 world model agenda</li>
-            <li>presented 1st-author paper on mechanistic interpretability of latent multi-agent systems at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 workshop</a></li>
+            <li>built the first interpretability library for world models, with NYU, USC, and Georgia Tech researchers; 1 citation</li>
+            <li>presented 1st-author paper on mechanistic interpretability of latent multi-agent systems at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 workshop</a>; 1 citation</li>
           </ul>
         </div>
       </div>

@@ -32,6 +32,7 @@ nav: false
       </div>
     </div>
 
+    {% comment %} UCL Load Lab: hidden from the page for now; the site itself stays live at /ucl/
     <div class="now-grid">
       <div class="now-card">
         <h2 class="now-title">UCL Load Lab</h2>
@@ -48,5 +49,6 @@ nav: false
         </div>
       </div>
     </div>
+    {% endcomment %}
 
 </div>
