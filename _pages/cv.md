@@ -27,7 +27,7 @@ nav: false
             <span class="xp-org">Millburn High School</span>
             <span class="xp-date">expected June 2027</span>
           </div>
-          <p class="xp-line">NJSRS organizer &amp; committee chair, HackMHS organizer, Science Research Club treasurer, Math Modeling Club president, 7405X Robotics</p>
+          <p class="xp-line">NJSRS organizer &amp; committee chair, HackMHS organizer, Science Research Club treasurer, Math Modeling Club president, 7405X Vex AI robotics</p>
         </div>
       </div>
     </div>
