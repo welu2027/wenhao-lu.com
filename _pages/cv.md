@@ -110,7 +110,7 @@ nav: false
           </h3>
           <p class="lead-desc">A global AI incubator creating pathways for overlooked students in the AI age.</p>
           <ul class="lead-stats">
-            <li>scaled to 60+ staff, 128 chapters, and 5,000 participants (including YIMO) from 137 countries</li>
+            <li>scaled to 60+ staff, 128 chapters, and 5,169 participants (including YIMO) from 137 countries</li>
             <li>raised $55k+ from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
             <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS (2x Creative AI Track, main conference; 5x workshop)</li>
             <li>organized a special journal issue with ReScience C</li>
@@ -150,7 +150,7 @@ nav: false
           </h3>
           <p class="lead-desc">A global hackathon series that teaches students to build AI for their communities.</p>
           <ul class="lead-stats">
-            <li>drew 2,100+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
+            <li>drew 2,300+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
           </ul>
         </div>
       </div>

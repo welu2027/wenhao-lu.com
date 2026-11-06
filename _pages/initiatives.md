@@ -41,7 +41,7 @@ nav: false
         <p class="init-role">founder &amp; executive director</p>
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <dl class="init-figures">
-          <div><dt>participants</dt><dd>5,000</dd></div>
+          <div><dt>participants</dt><dd>5,169</dd></div>
           <div><dt>countries</dt><dd>137</dd></div>
           <div><dt>chapters</dt><dd>128</dd></div>
           <div><dt>staff</dt><dd>60+</dd></div>
@@ -93,12 +93,12 @@ nav: false
         <p class="init-role">co-founder &amp; executive director</p>
         <p class="init-tagline">a global hackathon series that teaches students to build AI for their communities.</p>
         <dl class="init-figures">
-          <div><dt>participants across 2 hackathons</dt><dd>2,100+</dd></div>
+          <div><dt>participants across 2 hackathons</dt><dd>2,300+</dd></div>
           <div><dt>non-cash prizes in V2</dt><dd>$100k+</dd></div>
         </dl>
         <ul class="init-stats">
           <li><a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a>: AI x STEM education, with 1,291 participants and 283 projects</li>
-          <li><a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a>: AI x healthcare, with 885+ participants, open through Nov 14, 2026</li>
+          <li><a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a>: AI x healthcare, with 1,054 participants, open through Nov 14, 2026</li>
         </ul>
       </div>
     </article>
