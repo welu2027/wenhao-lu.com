@@ -46,7 +46,7 @@ nav: false
         </a>
         <div class="xp-body">
           <div class="xp-head">
-            <span class="xp-org">Stevens Institute of Technology <span class="xp-role">high school researcher</span></span>
+            <span class="xp-org">Stevens Institute of Technology</span>
             <span class="xp-date">2025–present</span>
           </div>
           <ul class="lead-stats">
@@ -79,7 +79,7 @@ nav: false
         </span>
         <div class="xp-body">
           <div class="xp-head">
-            <span class="xp-org">Bridgewater Internal Medicine <span class="xp-role">research intern</span></span>
+            <span class="xp-org">Bridgewater Internal Medicine</span>
             <span class="xp-date">2024–2025</span>
           </div>
           <ul class="lead-stats">
