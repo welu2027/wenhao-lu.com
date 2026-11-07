@@ -182,6 +182,9 @@ exclude:
   - vendor
   - worker/
   - wrangler.jsonc
+  - .wrangler/
+  - .dev.vars
+  - wrangler.local.jsonc
 keep_files:
   - CNAME
   - .nojekyll
