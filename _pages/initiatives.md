@@ -93,7 +93,7 @@ nav: false
         <p class="init-role">co-founder &amp; executive director</p>
         <p class="init-tagline">a global hackathon series that teaches students to build AI for their communities.</p>
         <dl class="init-figures">
-          <div><dt>participants across 2 hackathons</dt><dd>2,300+</dd></div>
+          <div><dt>participants across 2 hackathons</dt><dd>2,000+</dd></div>
           <div><dt>non-cash prizes in V2</dt><dd>$100k+</dd></div>
         </dl>
         <ul class="init-stats">

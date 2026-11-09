@@ -150,7 +150,7 @@ nav: false
           </h3>
           <p class="lead-desc">A global hackathon series that teaches students to build AI for their communities.</p>
           <ul class="lead-stats">
-            <li>drew 2,300+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
+            <li>drew 2,000+ participants across <a href="https://dsh-hacks-v1.devpost.com/" target="_blank" rel="noopener">V1</a> (AI x STEM education) and <a href="https://dsh-hacks-v2.devpost.com/" target="_blank" rel="noopener">V2</a> (AI x healthcare)</li>
           </ul>
         </div>
       </div>
@@ -230,7 +230,7 @@ nav: false
     <hr class="section-sep" />
 
     <div class="section-head">
-      <h2 class="section-title">awards</h2>
+      <h2 class="section-title" id="awards">awards</h2>
       <div class="section-rule"></div>
     </div>
 
@@ -286,7 +286,7 @@ nav: false
       </a>
 
       <a class="award-card" href="https://www.non-trivial.org/" target="_blank" rel="noopener">
-        <span class="award-title">Non-Trivial Research Foundations, Finalist (1% acceptance rate)</span>
+        <span class="award-title">Non-Trivial Research Foundations, Finalist</span>
         <img
           src="{{ '/assets/img/nontrivial-research-foundations.png' | relative_url }}"
           alt="Non-Trivial Research Foundations Program certificate for Wenhao Lu"
@@ -297,7 +297,7 @@ nav: false
       </a>
 
       <a class="award-card" href="https://www.hpair.org/" target="_blank" rel="noopener">
-        <span class="award-title">Harvard Project on Asian and International Relations, Delegate (2-3% acceptance)</span>
+        <span class="award-title">Harvard Project on Asian and International Relations, Delegate</span>
         <img
           src="{{ '/assets/img/hpair-delegate.png' | relative_url }}"
           alt="HPAIR 2026 Harvard Conference delegate certificate for Wenhao Lu"
