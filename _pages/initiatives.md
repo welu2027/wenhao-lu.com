@@ -41,7 +41,7 @@ nav: false
         <p class="init-role">founder &amp; executive director</p>
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <dl class="init-figures">
-          <div><dt>participants</dt><dd>5,169</dd></div>
+          <div><dt>participants</dt><dd>5,100+</dd></div>
           <div><dt>countries</dt><dd>137</dd></div>
           <div><dt>chapters</dt><dd>128</dd></div>
           <div><dt>staff</dt><dd>60+</dd></div>
