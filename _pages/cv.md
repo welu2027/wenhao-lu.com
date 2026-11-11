@@ -110,7 +110,7 @@ nav: false
           </h3>
           <p class="lead-desc">A global AI incubator creating pathways for overlooked students in the AI age.</p>
           <ul class="lead-stats">
-            <li>scaled to 60+ staff, 128 chapters, and 5,100+ participants (including YIMO) from 137 countries</li>
+            <li>scaled to 60+ staff, 128 chapters, and 5,800+ participants (including YIMO) from 130+ countries</li>
             <li>raised $55k+ from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
             <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS (2x Creative AI Track, main conference; 5x workshop)</li>
             <li>organized a special journal issue with ReScience C</li>
@@ -131,7 +131,7 @@ nav: false
           </h3>
           <p class="lead-desc">The fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
           <ul class="lead-stats">
-            <li>scaled to 2,700+ participants in 6 months; 300k+ social media impressions</li>
+            <li>scaled to 3,300+ participants in 6 months; 300k+ social media impressions</li>
             <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
           </ul>
         </div>
