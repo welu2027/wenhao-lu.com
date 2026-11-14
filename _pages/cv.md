@@ -110,7 +110,7 @@ nav: false
           </h3>
           <p class="lead-desc">A global AI incubator creating pathways for overlooked students in the AI age.</p>
           <ul class="lead-stats">
-            <li>scaled to 60+ staff, 128 chapters, and 5,800+ participants (including YIMO) from 130+ countries, who built 470+ AI projects</li>
+            <li>scaled to 60+ staff, 128 chapters, and 2,600+ participants from 100+ countries, who built 470+ AI projects</li>
             <li>raised $55k+ from 24 sponsors; recruited 95+ AI professionals to collaborate on professional workshops</li>
             <li>mentored students on AI research for under-resourced communities, with acceptances at NeurIPS (2x Creative AI Track, main conference; 5x workshop)</li>
             <li>organized a special journal issue with ReScience C</li>
@@ -126,12 +126,12 @@ nav: false
           <h3 class="lead-name">
             <a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a>
             <span class="lead-role">co-founder &amp; former executive director, now advisor</span>
-            <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">part of NXT Horizon</a>
+            <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">started at NXT Horizon, now independent</a>
             <span class="org-date">2026–present</span>
           </h3>
           <p class="lead-desc">The fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
           <ul class="lead-stats">
-            <li>scaled to 3,300+ participants in 6 months; 300k+ social media impressions</li>
+            <li>scaled to 3,300+ competitors from 120+ countries in 6 months; 300k+ social media impressions</li>
             <li>backed by AoPS, HRT, PiMath, and Euler Circle</li>
           </ul>
         </div>

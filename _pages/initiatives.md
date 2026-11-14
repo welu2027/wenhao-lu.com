@@ -41,8 +41,8 @@ nav: false
         <p class="init-role">founder &amp; executive director</p>
         <p class="init-tagline">a global AI incubator creating pathways for overlooked students in the AI age.</p>
         <dl class="init-figures">
-          <div><dt>participants</dt><dd>5,800+</dd></div>
-          <div><dt>countries</dt><dd>130+</dd></div>
+          <div><dt>participants</dt><dd>2,600+</dd></div>
+          <div><dt>countries</dt><dd>100+</dd></div>
           <div><dt>chapters</dt><dd>128</dd></div>
           <div><dt>staff</dt><dd>60+</dd></div>
           <div><dt>from 24 sponsors</dt><dd>$55k+</dd></div>
@@ -63,13 +63,14 @@ nav: false
       <div class="init-body">
         <h2 class="init-name">
           <a href="https://yimo-official.org/" target="_blank" rel="noopener">YIMO</a>
-          <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">part of NXT Horizon</a>
+          <a class="org-parent" href="https://nxthorizon.org/" target="_blank" rel="noopener">started at NXT Horizon, now independent</a>
           <span class="org-date">2026–present</span>
         </h2>
         <p class="init-role">co-founder &amp; former executive director, now advisor</p>
         <p class="init-tagline">the fastest growing student-led math initiative, bringing competition math to places that don't have access to traditional competitions.</p>
         <dl class="init-figures">
-          <div><dt>participants in 6 months</dt><dd>3,300+</dd></div>
+          <div><dt>competitors in 6 months</dt><dd>3,300+</dd></div>
+          <div><dt>countries</dt><dd>120+</dd></div>
           <div><dt>social media impressions</dt><dd>300k+</dd></div>
         </dl>
         <ul class="init-stats">
