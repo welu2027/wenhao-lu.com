@@ -25,13 +25,6 @@ layout: redesign_default
     </div>
   </div>
 
-  <div class="fantasy" id="fantasy" hidden>
-    <h3 class="fantasy-team">Fantasy Basketball</h3>
-    <p class="fantasy-record" id="fantasy-record"></p>
-    <p class="fantasy-matchup" id="fantasy-matchup" hidden></p>
-    <ol class="fantasy-roster" id="fantasy-roster"></ol>
-  </div>
-
   <hr class="section-sep" />
 
   <div class="section-head">
@@ -57,6 +50,19 @@ layout: redesign_default
       {% endfor %}
     </div>
   {% endif %}
+
+  <div id="fantasy" hidden>
+    <hr class="section-sep" />
+
+    <div class="section-head">
+      <h2 class="section-title">fantasy basketball</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="fantasy-record" id="fantasy-record"></p>
+    <p class="fantasy-matchup" id="fantasy-matchup" hidden></p>
+    <ol class="fantasy-roster" id="fantasy-roster"></ol>
+  </div>
 
 </div>
 
@@ -121,7 +127,11 @@ layout: redesign_default
         var record = team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "");
         var stats = [record];
         if (team.points !== null) stats.push(team.points.toLocaleString("en-US") + " pts");
-        if (team.rank) stats.push("#" + team.rank + " of " + team.teams);
+        if (team.rank) {
+          var r = team.rank, tail = r % 100;
+          var suffix = tail >= 11 && tail <= 13 ? "th" : ["th", "st", "nd", "rd"][r % 10] || "th";
+          stats.push(r + suffix + " place of " + team.teams);
+        }
         document.getElementById("fantasy-record").textContent = stats.join(" · ");
         if (team.matchup) {
           var score = document.getElementById("fantasy-matchup");

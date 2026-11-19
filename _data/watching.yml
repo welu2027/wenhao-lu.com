@@ -18,10 +18,6 @@
   image: /assets/img/emily-dickinson.jpg
   url: https://www.goodreads.com/en/book/show/112204.The_Complete_Poems_of_Emily_Dickinson
 
-- title: Othello
-  image: /assets/img/othello.jpg
-  url: https://www.goodreads.com/book/show/12996.Othello
-
 - title: Spring Night, Happy Rain by Du Fu
   image: /assets/img/du-fu.jpg
   url: https://zh.wikisource.org/wiki/春夜喜雨

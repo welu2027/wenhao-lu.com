@@ -16,7 +16,7 @@ nav: false
       <div class="now-card">
         <h2 class="now-title">Symmetric, rational and infinitely many (23<sub>4</sub>) configurations, and the end of the existence problem for geometric (n<sub>4</sub>) configurations</h2>
         <p class="now-desc">
-          I prove that geometric (n<sub>4</sub>) configurations exist if and only if n &ge; 18 and n &ne; 19
+          In my research, I close a discrete geometry problem proposed by Branko Gr&uuml;nbaum in 2000. I prove that geometric (n<sub>4</sub>) configurations exist if and only if n &ge; 18 and n &ne; 19
           by resolving the last open case, n = 23, using a symmetry bound and an exact classification by
           Gr&ouml;bner bases. I also prove there are infinitely many (23<sub>4</sub>) configurations with
           rational coordinates by computing a continuous family of them and parametrizing it by a rational number.

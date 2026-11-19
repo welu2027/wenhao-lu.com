@@ -4,13 +4,13 @@ title: Almost Optimal
 date: 2026-08-14
 ---
 
-The [International Invitational Math Optimization Challenge (IIMOC)](https://iimoc.org/) sources its problems from the [Frontier CS benchmark](https://arxiv.org/abs/2512.15699), a set of NP-hard optimization tasks where the global optimum is likely unknown. It is a team-based competition, and entrants are scored on how optimal a solution they can construct.
+The [International Invitational Math Optimization Challenge (IIMOC)](https://iimoc.org/) is a team-based optimization competition that sources its problems from the [Frontier CS benchmark](https://arxiv.org/abs/2512.15699), a set of NP-hard optimization tasks where the global optimum is likely unknown. Entrants are scored on how optimal a solution they can construct.
 
-Competing solo, I placed **8th out of 306 teams** across **15,346 total submissions**, earning a gold medal. See the [final leaderboard](https://iimoc.org/leaderboard2026.html).
+Competing solo, I placed **8th out of 307 teams** across **15,346 total submissions**, earning a gold medal. See the [final leaderboard](https://iimoc.org/leaderboard2026.html).
 
 <div class="img-duo">
   <img class="duo-art" src="{{ '/assets/img/dexters-lab.png' | relative_url }}" alt="Dexter mixing a beaker in his lab" loading="lazy" width="362" height="282">
-  <p class="duo-text">I think this was a fun change of pace from USACO/Codeforces problems because me and my fellow competitors kept pushing each others limits for better constructive solutions; I hope a whole category of competitive optimization contests grows around this idea.</p>
+  <p class="duo-text">I think this was a fun change of pace from traditional competitive programming (i.e. USACO) problems because we kept pushing each others limits for better constructive solutions; I hope a whole category of competitive optimization contests grows around this idea.</p>
   <a class="repo-img" href="https://github.com/welu2027/IIMOC-2026" target="_blank" rel="noopener">
     <img src="{{ '/assets/img/iimoc-repo-octocat.png' | relative_url }}" alt="welu2027/IIMOC-2026 on GitHub" loading="lazy" width="1266" height="934">
   </a>
@@ -26,7 +26,7 @@ $$
 
 under a 5 s limit. $K$ is typically far below $N$, so overlapping rectangles have to be merged into fewer, better ones.
 
-**Tactic.** Split the input into connected components, greedily place rectangles that stay inside the uncovered area, and give each next rectangle to whichever component gains the most from it. Edge sliding then closes the seams the greedy construction leaves behind.
+My tactic was to split the input into connected components, greedily place rectangles that stay inside the uncovered area, and give each next rectangle to whichever component gains the most from it. Edge sliding then closed the seams the greedy construction left behind.
 
 ### Chromatic Block Harmony (99.92%)
 
@@ -38,7 +38,7 @@ $$
 
 for $k$ blocks and $C$ colors used, under a 3 s limit. Selecting nothing scores 0, which is sometimes optimal.
 
-**Tactic.** Colors are really just distinct sums, so the problem reduces to choosing at most $B$ sums and packing as many disjoint blocks with those sums as possible. For fixed sums, earliest-finish-time greedy packs blocks exactly, so the only hard part is choosing the sums: start from the best single-element solution, add sums greedily, then refine with swaps.
+My tactic was to treat colors as distinct sums, so the problem reduces to choosing at most $B$ sums and packing as many disjoint blocks with those sums as possible. For fixed sums, earliest-finish-time greedy packs blocks exactly, so the only hard part is choosing the sums. I started from the best single-element solution, added sums greedily, then refined with swaps.
 
 ### Certificate
 
