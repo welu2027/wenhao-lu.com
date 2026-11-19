@@ -1,6 +1,6 @@
 ---
 layout: blog_redesigned
 permalink: /blog/
-title: life
+title: daily
 nav: false
 ---
