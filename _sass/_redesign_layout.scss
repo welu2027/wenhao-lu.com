@@ -1906,6 +1906,16 @@ details.proj-details summary:hover {
 .init-figures div + div {
   border-left: 1px solid var(--rule);
 }
+// NXT Horizon has too many figures for one row: 4 per row, long labels span 2
+.init-figures.is-two-row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.init-figures.is-two-row div:nth-child(4n + 1) {
+  border-left: 0;
+}
+.init-figures .is-wide {
+  grid-column: span 2;
+}
 .init-figures dd {
   margin: 0;
   font-family: var(--mono);
@@ -1922,7 +1932,8 @@ details.proj-details summary:hover {
   color: var(--fg-2);
 }
 @media (max-width: 700px) {
-  .init-figures {
+  .init-figures,
+  .init-figures.is-two-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .init-figures div:nth-child(odd) {
