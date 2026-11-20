@@ -130,7 +130,7 @@ layout: redesign_default
         if (team.rank) {
           var r = team.rank, tail = r % 100;
           var suffix = tail >= 11 && tail <= 13 ? "th" : ["th", "st", "nd", "rd"][r % 10] || "th";
-          stats.push(r + suffix + " place of " + team.teams);
+          stats.push(r + suffix + " place (ESPN " + team.teams + "-team H2H points)");
         }
         document.getElementById("fantasy-record").textContent = stats.join(" · ");
         if (team.matchup) {
