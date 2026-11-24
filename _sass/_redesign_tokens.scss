@@ -14,10 +14,12 @@
   --accent-soft: #e8c69a;
   --accent-tint: rgba(176, 106, 42, 0.08);
 
-  --serif: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --display: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --body: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --mono: "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  // font test: DM Sans. To switch back, set the four lines below to:
+  // "Ubuntu Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --brush: "Ma Shan Zheng", "Songti SC", "STSong", serif;
 
   --seal: #b23a2e;
