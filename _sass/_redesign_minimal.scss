@@ -83,7 +83,14 @@ section.mn-intro {
   max-width: 66ch;
 }
 .mn-intro p {
-  margin: 0;
+  margin: 0 0 20px;
+}
+.mn-intro p:last-child {
+  margin-bottom: 0;
+}
+.mn-intro strong {
+  font-weight: 700;
+  color: #000 !important;
 }
 .mn-label {
   margin: 0 0 14px;

@@ -10,7 +10,7 @@
   </nav>
 </header>
 <nav class="mn-tabs" aria-label="Pages">
-  {%- assign mn_tabs = "/|Home,/projects/|Projects,/initiatives/|Initiatives (EA),/cv/|CV,/blog/|Daily,/gallery/|Gallery,/contact/|Contact" | split: "," -%}
+  {%- assign mn_tabs = "/|Home,/projects/|Projects,/initiatives/|Initiatives,/cv/|CV,/blog/|Daily,/gallery/|Gallery,/contact/|Contact" | split: "," -%}
   {%- for tab in mn_tabs -%}
     {%- assign parts = tab | split: "|" -%}
     <a {% if mn_path == parts[0] %}class="active" aria-current="page" {% endif %}href="{{ parts[0] | relative_url }}">{{ parts[1] }}</a>

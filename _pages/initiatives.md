@@ -8,7 +8,7 @@ nav: false
 <div class="page-anim">
     <div class="page-header">
       <div>
-        <h1 class="page-title">initiatives (EA)</h1>
+        <h1 class="page-title">initiatives</h1>
       </div>
     </div>
 
@@ -18,15 +18,6 @@ nav: false
       tackle society's most pressing problems.
     </p>
 
-    <figure class="init-epigraph">
-      <blockquote>
-        Effective altruism is about using evidence and reason to figure out how to benefit others as
-        much as possible, and taking action on that basis.
-      </blockquote>
-      <figcaption>
-        <a href="https://www.centreforeffectivealtruism.org/ceas-guiding-principles" target="_blank" rel="noopener">Centre for Effective Altruism</a>
-      </figcaption>
-    </figure>
 
     {% include initiative_cards.liquid %}
 

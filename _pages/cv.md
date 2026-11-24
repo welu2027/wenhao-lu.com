@@ -63,12 +63,12 @@ nav: false
         </a>
         <div class="xp-body">
           <div class="xp-head">
-            <span class="xp-org">Independent AI safety/interp research</span>
+            <span class="xp-org">Independent AI safety research (4 citations)</span>
             <span class="xp-date">2026</span>
           </div>
           <ul class="lead-stats">
-            <li>built 1st interp library for world models with researchers from NYU, USC, Georgia Tech; cited by Dacheng Tao’s group</li>
-            <li>presented 1st-author paper on mechinterp of LatentMAS at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 CompLearn</a>; cited in 2026 study</li>
+            <li>built interp library for world models with researchers from NYU, USC, Georgia Tech</li>
+            <li>presented 1st-author paper at <a href="https://icml.cc/virtual/2026/69328" target="_blank" rel="noopener">ICML 2026 CompLearn</a></li>
           </ul>
         </div>
       </div>
@@ -108,7 +108,7 @@ nav: false
 
     <div class="xp-list">
       <div class="xp-entry">
-        <a class="xp-logo" href="https://www.venu.ai/" target="_blank" rel="noopener">
+        <a class="xp-logo" href="https://www.venu3d.com/" target="_blank" rel="noopener">
           <img src="{{ '/assets/img/venu-logo.png' | relative_url }}" alt="Venu AI (YC W21)" loading="lazy" />
         </a>
         <div class="xp-body">
@@ -117,7 +117,7 @@ nav: false
             <span class="xp-date">2026–present</span>
           </div>
           <ul class="lead-stats">
-            <li>report to CEO on AI sales-lead tools; shipped 2,900+ lines of production code; served as incident lead unblocking customer campaigns</li>
+            <li>report to CEO on AI sales-lead tools; served as incident lead unblocking customer campaigns</li>
           </ul>
         </div>
       </div>
@@ -133,8 +133,8 @@ nav: false
 
     <ol class="cv-pubs">
       <li>“Symmetric, rational and infinitely many (23₄) configurations, and the end of the existence problem for geometric (n₄) configurations,” <a href="https://arxiv.org/abs/2610.14099" target="_blank" rel="noopener">arXiv</a>, <a href="https://meetings.ams.org/math/jmm2027/meetingapp.cgi/Paper/66522" target="_blank" rel="noopener">accepted talk at JMM '27</a> <span class="cv-note">(sole author)</span></li>
-      <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE Xplore</a> <span class="cv-note">(sole author)</span></li>
-      <li>“1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover?”, <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener"><em>Diabetes</em> 74(S1)</a> <span class="cv-note">(1st author)</span></li>
+      <li>“Graph2Proof: Topology-Aware Reward Shaping for Natural Language Theorem Proving,” <a href="https://ieeexplore.ieee.org/abstract/document/11569611/" target="_blank" rel="noopener">IEEE Xplore</a> <span class="cv-note">(sole author)</span> + IEEE Best Presentation</li>
+      <li>“1050-P: Revolutionary GLP-1 Weight Loss Medicine Semaglutide—To Cover or Not to Cover?”, <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1050-P/158946/1050-P-Revolutionary-GLP-1-Weight-Loss-Medicine" target="_blank" rel="noopener"><em>Diabetes</em> 74(S1)</a> <span class="cv-note">(1st author)</span>, presented at ADA 85th Scientific Sessions</li>
     </ol>
 
     <hr class="section-sep" />
