@@ -1,5 +1,5 @@
 - title: The Mentalist
-  image: /assets/img/the-mentalist.png
+  image: /assets/img/the-mentalist.jpg
   url: https://www.imdb.com/title/tt1196946/
 
 - title: How I Met Your Mother
@@ -17,3 +17,15 @@
 - title: The Complete Poems of Emily Dickinson
   image: /assets/img/emily-dickinson.jpg
   url: https://www.goodreads.com/en/book/show/112204.The_Complete_Poems_of_Emily_Dickinson
+
+- title: Twelve (2019)
+  image: /assets/img/twelve-2019.jpg
+  url: https://www.rottentomatoes.com/m/twelve_2019
+
+- title: Rookie of the Year (1993)
+  image: /assets/img/rookie-of-the-year.jpg
+  url: https://www.rottentomatoes.com/m/rookie_of_the_year
+
+- title: Moneyball (2011)
+  image: /assets/img/moneyball.jpg
+  url: https://www.rottentomatoes.com/m/moneyball

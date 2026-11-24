@@ -38,7 +38,7 @@ $$
 
 for $k$ blocks and $C$ colors used, under a 3 s limit. Selecting nothing scores 0, which is sometimes optimal.
 
-My tactic was to treat colors as distinct sums, so the problem reduces to choosing at most $B$ sums and packing as many disjoint blocks with those sums as possible. For fixed sums, earliest-finish-time greedy packs blocks exactly, so the only hard part is choosing the sums. I started from the best single-element solution, added sums greedily, then refined with swaps.
+My tactic was to treat colors as distinct sums, so the problem reduces to choosing at most $B$ sums and packing as many disjoint blocks with those sums as possible. Once the sums are fixed, an earliest-finish-time greedy already gives the best possible packing, so the only hard part is choosing the sums. I started from the best single-element solution, added sums greedily, then refined with swaps.
 
 ### Certificate
 

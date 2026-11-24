@@ -217,3 +217,117 @@ section.mn-intro {
     padding-top: 2px;
   }
 }
+
+/* ---------- shelf: covers standing on wooden planks ----------
+   Every row is the same height, so one repeating gradient on the grid
+   draws a plank under each row of covers. */
+.shelf-grid:not(:has(.shelf-item-work)) {
+  --book-w: 150px;
+  --book-h: 225px; /* 2:3 */
+  --plank: 14px;
+  --row-gap: 34px;
+  --period: calc(var(--book-h) + var(--plank) + var(--row-gap));
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--book-w));
+  grid-auto-rows: calc(var(--book-h) + var(--plank));
+  column-gap: 26px;
+  row-gap: var(--row-gap);
+  align-items: start;
+  margin: 26px 0 10px;
+  padding: 18px 28px 0;
+  border-radius: 4px;
+  background:
+    /* plank shadow cast on the wall */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(18px + var(--book-h) + var(--plank)),
+      rgba(60, 40, 20, 0.16) calc(18px + var(--book-h) + var(--plank)),
+      transparent calc(18px + var(--book-h) + var(--plank) + 10px),
+      transparent var(--period)
+    ),
+    /* the plank itself: lit top edge, wood body, dark lip */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(18px + var(--book-h)),
+      #c9a37a calc(18px + var(--book-h)),
+      #c9a37a calc(18px + var(--book-h) + 2px),
+      #a77c52 calc(18px + var(--book-h) + 2px),
+      #93683f calc(18px + var(--book-h) + var(--plank) - 3px),
+      #6f4c2c calc(18px + var(--book-h) + var(--plank) - 3px),
+      #6f4c2c calc(18px + var(--book-h) + var(--plank)),
+      transparent calc(18px + var(--book-h) + var(--plank)),
+      transparent var(--period)
+    ),
+    rgba(255, 252, 245, 0.35);
+  border: 1px solid rgba(120, 95, 60, 0.18);
+  padding-bottom: 22px;
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item {
+  width: var(--book-w);
+  height: var(--book-h);
+  margin: 0;
+  position: relative;
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item a {
+  display: block;
+  height: 100%;
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1px 3px 3px 1px;
+  /* spine crease + soft drop shadow so covers read as standing books */
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    2px 0 6px rgba(40, 25, 10, 0.25),
+    0 -1px 0 rgba(0, 0, 0, 0.05);
+  transform-origin: bottom center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item::after {
+  /* thin spine highlight on the left edge */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  border-radius: 1px 0 0 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.28), rgba(255, 255, 255, 0.12) 45%, transparent);
+  pointer-events: none;
+  transition: transform 0.25s ease;
+  transform-origin: bottom center;
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item:hover img,
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item:hover::after,
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item:focus-within img,
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item:focus-within::after {
+  transform: translateY(-8px) rotate(-1.5deg);
+}
+.shelf-grid:not(:has(.shelf-item-work)) .shelf-item:hover img {
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    4px 8px 14px rgba(40, 25, 10, 0.3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .shelf-grid:not(:has(.shelf-item-work)) .shelf-item img,
+  .shelf-grid:not(:has(.shelf-item-work)) .shelf-item::after {
+    transition: none;
+  }
+}
+@media (max-width: 520px) {
+  .shelf-grid:not(:has(.shelf-item-work)) {
+    --book-w: 118px;
+    --book-h: 177px;
+    --row-gap: 28px;
+    column-gap: 18px;
+    padding-inline: 16px;
+    justify-content: center;
+  }
+}
