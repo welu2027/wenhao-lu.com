@@ -1,0 +1,18 @@
+{%- comment -%} Shared header for every page: name, social links, page tabs. {%- endcomment -%}
+{%- assign mn_path = page.permalink | default: page.url -%}
+{%- if page.collection == 'posts' -%}{%- assign mn_path = '/blog/' -%}{%- endif -%}
+<header class="mn-header">
+  <a class="mn-wordmark" href="{{ '/' | relative_url }}">Wenhao Lu</a>
+  <nav class="mn-social" aria-label="Social links">
+    <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">[email]</a>
+    <a href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">[gh]</a>
+    <a href="https://linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">[li]</a>
+  </nav>
+</header>
+<nav class="mn-tabs" aria-label="Pages">
+  {%- assign mn_tabs = "/|Home,/projects/|Projects,/initiatives/|Initiatives (EA),/cv/|CV,/blog/|Daily,/gallery/|Gallery,/contact/|Contact" | split: "," -%}
+  {%- for tab in mn_tabs -%}
+    {%- assign parts = tab | split: "|" -%}
+    <a {% if mn_path == parts[0] %}class="active" aria-current="page" {% endif %}href="{{ parts[0] | relative_url }}">{{ parts[1] }}</a>
+  {%- endfor -%}
+</nav>

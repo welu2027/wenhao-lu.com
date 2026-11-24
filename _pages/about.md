@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: about_minimal
 title: about
 permalink: /
 ---

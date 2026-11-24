@@ -6,9 +6,9 @@
   <body class="{% if page.permalink == '/' %}home{% else %}page-reading{% endif %}">
     <div class="ink-bg" aria-hidden="true"></div>
     <div class="shell">
-      {% include redesign_nav.liquid %}
+      {% include minimal_header.liquid %}
       {{ content }}
-      {% include redesign_footer.liquid %}
+      {% include minimal_footer.liquid %}
     </div>
     {% include scripts.liquid %}
   </body>
